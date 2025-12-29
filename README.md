@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Systems
 
-## Getting Started
+An AI-first design system with opinionated, accessible, LLM-optimized components for React.
 
-First, run the development server:
+## Features
+
+- **Opinionated** - Beautiful dark-theme styling out of the box
+- **Accessible** - WAI-ARIA patterns built in
+- **AI-First** - Component manifests for LLM consumption via MCP
+- **Composable** - Small building blocks that compose into complex UIs
+- **Two Layers** - Styled components for quick use, primitives for customization
+
+## Installation
 
 ```bash
-npm run dev
+npm install @outpacesoftware/systems
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm add @outpacesoftware/systems
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```tsx
+import { Button, Input, Badge } from '@outpacesoftware/systems';
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+function App() {
+  return (
+    <>
+      <Button variant="primary">Save Changes</Button>
+      <Input label="Email" placeholder="you@example.com" />
+      <Badge variant="success">Active</Badge>
+    </>
+  );
+}
+```
 
-## Learn More
+## Documentation
 
-To learn more about Next.js, take a look at the following resources:
+Visit the [documentation site](https://systems.outpacesoftware.com) for full component docs, examples, and API reference.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styled (Opinionated)
 
-## Deploy on Vercel
+| Component | Description |
+|-----------|-------------|
+| Button | Primary interaction trigger with variants |
+| Input | Text input with label and error states |
+| Select | Dropdown selection |
+| Textarea | Multi-line text input |
+| Checkbox | Boolean selection |
+| Switch | Toggle on/off |
+| Badge | Status indicators |
+| Card | Content containers |
+| Dialog | Modal dialogs |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Primitives (Unstyled)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+32 headless primitives including Dialog, Menu, Tabs, Tooltip, Popover, Toast, and more. Import from `@outpacesoftware/systems/primitives/*`.
+
+## For AI/LLMs
+
+This design system is optimized for AI consumption. Each component includes a manifest with semantic descriptions, usage guidelines, and code examples.
+
+Query the API:
+```
+GET /api/design-system/manifest
+GET /api/design-system/query?name=Button
+GET /api/design-system/query?semantic=show+status
+```
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run docs site
+pnpm dev
+
+# Build the package
+pnpm --filter @outpacesoftware/systems build
+```
+
+## Repository Structure
+
+```
+/
+├── app/                    # Next.js docs site
+├── components/docs/        # Documentation components
+├── lib/                    # Registry & MCP server
+├── packages/systems/       # npm package source
+└── public/                 # Static assets
+```
+
+## License
+
+MIT
