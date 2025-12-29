@@ -19,7 +19,6 @@ const navigation: NavSection[] = [
 		items: [
 			{ title: "Introduction", href: "/docs" },
 			{ title: "Installation", href: "/docs/installation" },
-			{ title: "For LLMs", href: "/docs/for-llms" },
 		],
 	},
 	{
