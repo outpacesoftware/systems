@@ -5,7 +5,7 @@ export default function InstallationPage() {
 		<div className="max-w-3xl">
 			<h1 className="text-4xl font-bold text-white/88 mb-4">Installation</h1>
 			<p className="text-[15px] leading-5 text-white/72 mb-8 tracking-[0.12px]">
-				Get started with @outpace/systems in your React project.
+				Get started with @outpacesoftware/systems in your React project.
 			</p>
 
 			<section className="mb-12">
@@ -14,13 +14,13 @@ export default function InstallationPage() {
 				</h2>
 				<CodeBlock
 					code={`# npm
-npm install @outpace/systems
+npm install @outpacesoftware/systems
 
 # pnpm
-pnpm add @outpace/systems
+pnpm add @outpacesoftware/systems
 
 # yarn
-yarn add @outpace/systems`}
+yarn add @outpacesoftware/systems`}
 					language="bash"
 				/>
 			</section>
@@ -41,13 +41,13 @@ yarn add @outpace/systems`}
 				</h2>
 				<CodeBlock
 					code={`// Import individual components
-import { Button, Input, Dialog } from '@outpace/systems';
+import { Button, Input, Dialog } from '@outpacesoftware/systems';
 
 // Or import from primitives
-import { Button } from '@outpace/systems/primitives/Button';
+import { Button } from '@outpacesoftware/systems/primitives/Button';
 
 // Import hooks for custom implementations
-import { useButton, useDialog } from '@outpace/systems';`}
+import { useButton, useDialog } from '@outpacesoftware/systems';`}
 					language="tsx"
 				/>
 			</section>
@@ -91,8 +91,8 @@ import { useButton, useDialog } from '@outpace/systems';`}
 					fully typed.
 				</p>
 				<CodeBlock
-					code={`import { Button, type ButtonProps } from '@outpace/systems';
-import { useButton, type UseButtonProps } from '@outpace/systems';
+					code={`import { Button, type ButtonProps } from '@outpacesoftware/systems';
+import { useButton, type UseButtonProps } from '@outpacesoftware/systems';
 
 // Extend component props
 interface MyButtonProps extends ButtonProps {

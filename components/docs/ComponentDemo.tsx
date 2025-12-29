@@ -877,24 +877,24 @@ function NumberFieldDemo() {
 function ToolbarDemo() {
 	return (
 		<Toolbar.Root className="flex items-center gap-1 p-1 bg-white/4 border border-white/8 rounded-lg">
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors font-bold">
-				B
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<Bold size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors italic">
-				I
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<Italic size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors underline">
-				U
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<Underline size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
 			<Toolbar.Separator className="w-px h-6 bg-white/8 mx-1" />
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
-				Left
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<AlignLeft size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
-				Center
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<AlignCenter size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
-			<Toolbar.Button className="px-3 py-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
-				Right
+			<Toolbar.Button className="p-1.5 text-white/72 hover:bg-white/8 rounded transition-colors">
+				<AlignRight size={14} strokeWidth={1.5} />
 			</Toolbar.Button>
 		</Toolbar.Root>
 	);
