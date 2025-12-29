@@ -97,7 +97,6 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           w-64 lg:w-56 shrink-0
           h-[calc(100vh-3rem)]
           bg-transparent
-          border-r border-white/8
           overflow-y-auto px-8 scrollbar-none
           transform transition-transform duration-200 ease-out
           ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}

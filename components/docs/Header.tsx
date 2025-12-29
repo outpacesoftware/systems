@@ -70,7 +70,7 @@ interface HeaderProps {
 
 export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 	return (
-		<header className="h-12 border-b border-white/8 sticky top-0 backdrop-blur-md z-50">
+		<header className="h-12 sticky top-0 backdrop-blur-md z-50 px-8">
 			<div className="h-full flex items-center justify-between px-4">
 				<div className="flex items-center gap-3">
 					<button
