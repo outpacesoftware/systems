@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema/component.schema.json",
+  "name": "Button",
+  "displayName": "Button",
+  "description": "Interactive element that triggers actions when clicked or activated via keyboard.",
+  "category": "action",
+  "tags": ["interactive", "action", "form", "submit", "click"],
+  "semanticRole": "action-trigger",
+  "useWhen": [
+    "Triggering an action (save, submit, cancel)",
+    "Opening dialogs or overlays",
+    "Navigating when combined with a router",
+    "Submitting forms"
+  ],
+  "dontUseWhen": [
+    "Navigating to a new page (use Link instead)",
+    "Toggling a boolean state (use Switch or Checkbox)",
+    "Selecting from options (use Select or RadioGroup)"
+  ],
+  "props": {
+    "variant": {
+      "type": "'primary' | 'secondary' | 'ghost' | 'destructive'",
+      "description": "The visual style of the button",
+      "default": "primary",
+      "values": ["primary", "secondary", "ghost", "destructive"]
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "description": "The size of the button",
+      "default": "md",
+      "values": ["sm", "md", "lg"]
+    },
+    "disabled": {
+      "type": "boolean",
+      "description": "Whether the button is disabled and non-interactive",
+      "default": false,
+      "accessibility": "Sets aria-disabled and prevents click events"
+    },
+    "loading": {
+      "type": "boolean",
+      "description": "Whether the button is in a loading state",
+      "default": false,
+      "accessibility": "Sets aria-busy and disables interaction"
+    },
+    "type": {
+      "type": "'button' | 'submit' | 'reset'",
+      "description": "The HTML button type",
+      "default": "button"
+    },
+    "onClick": {
+      "type": "(event: MouseEvent) => void",
+      "description": "Handler called when the button is clicked"
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "The button content (text, icons, etc.)",
+      "required": true
+    }
+  },
+  "accessibility": {
+    "role": "button",
+    "keyboard": ["Enter", "Space"],
+    "focusManagement": "Natively focusable. Focus ring should be visible.",
+    "screenReader": "Announces button label and disabled state"
+  },
+  "examples": [
+    {
+      "name": "Primary button",
+      "code": "<Button onClick={() => save()}>Save</Button>",
+      "description": "Default primary action button"
+    },
+    {
+      "name": "Secondary button",
+      "code": "<Button variant=\"secondary\">Cancel</Button>",
+      "description": "Secondary action, less prominent"
+    },
+    {
+      "name": "Destructive button",
+      "code": "<Button variant=\"destructive\">Delete</Button>",
+      "description": "Destructive/dangerous action"
+    },
+    {
+      "name": "Loading state",
+      "code": "<Button loading>Saving...</Button>",
+      "description": "Button in loading state, non-interactive"
+    },
+    {
+      "name": "Disabled button",
+      "code": "<Button disabled>Submit</Button>",
+      "description": "Disabled button, non-interactive"
+    },
+    {
+      "name": "Small button",
+      "code": "<Button size=\"sm\">Small</Button>",
+      "description": "Compact button for tight spaces"
+    }
+  ],
+  "relatedComponents": ["IconButton", "Link"],
+  "importPath": "@outpace/systems/primitives/Button"
+}

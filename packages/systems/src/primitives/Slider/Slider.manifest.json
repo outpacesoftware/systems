@@ -1,0 +1,102 @@
+{
+  "name": "Slider",
+  "displayName": "Slider",
+  "description": "A control for selecting a value from a range",
+  "category": "form",
+  "tags": ["form", "input", "range", "value"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "User needs to select a value from a continuous range",
+    "Approximate values are acceptable",
+    "Visual feedback of the value is helpful",
+    "Setting volume, brightness, or other continuous values"
+  ],
+  "dontUseWhen": [
+    "Exact numeric input is required (use NumberField)",
+    "The range is very large or needs precise values",
+    "You need multiple independent values"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": false,
+      "description": "Current value (controlled)"
+    },
+    "defaultValue": {
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "description": "Default value for uncontrolled usage"
+    },
+    "min": {
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "description": "Minimum value"
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "default": "100",
+      "description": "Maximum value"
+    },
+    "step": {
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "description": "Step increment"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the slider is disabled"
+    },
+    "orientation": {
+      "type": "'horizontal' | 'vertical'",
+      "required": false,
+      "default": "'horizontal'",
+      "description": "Orientation of the slider"
+    },
+    "onChange": {
+      "type": "(value: number) => void",
+      "required": false,
+      "description": "Called when value changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container for the slider"
+    },
+    "Track": {
+      "description": "The track the thumb slides along"
+    },
+    "Range": {
+      "description": "The filled portion of the track"
+    },
+    "Thumb": {
+      "description": "The draggable handle"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple slider",
+      "code": "<Slider.Root value={volume} onChange={setVolume}>\n  <Slider.Track>\n    <Slider.Range />\n  </Slider.Track>\n  <Slider.Thumb />\n</Slider.Root>"
+    },
+    {
+      "name": "With steps",
+      "description": "Slider with step increments",
+      "code": "<Slider.Root value={value} onChange={setValue} min={0} max={100} step={10}>\n  <Slider.Track>\n    <Slider.Range />\n  </Slider.Track>\n  <Slider.Thumb />\n</Slider.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "slider",
+    "keyboard": ["Arrow Keys", "Page Up/Down", "Home/End"],
+    "focusManagement": "Thumb is focusable",
+    "screenReader": "Announces current value and range"
+  },
+  "relatedComponents": ["Progress", "NumberField"]
+}

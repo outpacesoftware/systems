@@ -1,0 +1,97 @@
+{
+  "name": "Combobox",
+  "displayName": "Combobox",
+  "description": "An autocomplete input with a filterable list of options",
+  "category": "form",
+  "tags": ["form", "input", "autocomplete", "search", "select"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Searchable selection from many options",
+    "Autocomplete text input",
+    "Tag input with suggestions",
+    "City/country pickers"
+  ],
+  "dontUseWhen": [
+    "Simple selection from few options (use Select)",
+    "Free-form text input (use Input)"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the listbox is open (controlled)"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Default open state"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Selected value (controlled)"
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "default": "''",
+      "description": "Default selected value"
+    },
+    "onValueChange": {
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Called when value changes"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the combobox is disabled"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Input": {
+      "description": "Text input for searching"
+    },
+    "Trigger": {
+      "description": "Button to toggle listbox"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Content": {
+      "description": "The listbox container"
+    },
+    "Item": {
+      "description": "Individual option"
+    },
+    "Empty": {
+      "description": "Shown when no results match"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Searchable select",
+      "code": "<Combobox.Root>\n  <Combobox.Input placeholder=\"Search...\" />\n  <Combobox.Trigger />\n  <Combobox.Portal>\n    <Combobox.Content>\n      <Combobox.Item value=\"apple\">Apple</Combobox.Item>\n      <Combobox.Item value=\"banana\">Banana</Combobox.Item>\n      <Combobox.Empty>No results found</Combobox.Empty>\n    </Combobox.Content>\n  </Combobox.Portal>\n</Combobox.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "combobox with listbox",
+    "keyboard": ["Arrow keys", "Enter", "Escape"],
+    "focusManagement": "Focus stays on input, virtual focus on options",
+    "screenReader": "Announces options and selection"
+  },
+  "relatedComponents": ["Select", "Input"]
+}

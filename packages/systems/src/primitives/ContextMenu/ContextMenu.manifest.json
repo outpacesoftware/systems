@@ -1,0 +1,64 @@
+{
+  "name": "ContextMenu",
+  "displayName": "Context Menu",
+  "description": "A menu triggered by right-click or long-press",
+  "category": "navigation",
+  "tags": ["navigation", "menu", "context", "right-click"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Right-click actions",
+    "Context-specific options",
+    "Desktop-style interactions"
+  ],
+  "dontUseWhen": [
+    "Click-triggered menus (use Menu)",
+    "Primary navigation (use NavigationMenu)",
+    "Mobile-first interfaces"
+  ],
+  "props": {
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Trigger": {
+      "description": "Element that opens menu on right-click"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Content": {
+      "description": "The menu content"
+    },
+    "Item": {
+      "description": "Individual menu item"
+    },
+    "Separator": {
+      "description": "Visual separator between items"
+    },
+    "Label": {
+      "description": "Non-interactive label for groups"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Right-click context menu",
+      "code": "<ContextMenu.Root>\n  <ContextMenu.Trigger>Right-click me</ContextMenu.Trigger>\n  <ContextMenu.Portal>\n    <ContextMenu.Content>\n      <ContextMenu.Item onSelect={() => {}}>Cut</ContextMenu.Item>\n      <ContextMenu.Item onSelect={() => {}}>Copy</ContextMenu.Item>\n      <ContextMenu.Separator />\n      <ContextMenu.Item onSelect={() => {}}>Paste</ContextMenu.Item>\n    </ContextMenu.Content>\n  </ContextMenu.Portal>\n</ContextMenu.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "menu",
+    "keyboard": ["Arrow keys", "Enter", "Escape"],
+    "focusManagement": "Focus moves to menu content",
+    "screenReader": "Announces as menu with items"
+  },
+  "relatedComponents": ["Menu", "Popover"]
+}

@@ -1,12 +1,15 @@
 {
-  "name": "labs",
+  "name": "systems",
   "version": "0.1.0",
   "private": true,
+  "workspaces": ["packages/*"],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:pkg": "bun run --filter @outpace/systems build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "16.0.7",

@@ -1,0 +1,86 @@
+{
+  "name": "Radio",
+  "displayName": "Radio",
+  "description": "A single selection control for choosing one option from a group",
+  "category": "form",
+  "tags": ["form", "input", "selection", "single-choice"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "User needs to select exactly one option from a set",
+    "Options are mutually exclusive",
+    "All options should be visible at once",
+    "The list of options is relatively short (2-7 items)"
+  ],
+  "dontUseWhen": [
+    "Multiple selections are allowed (use Checkbox)",
+    "Options list is very long (use Select)",
+    "Options are not mutually exclusive",
+    "You need a toggle behavior (use Switch)"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the radio is checked (controlled)"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the radio is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the radio is required"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name attribute for grouping radios together"
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Value of the radio when submitted in a form"
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "required": false,
+      "default": "'md'",
+      "description": "The size of the radio button"
+    },
+    "onChange": {
+      "type": "(checked: boolean, event: ChangeEvent) => void",
+      "required": false,
+      "description": "Called when the radio state changes"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple radio buttons",
+      "code": "<div className=\"flex flex-col gap-2\">\n  <label className=\"flex items-center gap-2\">\n    <Radio name=\"option\" value=\"a\" checked={value === 'a'} onChange={() => setValue('a')} />\n    Option A\n  </label>\n  <label className=\"flex items-center gap-2\">\n    <Radio name=\"option\" value=\"b\" checked={value === 'b'} onChange={() => setValue('b')} />\n    Option B\n  </label>\n</div>"
+    },
+    {
+      "name": "With RadioGroup",
+      "description": "Using RadioGroup for easier management",
+      "code": "<RadioGroup value={value} onChange={setValue}>\n  <RadioGroup.Item value=\"a\">\n    <RadioGroup.Indicator />\n    Option A\n  </RadioGroup.Item>\n  <RadioGroup.Item value=\"b\">\n    <RadioGroup.Indicator />\n    Option B\n  </RadioGroup.Item>\n</RadioGroup>"
+    },
+    {
+      "name": "Disabled",
+      "description": "Disabled radio button",
+      "code": "<Radio name=\"disabled\" value=\"x\" disabled />"
+    }
+  ],
+  "accessibility": {
+    "role": "radio",
+    "keyboard": ["Space", "Arrow Up/Down"],
+    "focusManagement": "Standard focus, arrow keys navigate within group",
+    "screenReader": "Announces radio button state and group context"
+  },
+  "relatedComponents": ["RadioGroup", "Checkbox", "Switch", "Select"]
+}

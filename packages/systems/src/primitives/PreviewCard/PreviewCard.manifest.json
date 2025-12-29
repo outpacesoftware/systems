@@ -1,0 +1,81 @@
+{
+  "name": "PreviewCard",
+  "displayName": "Preview Card",
+  "description": "A card that appears on hover to preview linked content",
+  "category": "overlay",
+  "tags": ["overlay", "hover", "preview", "card", "link"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Previewing user profiles",
+    "Link preview on hover",
+    "Rich content preview without navigation"
+  ],
+  "dontUseWhen": [
+    "Simple text hints (use Tooltip)",
+    "Click-triggered content (use Popover)",
+    "Navigation menus"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the card is open (controlled)"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Default open state"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    },
+    "openDelay": {
+      "type": "number",
+      "required": false,
+      "default": "700",
+      "description": "Delay before opening in ms"
+    },
+    "closeDelay": {
+      "type": "number",
+      "required": false,
+      "default": "300",
+      "description": "Delay before closing in ms"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Trigger": {
+      "description": "Link that triggers the preview"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Content": {
+      "description": "The preview card content"
+    },
+    "Arrow": {
+      "description": "Arrow pointing to trigger"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "User profile preview",
+      "code": "<PreviewCard.Root>\n  <PreviewCard.Trigger href=\"/user/123\">@johndoe</PreviewCard.Trigger>\n  <PreviewCard.Portal>\n    <PreviewCard.Content>\n      <img src=\"/avatar.jpg\" alt=\"John\" />\n      <p>John Doe</p>\n      <p>Software Engineer</p>\n    </PreviewCard.Content>\n  </PreviewCard.Portal>\n</PreviewCard.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "none (decorative preview)",
+    "keyboard": [],
+    "focusManagement": "Focus can move to content",
+    "screenReader": "Content is supplementary"
+  },
+  "relatedComponents": ["Tooltip", "Popover"]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "@outpacesoftware/systems",
+  "version": "0.0.1",
+  "private": false,
+  "description": "AI-first design system - opinionated, accessible, LLM-optimized components",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./primitives/*": {
+      "import": "./dist/primitives/*/index.js",
+      "types": "./dist/primitives/*/index.d.ts"
+    },
+    "./manifest": {
+      "import": "./dist/manifest.json",
+      "types": "./dist/manifest.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "opinionated",
+    "accessible",
+    "ai-first",
+    "llm",
+    "mcp"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/outpacesoftware/systems"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://outpace.systems/schema/component.v1.json",
+  "title": "Component Manifest",
+  "description": "Schema for AI-first component manifests",
+  "type": "object",
+  "required": ["name", "displayName", "description", "category", "tags", "semanticRole", "useWhen", "dontUseWhen", "props", "accessibility", "examples", "importPath"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name in PascalCase",
+      "pattern": "^[A-Z][a-zA-Z0-9]*$"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable display name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the component does"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["action", "form", "navigation", "overlay", "feedback", "layout", "display"],
+      "description": "Functional category"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Searchable tags for discovery"
+    },
+    "semanticRole": {
+      "type": "string",
+      "description": "Semantic role for AI understanding"
+    },
+    "useWhen": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Scenarios when to use this component"
+    },
+    "dontUseWhen": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Scenarios when NOT to use this component"
+    },
+    "props": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "description"],
+        "properties": {
+          "type": { "type": "string" },
+          "description": { "type": "string" },
+          "default": {},
+          "required": { "type": "boolean" },
+          "values": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "accessibility": { "type": "string" }
+        }
+      }
+    },
+    "slots": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string" },
+          "defaultContent": { "type": "string" }
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "properties": {
+        "role": { "type": "string" },
+        "ariaLive": {
+          "type": "string",
+          "enum": ["polite", "assertive", "off"]
+        },
+        "keyboard": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "focusManagement": { "type": "string" },
+        "screenReader": { "type": "string" }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "code"],
+        "properties": {
+          "name": { "type": "string" },
+          "code": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "relatedComponents": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "composedFrom": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "importPath": {
+      "type": "string",
+      "description": "Import path for the component"
+    }
+  }
+}

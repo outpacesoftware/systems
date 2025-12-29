@@ -1,0 +1,73 @@
+{
+  "name": "Popover",
+  "displayName": "Popover",
+  "description": "A floating panel anchored to a trigger element",
+  "category": "overlay",
+  "tags": ["overlay", "popup", "floating", "panel"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Displaying additional content on demand",
+    "Rich tooltips with interactive content",
+    "Mini forms or pickers",
+    "Non-modal dialogs"
+  ],
+  "dontUseWhen": [
+    "Simple text hints (use Tooltip)",
+    "Modal interactions required (use Dialog)",
+    "Menu with actions (use Menu)"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the popover is open (controlled)"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Default open state"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Trigger": {
+      "description": "Element that opens the popover"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Content": {
+      "description": "The popover content"
+    },
+    "Close": {
+      "description": "Button to close the popover"
+    },
+    "Arrow": {
+      "description": "Optional arrow pointing to trigger"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple popover",
+      "code": "<Popover.Root>\n  <Popover.Trigger>Open</Popover.Trigger>\n  <Popover.Portal>\n    <Popover.Content>\n      <p>Popover content here</p>\n      <Popover.Close>Close</Popover.Close>\n    </Popover.Content>\n  </Popover.Portal>\n</Popover.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "dialog",
+    "keyboard": ["Escape", "Tab"],
+    "focusManagement": "Focus moves to content, returns to trigger on close",
+    "screenReader": "Announces as dialog"
+  },
+  "relatedComponents": ["Tooltip", "Dialog", "Menu"]
+}

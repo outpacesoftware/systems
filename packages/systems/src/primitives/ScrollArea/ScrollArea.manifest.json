@@ -1,0 +1,71 @@
+{
+  "name": "ScrollArea",
+  "displayName": "Scroll Area",
+  "description": "Custom scrollable container with styled scrollbars",
+  "category": "layout",
+  "tags": ["layout", "scroll", "overflow", "container"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Custom styled scrollbars needed",
+    "Consistent scroll behavior across browsers",
+    "Scrollable content areas",
+    "Chat interfaces or feeds"
+  ],
+  "dontUseWhen": [
+    "Native scroll behavior is acceptable",
+    "Simple overflow handling"
+  ],
+  "props": {
+    "type": {
+      "type": "'auto' | 'always' | 'scroll' | 'hover'",
+      "required": false,
+      "default": "'hover'",
+      "description": "Scrollbar visibility behavior"
+    },
+    "dir": {
+      "type": "'ltr' | 'rtl'",
+      "required": false,
+      "default": "'ltr'",
+      "description": "Text direction"
+    },
+    "scrollHideDelay": {
+      "type": "number",
+      "required": false,
+      "default": "600",
+      "description": "Delay before hiding scrollbar in ms"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Viewport": {
+      "description": "Scrollable content area"
+    },
+    "Scrollbar": {
+      "description": "Scrollbar track container"
+    },
+    "Thumb": {
+      "description": "Draggable scroll thumb"
+    },
+    "Corner": {
+      "description": "Corner when both scrollbars visible"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Scrollable container",
+      "code": "<ScrollArea.Root style={{ height: 200 }}>\n  <ScrollArea.Viewport>\n    <div style={{ height: 500 }}>Long content...</div>\n  </ScrollArea.Viewport>\n  <ScrollArea.Scrollbar orientation=\"vertical\">\n    <ScrollArea.Thumb />\n  </ScrollArea.Scrollbar>\n</ScrollArea.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "region (optional)",
+    "keyboard": ["Arrow keys for scroll"],
+    "focusManagement": "Content can receive focus",
+    "screenReader": "Scrollable region announced"
+  },
+  "relatedComponents": []
+}

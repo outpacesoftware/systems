@@ -1,0 +1,73 @@
+{
+  "name": "Field",
+  "displayName": "Field",
+  "description": "A wrapper for form inputs with label, description, and error handling",
+  "category": "form",
+  "tags": ["form", "input", "label", "error", "validation"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Wrapping form inputs with labels",
+    "Displaying validation errors",
+    "Adding help text to inputs",
+    "Consistent form field styling"
+  ],
+  "dontUseWhen": [
+    "Standalone inputs without labels",
+    "Complex multi-field layouts"
+  ],
+  "props": {
+    "hasError": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the field has an error"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the field is disabled"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Label": {
+      "description": "Label for the input"
+    },
+    "Control": {
+      "description": "Container for the input element"
+    },
+    "Description": {
+      "description": "Help text for the field"
+    },
+    "Error": {
+      "description": "Error message (shown when hasError is true)"
+    },
+    "Validity": {
+      "description": "Native validation message display"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Form field with label and description",
+      "code": "<Field.Root>\n  <Field.Label>Email</Field.Label>\n  <Field.Control>\n    <input type=\"email\" />\n  </Field.Control>\n  <Field.Description>We'll never share your email.</Field.Description>\n</Field.Root>"
+    },
+    {
+      "name": "With Error",
+      "description": "Field with validation error",
+      "code": "<Field.Root hasError>\n  <Field.Label>Email</Field.Label>\n  <Field.Control>\n    <input type=\"email\" />\n  </Field.Control>\n  <Field.Error>Please enter a valid email.</Field.Error>\n</Field.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "label and aria-describedby",
+    "keyboard": [],
+    "focusManagement": "Focus goes to input",
+    "screenReader": "Announces label, description, and errors"
+  },
+  "relatedComponents": ["Input", "Checkbox", "Select"]
+}

@@ -1,0 +1,82 @@
+{
+  "name": "AlertDialog",
+  "displayName": "Alert Dialog",
+  "description": "A modal dialog for important confirmations that interrupts the user and requires a response",
+  "category": "overlay",
+  "tags": ["overlay", "modal", "confirmation", "alert", "destructive"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Confirming destructive actions",
+    "Important decisions requiring user acknowledgment",
+    "Irreversible operations",
+    "Critical warnings"
+  ],
+  "dontUseWhen": [
+    "Simple informational messages (use Toast)",
+    "Non-blocking notifications",
+    "Regular dialogs without destructive actions (use Dialog)"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the dialog is open (controlled)"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Default open state"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Trigger": {
+      "description": "Element that opens the dialog"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Overlay": {
+      "description": "Backdrop behind the dialog"
+    },
+    "Content": {
+      "description": "The dialog content container"
+    },
+    "Title": {
+      "description": "Dialog title (required for accessibility)"
+    },
+    "Description": {
+      "description": "Dialog description"
+    },
+    "Cancel": {
+      "description": "Button to cancel/close without action"
+    },
+    "Action": {
+      "description": "Button to confirm the action"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Confirmation dialog",
+      "code": "<AlertDialog.Root>\n  <AlertDialog.Trigger>Delete</AlertDialog.Trigger>\n  <AlertDialog.Portal>\n    <AlertDialog.Overlay />\n    <AlertDialog.Content>\n      <AlertDialog.Title>Delete Item?</AlertDialog.Title>\n      <AlertDialog.Description>\n        This action cannot be undone.\n      </AlertDialog.Description>\n      <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>\n      <AlertDialog.Action>Delete</AlertDialog.Action>\n    </AlertDialog.Content>\n  </AlertDialog.Portal>\n</AlertDialog.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "alertdialog",
+    "keyboard": ["Escape", "Tab"],
+    "focusManagement": "Focus trapped within dialog, returns on close",
+    "screenReader": "Announces as alert dialog with title and description"
+  },
+  "relatedComponents": ["Dialog", "Toast"]
+}

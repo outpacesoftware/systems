@@ -1,0 +1,96 @@
+{
+  "$schema": "../../schema/component.schema.json",
+  "name": "Checkbox",
+  "displayName": "Checkbox",
+  "description": "Boolean selection control that can be checked, unchecked, or indeterminate.",
+  "category": "form",
+  "tags": ["form", "boolean", "checkbox", "selection", "toggle"],
+  "semanticRole": "boolean-selection",
+  "useWhen": [
+    "Selecting one or more options from a list",
+    "Agreeing to terms or conditions",
+    "Enabling/disabling a feature",
+    "Multi-select scenarios"
+  ],
+  "dontUseWhen": [
+    "Toggling between two states with immediate effect (use Switch)",
+    "Selecting one option from many (use RadioGroup)",
+    "Triggering an action (use Button)"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "description": "Controlled checked state"
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "description": "Default checked state for uncontrolled usage",
+      "default": false
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "description": "Whether the checkbox shows an indeterminate state (for parent checkboxes)",
+      "default": false,
+      "accessibility": "Sets aria-checked to 'mixed'"
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "description": "The size of the checkbox",
+      "default": "md",
+      "values": ["sm", "md", "lg"]
+    },
+    "disabled": {
+      "type": "boolean",
+      "description": "Whether the checkbox is disabled",
+      "default": false
+    },
+    "required": {
+      "type": "boolean",
+      "description": "Whether the checkbox is required",
+      "default": false,
+      "accessibility": "Sets aria-required"
+    },
+    "onChange": {
+      "type": "(checked: boolean, event: ChangeEvent) => void",
+      "description": "Handler called when the checked state changes"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name attribute for form submission"
+    },
+    "value": {
+      "type": "string",
+      "description": "Value attribute for form submission"
+    }
+  },
+  "accessibility": {
+    "role": "checkbox",
+    "keyboard": ["Space to toggle", "Enter to toggle"],
+    "focusManagement": "Natively focusable. Should have visible focus ring.",
+    "screenReader": "Announces label and checked/unchecked/mixed state"
+  },
+  "examples": [
+    {
+      "name": "Basic checkbox",
+      "code": "<Checkbox />",
+      "description": "Uncontrolled checkbox"
+    },
+    {
+      "name": "Controlled checkbox",
+      "code": "<Checkbox checked={agreed} onChange={setAgreed} />",
+      "description": "Controlled with state"
+    },
+    {
+      "name": "Indeterminate state",
+      "code": "<Checkbox indeterminate />",
+      "description": "For parent checkboxes with partial selection"
+    },
+    {
+      "name": "Disabled checkbox",
+      "code": "<Checkbox disabled checked />",
+      "description": "Non-interactive checkbox"
+    }
+  ],
+  "relatedComponents": ["Switch", "RadioGroup", "CheckboxGroup"],
+  "importPath": "@outpace/systems/primitives/Checkbox"
+}

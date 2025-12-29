@@ -1,0 +1,68 @@
+{
+  "name": "Progress",
+  "displayName": "Progress",
+  "description": "Displays progress of an operation or task",
+  "category": "feedback",
+  "tags": ["feedback", "loading", "progress", "indicator"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Showing progress of a task",
+    "Displaying loading state with known duration",
+    "Indicating completion percentage",
+    "File upload or download progress"
+  ],
+  "dontUseWhen": [
+    "Progress is unknown (use Spinner)",
+    "You need to show a numeric value (use Meter)",
+    "Indicating binary state (use Switch)"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "description": "Current progress value"
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "default": "100",
+      "description": "Maximum value"
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether progress is indeterminate"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container with progress role and ARIA attributes"
+    },
+    "Indicator": {
+      "description": "The visual indicator element"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple progress bar",
+      "code": "<Progress.Root value={60}>\n  <Progress.Indicator style={{ width: '60%' }} />\n</Progress.Root>"
+    },
+    {
+      "name": "Indeterminate",
+      "description": "Loading with unknown duration",
+      "code": "<Progress.Root indeterminate>\n  <Progress.Indicator />\n</Progress.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "progressbar",
+    "keyboard": [],
+    "focusManagement": "Not focusable",
+    "screenReader": "Announces progress value and state"
+  },
+  "relatedComponents": ["Meter", "Slider"]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Avatar",
+  "displayName": "Avatar",
+  "description": "Visual representation of a user or entity",
+  "category": "display",
+  "tags": ["display", "user", "profile", "image"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Displaying user profile pictures",
+    "Showing team member images",
+    "Representing entities visually",
+    "Creating user presence indicators"
+  ],
+  "dontUseWhen": [
+    "Displaying content images (use Image)",
+    "Showing product images",
+    "Non-identity related imagery"
+  ],
+  "props": {},
+  "slots": {
+    "Root": {
+      "description": "Container for the avatar"
+    },
+    "Image": {
+      "description": "The avatar image"
+    },
+    "Fallback": {
+      "description": "Fallback content when image fails to load"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Avatar with image and fallback",
+      "code": "<Avatar.Root>\n  <Avatar.Image src=\"/user.jpg\" alt=\"User name\" />\n  <Avatar.Fallback>JD</Avatar.Fallback>\n</Avatar.Root>"
+    },
+    {
+      "name": "Fallback only",
+      "description": "Avatar with initials",
+      "code": "<Avatar.Root>\n  <Avatar.Fallback>AB</Avatar.Fallback>\n</Avatar.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "img (via image)",
+    "keyboard": [],
+    "focusManagement": "Not focusable",
+    "screenReader": "Announces alt text of image"
+  },
+  "relatedComponents": []
+}

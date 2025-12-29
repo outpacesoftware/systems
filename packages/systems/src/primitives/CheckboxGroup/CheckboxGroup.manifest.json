@@ -1,0 +1,83 @@
+{
+  "name": "CheckboxGroup",
+  "displayName": "Checkbox Group",
+  "description": "A group of checkboxes for selecting multiple options",
+  "category": "form",
+  "tags": ["form", "checkbox", "group", "selection", "multiple"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Selecting multiple options from a list",
+    "Multi-select filters",
+    "Feature toggles",
+    "Form with multiple boolean fields"
+  ],
+  "dontUseWhen": [
+    "Single selection (use RadioGroup)",
+    "Single toggle (use Checkbox or Switch)"
+  ],
+  "props": {
+    "value": {
+      "type": "string[]",
+      "required": false,
+      "description": "Selected values (controlled)"
+    },
+    "defaultValue": {
+      "type": "string[]",
+      "required": false,
+      "default": "[]",
+      "description": "Default selected values"
+    },
+    "onValueChange": {
+      "type": "(value: string[]) => void",
+      "required": false,
+      "description": "Called when value changes"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name for form submission"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether all checkboxes are disabled"
+    },
+    "orientation": {
+      "type": "'horizontal' | 'vertical'",
+      "required": false,
+      "default": "'vertical'",
+      "description": "Layout orientation"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Label": {
+      "description": "Group label"
+    },
+    "Item": {
+      "description": "Individual checkbox"
+    },
+    "ItemLabel": {
+      "description": "Label for a checkbox"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Multi-select options",
+      "code": "<CheckboxGroup.Root defaultValue={['apple']}>\n  <CheckboxGroup.Label>Select fruits</CheckboxGroup.Label>\n  <div>\n    <CheckboxGroup.Item value=\"apple\" id=\"apple\" />\n    <CheckboxGroup.ItemLabel htmlFor=\"apple\">Apple</CheckboxGroup.ItemLabel>\n  </div>\n  <div>\n    <CheckboxGroup.Item value=\"banana\" id=\"banana\" />\n    <CheckboxGroup.ItemLabel htmlFor=\"banana\">Banana</CheckboxGroup.ItemLabel>\n  </div>\n</CheckboxGroup.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "group with checkboxes",
+    "keyboard": ["Space", "Tab"],
+    "focusManagement": "Tab between checkboxes",
+    "screenReader": "Announces group and checkbox states"
+  },
+  "relatedComponents": ["Checkbox", "RadioGroup"]
+}

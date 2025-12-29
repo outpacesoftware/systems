@@ -1,0 +1,68 @@
+{
+  "name": "Toolbar",
+  "displayName": "Toolbar",
+  "description": "A container for grouping related action buttons",
+  "category": "navigation",
+  "tags": ["navigation", "actions", "buttons", "controls"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Grouping related actions",
+    "Text editor formatting controls",
+    "Media player controls",
+    "Form action groups"
+  ],
+  "dontUseWhen": [
+    "Navigation menus (use NavigationMenu)",
+    "Single action (use Button)"
+  ],
+  "props": {
+    "orientation": {
+      "type": "'horizontal' | 'vertical'",
+      "required": false,
+      "default": "'horizontal'",
+      "description": "Orientation for keyboard navigation"
+    },
+    "loop": {
+      "type": "boolean",
+      "required": false,
+      "default": "true",
+      "description": "Whether navigation loops"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container with toolbar semantics"
+    },
+    "Button": {
+      "description": "Action button"
+    },
+    "Separator": {
+      "description": "Visual separator between groups"
+    },
+    "Link": {
+      "description": "Navigation link"
+    },
+    "ToggleGroup": {
+      "description": "Group of toggle buttons"
+    },
+    "ToggleItem": {
+      "description": "Toggle button in a group"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Text formatting toolbar",
+      "code": "<Toolbar.Root>\n  <Toolbar.ToggleGroup type=\"multiple\">\n    <Toolbar.ToggleItem value=\"bold\">B</Toolbar.ToggleItem>\n    <Toolbar.ToggleItem value=\"italic\">I</Toolbar.ToggleItem>\n  </Toolbar.ToggleGroup>\n  <Toolbar.Separator />\n  <Toolbar.Button>Save</Toolbar.Button>\n</Toolbar.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "toolbar",
+    "keyboard": ["Arrow keys", "Home/End"],
+    "focusManagement": "Roving tabindex",
+    "screenReader": "Announces as toolbar"
+  },
+  "relatedComponents": ["ToggleGroup", "Button"]
+}

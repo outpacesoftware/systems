@@ -1,0 +1,92 @@
+{
+  "name": "Accordion",
+  "displayName": "Accordion",
+  "description": "A vertically stacked set of collapsible sections",
+  "category": "layout",
+  "tags": ["layout", "collapsible", "expandable", "sections"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Displaying content in collapsible sections",
+    "FAQs or help content",
+    "Settings panels",
+    "Navigation with nested items"
+  ],
+  "dontUseWhen": [
+    "Content should be visible at once",
+    "Sections are sequential steps (use Stepper)",
+    "Tab-based navigation is more appropriate"
+  ],
+  "props": {
+    "type": {
+      "type": "'single' | 'multiple'",
+      "required": false,
+      "default": "'single'",
+      "description": "Whether one or multiple items can be open"
+    },
+    "value": {
+      "type": "string | string[]",
+      "required": false,
+      "description": "Currently open item(s)"
+    },
+    "defaultValue": {
+      "type": "string | string[]",
+      "required": false,
+      "description": "Default open item(s)"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether all items can be collapsed (single type)"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Whether the accordion is disabled"
+    },
+    "onValueChange": {
+      "type": "(value: string | string[]) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container for the accordion"
+    },
+    "Item": {
+      "description": "Individual accordion item"
+    },
+    "Header": {
+      "description": "Header wrapper for semantic heading"
+    },
+    "Trigger": {
+      "description": "Button to toggle the item"
+    },
+    "Content": {
+      "description": "Collapsible content area"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Single accordion",
+      "code": "<Accordion.Root type=\"single\" collapsible>\n  <Accordion.Item value=\"item-1\">\n    <Accordion.Header>\n      <Accordion.Trigger>Section 1</Accordion.Trigger>\n    </Accordion.Header>\n    <Accordion.Content>Content 1</Accordion.Content>\n  </Accordion.Item>\n  <Accordion.Item value=\"item-2\">\n    <Accordion.Header>\n      <Accordion.Trigger>Section 2</Accordion.Trigger>\n    </Accordion.Header>\n    <Accordion.Content>Content 2</Accordion.Content>\n  </Accordion.Item>\n</Accordion.Root>"
+    },
+    {
+      "name": "Multiple",
+      "description": "Multiple items can be open",
+      "code": "<Accordion.Root type=\"multiple\">\n  <Accordion.Item value=\"item-1\">\n    <Accordion.Trigger>Section 1</Accordion.Trigger>\n    <Accordion.Content>Content 1</Accordion.Content>\n  </Accordion.Item>\n</Accordion.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "region",
+    "keyboard": ["Enter", "Space", "Arrow Up/Down"],
+    "focusManagement": "Focus on triggers",
+    "screenReader": "Announces expanded/collapsed state"
+  },
+  "relatedComponents": ["Collapsible", "Tabs"]
+}

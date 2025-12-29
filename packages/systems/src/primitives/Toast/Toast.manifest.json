@@ -1,0 +1,88 @@
+{
+  "name": "Toast",
+  "displayName": "Toast",
+  "description": "A temporary notification that appears at the edge of the screen",
+  "category": "feedback",
+  "tags": ["feedback", "notification", "alert", "message"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Showing success/error messages",
+    "Non-blocking notifications",
+    "Action confirmations",
+    "System status updates"
+  ],
+  "dontUseWhen": [
+    "Blocking user action is required (use Dialog)",
+    "Persistent information display",
+    "Critical errors requiring action (use AlertDialog)"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the toast is open"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "true",
+      "description": "Default open state"
+    },
+    "duration": {
+      "type": "number",
+      "required": false,
+      "default": "5000",
+      "description": "Duration in ms before auto-close"
+    },
+    "type": {
+      "type": "'foreground' | 'background'",
+      "required": false,
+      "default": "'foreground'",
+      "description": "Toast type for accessibility"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Provider": {
+      "description": "Wraps app to provide toast context"
+    },
+    "Viewport": {
+      "description": "Container for toasts"
+    },
+    "Root": {
+      "description": "Individual toast"
+    },
+    "Title": {
+      "description": "Toast title"
+    },
+    "Description": {
+      "description": "Toast description"
+    },
+    "Action": {
+      "description": "Action button"
+    },
+    "Close": {
+      "description": "Close button"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple toast",
+      "code": "<Toast.Provider>\n  <Toast.Root>\n    <Toast.Title>Success!</Toast.Title>\n    <Toast.Description>Your changes have been saved.</Toast.Description>\n    <Toast.Close />\n  </Toast.Root>\n  <Toast.Viewport />\n</Toast.Provider>"
+    }
+  ],
+  "accessibility": {
+    "role": "alert or status",
+    "keyboard": ["Escape"],
+    "focusManagement": "Optional focus management",
+    "screenReader": "Announces toast content based on type"
+  },
+  "relatedComponents": ["AlertDialog", "Dialog"]
+}

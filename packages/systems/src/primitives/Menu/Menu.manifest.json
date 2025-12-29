@@ -1,0 +1,76 @@
+{
+  "name": "Menu",
+  "displayName": "Menu",
+  "description": "A dropdown menu for displaying a list of actions or options",
+  "category": "navigation",
+  "tags": ["navigation", "dropdown", "menu", "actions"],
+  "importPath": "@outpace/systems",
+  "version": "1.0.0",
+  "status": "stable",
+  "useWhen": [
+    "Displaying a list of actions or options",
+    "Dropdown navigation menus",
+    "Action menus with multiple choices",
+    "Overflow menus for limited space"
+  ],
+  "dontUseWhen": [
+    "Simple navigation (use links)",
+    "Form selection (use Select)",
+    "Right-click context menu (use ContextMenu)"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the menu is open (controlled)"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "default": "false",
+      "description": "Default open state"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Called when open state changes"
+    }
+  },
+  "slots": {
+    "Root": {
+      "description": "Container and context provider"
+    },
+    "Trigger": {
+      "description": "Button that opens the menu"
+    },
+    "Portal": {
+      "description": "Renders content in a portal"
+    },
+    "Content": {
+      "description": "The menu content container"
+    },
+    "Item": {
+      "description": "Individual menu item"
+    },
+    "Separator": {
+      "description": "Visual separator between items"
+    },
+    "Label": {
+      "description": "Non-interactive label/group header"
+    }
+  },
+  "examples": [
+    {
+      "name": "Basic",
+      "description": "Simple menu",
+      "code": "<Menu.Root>\n  <Menu.Trigger>Options</Menu.Trigger>\n  <Menu.Portal>\n    <Menu.Content>\n      <Menu.Item onSelect={() => console.log('Edit')}>Edit</Menu.Item>\n      <Menu.Item onSelect={() => console.log('Copy')}>Copy</Menu.Item>\n      <Menu.Separator />\n      <Menu.Item onSelect={() => console.log('Delete')}>Delete</Menu.Item>\n    </Menu.Content>\n  </Menu.Portal>\n</Menu.Root>"
+    }
+  ],
+  "accessibility": {
+    "role": "menu, menuitem",
+    "keyboard": ["Arrow Up/Down", "Enter", "Space", "Escape"],
+    "focusManagement": "Focus trapped in menu, returns to trigger on close",
+    "screenReader": "Announces menu items and state"
+  },
+  "relatedComponents": ["ContextMenu", "Select", "Popover"]
+}
