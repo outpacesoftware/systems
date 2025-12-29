@@ -116,7 +116,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 											<Link
 												href={item.href}
 												onClick={onClose}
-												className={`block py-1.5 px-2 -mx-2 rounded text-[12px] leading-[20px] tracking-[0.12px] font-medium transition-colors ${
+												className={`block py-1 px-2 -mx-2 rounded-md text-[12px] leading-[20px] tracking-[0.12px] font-medium transition-colors ${
 													isActive
 														? "text-white/88 bg-white/8"
 														: "text-white/64 hover:text-white/88"
