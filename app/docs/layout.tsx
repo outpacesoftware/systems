@@ -21,7 +21,7 @@ export default function DocsLayout({
 					mobileOpen={mobileMenuOpen}
 					onClose={() => setMobileMenuOpen(false)}
 				/>
-				<main className="flex-1 min-w-0 px-4 md:px-8 py-20 flex justify-center">
+				<main className="flex-1 min-w-0 px-4 md:px-8 py-16 flex justify-center">
 					<div className="w-full max-w-3xl">{children}</div>
 				</main>
 			</div>

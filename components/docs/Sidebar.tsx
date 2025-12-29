@@ -102,7 +102,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
 			>
-				<nav className="py-20 space-y-6">
+				<nav className="py-16 space-y-6">
 					{navigation.map((section) => (
 						<div key={section.title}>
 							<h3 className="font-mono text-[10px] leading-[14px] text-white/48 uppercase mb-2">
