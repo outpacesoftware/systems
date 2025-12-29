@@ -50,9 +50,9 @@ yarn add gsap`}
 					and configure global animation settings.
 				</p>
 
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-					<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-						{`import { AnimationProvider } from '@outpacesoftware/systems';
+				<CodeBlock
+					language="tsx"
+					code={`import { AnimationProvider } from '@outpacesoftware/systems';
 
 function App() {
   return (
@@ -70,8 +70,7 @@ function App() {
     </AnimationProvider>
   );
 }`}
-					</pre>
-				</div>
+				/>
 			</section>
 
 			{/* Animation Hooks */}
@@ -92,9 +91,9 @@ function App() {
 						Base hook for animating any element. Provides low-level control over
 						GSAP animations.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useElementAnimation } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useElementAnimation } from '@outpacesoftware/systems';
 
 function AnimatedBox() {
   const { ref, animate, isAnimating } = useElementAnimation();
@@ -122,8 +121,7 @@ function AnimatedBox() {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* useDialogAnimation */}
@@ -134,9 +132,9 @@ function AnimatedBox() {
 					<p className="text-[13px] leading-5 text-white/64 mb-4 tracking-[0.12px]">
 						Specialized hook for dialog/modal animations with backdrop support.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useDialogAnimation } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useDialogAnimation } from '@outpacesoftware/systems';
 
 function AnimatedDialog({ isOpen, onClose, children }) {
   const {
@@ -174,8 +172,7 @@ function AnimatedDialog({ isOpen, onClose, children }) {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* useAccordionAnimation */}
@@ -186,9 +183,9 @@ function AnimatedDialog({ isOpen, onClose, children }) {
 					<p className="text-[13px] leading-5 text-white/64 mb-4 tracking-[0.12px]">
 						Smooth height animations for accordion/collapsible content.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useAccordionAnimation } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useAccordionAnimation } from '@outpacesoftware/systems';
 
 function AnimatedAccordion({ isOpen, children }) {
   const { contentRef, wrapperRef, isAnimating } = useAccordionAnimation({
@@ -205,8 +202,7 @@ function AnimatedAccordion({ isOpen, children }) {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* useToastAnimation */}
@@ -217,9 +213,9 @@ function AnimatedAccordion({ isOpen, children }) {
 					<p className="text-[13px] leading-5 text-white/64 mb-4 tracking-[0.12px]">
 						Position-aware slide animations for toast notifications.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useToastAnimation } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useToastAnimation } from '@outpacesoftware/systems';
 
 function AnimatedToast({ position, onDismiss, children }) {
   const { ref, animateIn, animateOut, isAnimating } = useToastAnimation({
@@ -244,8 +240,7 @@ function AnimatedToast({ position, onDismiss, children }) {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 			</section>
 
@@ -259,9 +254,9 @@ function AnimatedToast({ position, onDismiss, children }) {
 					loader utilities.
 				</p>
 
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-					<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-						{`import {
+				<CodeBlock
+					language="tsx"
+					code={`import {
   loadGSAP,
   getGSAP,
   isGSAPAvailable,
@@ -280,8 +275,7 @@ async function setupAnimation() {
     gsap.to('.element', { opacity: 1 });
   }
 }`}
-					</pre>
-				</div>
+				/>
 			</section>
 
 			{/* Reduced Motion */}
@@ -295,9 +289,10 @@ async function setupAnimation() {
 					animations are instant or disabled.
 				</p>
 
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto mb-6">
-					<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-						{`import { useReducedMotion } from '@outpacesoftware/systems';
+				<div className="mb-6">
+					<CodeBlock
+						language="tsx"
+						code={`import { useReducedMotion } from '@outpacesoftware/systems';
 
 function MyComponent() {
   const prefersReducedMotion = useReducedMotion();
@@ -312,7 +307,7 @@ function MyComponent() {
     </div>
   );
 }`}
-					</pre>
+					/>
 				</div>
 
 				<div className="space-y-4">

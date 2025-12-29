@@ -96,7 +96,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           fixed lg:sticky top-12 left-0 z-40
           w-64 lg:w-56 shrink-0
           h-[calc(100vh-3rem)]
-          bg-black lg:bg-transparent
+          bg-transparent
           border-r border-white/8
           overflow-y-auto px-8 scrollbar-none
           transform transition-transform duration-200 ease-out
