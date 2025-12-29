@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getComponentNames, getManifest } from "@/lib/registry";
+import { getComponentNames, getManifest, toKebabCase } from "@/lib/registry";
 
 interface RouteParams {
 	params: Promise<{ slug: string }>;
@@ -7,7 +7,7 @@ interface RouteParams {
 
 export async function generateStaticParams() {
 	const names = getComponentNames();
-	return names.map((name) => ({ slug: name.toLowerCase() }));
+	return names.map((name) => ({ slug: toKebabCase(name) }));
 }
 
 export async function GET(_request: Request, { params }: RouteParams) {
@@ -126,7 +126,7 @@ function generateMarkdown(manifest: ReturnType<typeof getManifest>): string {
 		lines.push("## Related Components");
 		lines.push("");
 		manifest.relatedComponents.forEach((name) => {
-			lines.push(`- [${name}](/docs/components/${name.toLowerCase()})`);
+			lines.push(`- [${name}](/docs/components/${toKebabCase(name)})`);
 		});
 		lines.push("");
 	}

@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { type ComponentManifest, getRegistry } from "@/lib/registry";
+import {
+	type ComponentManifest,
+	getRegistry,
+	toKebabCase,
+} from "@/lib/registry";
 
 export default function ComponentsIndexPage() {
 	const registry = getRegistry();
@@ -47,7 +51,7 @@ export default function ComponentsIndexPage() {
 							{components.map((component) => (
 								<Link
 									key={component.name}
-									href={`/docs/components/${component.name.toLowerCase()}`}
+									href={`/docs/components/${toKebabCase(component.name)}`}
 									className="block p-4 rounded-lg border border-white/8 hover:border-white/12 hover:bg-white/4 transition-colors"
 								>
 									<h3 className="text-[15px] leading-5 font-medium text-white/88 mb-1 tracking-[0.12px]">

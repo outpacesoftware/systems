@@ -3,22 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface NavItem {
+export interface NavItem {
 	title: string;
 	href: string;
 }
 
-interface NavSection {
+export interface NavSection {
 	title: string;
 	items: NavItem[];
 }
 
-const navigation: NavSection[] = [
+export const navigation: NavSection[] = [
 	{
 		title: "Getting Started",
 		items: [
 			{ title: "Introduction", href: "/docs" },
 			{ title: "Installation", href: "/docs/installation" },
+			{ title: "CLI", href: "/docs/cli" },
 		],
 	},
 	{
@@ -33,27 +34,27 @@ const navigation: NavSection[] = [
 		title: "Components",
 		items: [
 			{ title: "Accordion", href: "/docs/components/accordion" },
-			{ title: "Alert Dialog", href: "/docs/components/alertdialog" },
+			{ title: "Alert Dialog", href: "/docs/components/alert-dialog" },
 			{ title: "Avatar", href: "/docs/components/avatar" },
 			{ title: "Button", href: "/docs/components/button" },
 			{ title: "Checkbox", href: "/docs/components/checkbox" },
-			{ title: "Checkbox Group", href: "/docs/components/checkboxgroup" },
+			{ title: "Checkbox Group", href: "/docs/components/checkbox-group" },
 			{ title: "Collapsible", href: "/docs/components/collapsible" },
 			{ title: "Combobox", href: "/docs/components/combobox" },
-			{ title: "Context Menu", href: "/docs/components/contextmenu" },
+			{ title: "Context Menu", href: "/docs/components/context-menu" },
 			{ title: "Dialog", href: "/docs/components/dialog" },
 			{ title: "Field", href: "/docs/components/field" },
 			{ title: "Input", href: "/docs/components/input" },
 			{ title: "Menu", href: "/docs/components/menu" },
 			{ title: "Meter", href: "/docs/components/meter" },
-			{ title: "Navigation Menu", href: "/docs/components/navigationmenu" },
-			{ title: "Number Field", href: "/docs/components/numberfield" },
+			{ title: "Navigation Menu", href: "/docs/components/navigation-menu" },
+			{ title: "Number Field", href: "/docs/components/number-field" },
 			{ title: "Popover", href: "/docs/components/popover" },
-			{ title: "Preview Card", href: "/docs/components/previewcard" },
+			{ title: "Preview Card", href: "/docs/components/preview-card" },
 			{ title: "Progress", href: "/docs/components/progress" },
 			{ title: "Radio", href: "/docs/components/radio" },
-			{ title: "Radio Group", href: "/docs/components/radiogroup" },
-			{ title: "Scroll Area", href: "/docs/components/scrollarea" },
+			{ title: "Radio Group", href: "/docs/components/radio-group" },
+			{ title: "Scroll Area", href: "/docs/components/scroll-area" },
 			{ title: "Select", href: "/docs/components/select" },
 			{ title: "Separator", href: "/docs/components/separator" },
 			{ title: "Slider", href: "/docs/components/slider" },
@@ -61,7 +62,7 @@ const navigation: NavSection[] = [
 			{ title: "Tabs", href: "/docs/components/tabs" },
 			{ title: "Toast", href: "/docs/components/toast" },
 			{ title: "Toggle", href: "/docs/components/toggle" },
-			{ title: "Toggle Group", href: "/docs/components/togglegroup" },
+			{ title: "Toggle Group", href: "/docs/components/toggle-group" },
 			{ title: "Toolbar", href: "/docs/components/toolbar" },
 			{ title: "Tooltip", href: "/docs/components/tooltip" },
 		],
@@ -92,8 +93,8 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 			{/* Sidebar */}
 			<aside
 				className={`
-          fixed lg:sticky top-14 left-0 z-40
-          w-64 lg:w-56 shrink-0
+          fixed top-14 left-0 z-40
+          w-64 lg:w-56
           h-[calc(100vh-3.5rem)]
           bg-transparent
           overflow-y-auto px-8 scrollbar-none

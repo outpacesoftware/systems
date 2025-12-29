@@ -1,7 +1,14 @@
 "use client";
 
-import { CodeBlock } from "@/components/docs/CodeBlock";
 import { useState } from "react";
+import { CodeBlock, TableOfContents } from "@/components/docs";
+import type { TOCItem } from "@/components/docs/TableOfContents";
+
+const tocItems: TOCItem[] = [
+	{ id: "colors", title: "Colors" },
+	{ id: "typography", title: "Typography" },
+	{ id: "spacing", title: "Spacing" },
+];
 
 // Color tokens
 const colors = {
@@ -120,145 +127,158 @@ function ColorSwatch({
 
 export default function TokensPage() {
 	return (
-		<div className="max-w-4xl">
-			<h1 className="text-4xl font-bold text-white/88 mb-4">Design Tokens</h1>
-			<p className="text-[15px] leading-5 text-white/72 mb-12 tracking-[0.12px]">
-				Colors and typography scales using Tailwind CSS utilities.
-			</p>
+		<>
+			<TableOfContents items={tocItems} />
+			<div className="max-w-4xl pb-16">
+				<h1 className="text-4xl font-bold text-white/88 mb-4">Design Tokens</h1>
+				<p className="text-[15px] leading-5 text-white/72 mb-12 tracking-[0.12px]">
+					Colors and typography scales using Tailwind CSS utilities.
+				</p>
 
-			{/* Colors */}
-			<section className="mb-16">
-				<h2 className="text-2xl font-semibold text-white/88 mb-6">Colors</h2>
+				{/* Colors */}
+				<section className="mb-16">
+					<h2
+						id="colors"
+						className="text-2xl font-semibold text-white/88 mb-6 scroll-mt-20"
+					>
+						Colors
+					</h2>
 
-				{/* Base */}
-				<div className="mb-8">
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Base
-					</h3>
-					<div className="grid grid-cols-2 gap-4">
-						{colors.base.map((color) => (
-							<ColorSwatch
-								key={color.name}
-								name={color.name}
-								value={color.value}
-								className={color.class}
-							/>
-						))}
-					</div>
-				</div>
-
-				{/* Opacity Scale */}
-				<div className="mb-8">
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Opacity Scale
-					</h3>
-					<div className="flex flex-wrap gap-2">
-						{opacityScale.map((opacity) => (
-							<div key={opacity} className="text-center">
-								<div
-									className="w-12 h-12 rounded-lg border border-white/8"
-									style={{
-										backgroundColor: `rgba(255,255,255,${opacity / 100})`,
-									}}
+					{/* Base */}
+					<div className="mb-8">
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Base
+						</h3>
+						<div className="grid grid-cols-2 gap-4">
+							{colors.base.map((color) => (
+								<ColorSwatch
+									key={color.name}
+									name={color.name}
+									value={color.value}
+									className={color.class}
 								/>
-								<span className="text-[10px] leading-[13px] text-white/48 mt-1 block tracking-[0.12px]">
-									{opacity}
-								</span>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
-					<p className="text-[13px] leading-4 text-white/48 mt-4 tracking-[0.12px]">
-						Use with Tailwind: <code className="text-green-400">white/8</code>,{" "}
-						<code className="text-green-400">black/16</code>, etc.
-					</p>
-				</div>
 
-				{/* Semantic */}
-				<div>
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Semantic
-					</h3>
-					<div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-						{colors.semantic.map((color) => (
-							<ColorSwatch
-								key={color.name}
-								name={color.name}
-								value={color.value}
-								className={color.class}
-								label={color.label}
-							/>
-						))}
+					{/* Opacity Scale */}
+					<div className="mb-8">
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Opacity Scale
+						</h3>
+						<div className="flex flex-wrap gap-2">
+							{opacityScale.map((opacity) => (
+								<div key={opacity} className="text-center">
+									<div
+										className="w-12 h-12 rounded-lg border border-white/8"
+										style={{
+											backgroundColor: `rgba(255,255,255,${opacity / 100})`,
+										}}
+									/>
+									<span className="text-[10px] leading-[13px] text-white/48 mt-1 block tracking-[0.12px]">
+										{opacity}
+									</span>
+								</div>
+							))}
+						</div>
+						<p className="text-[13px] leading-4 text-white/48 mt-4 tracking-[0.12px]">
+							Use with Tailwind: <code className="text-green-400">white/8</code>
+							, <code className="text-green-400">black/16</code>, etc.
+						</p>
 					</div>
-				</div>
-			</section>
 
-			{/* Typography */}
-			<section className="mb-16">
-				<h2 className="text-2xl font-semibold text-white/88 mb-6">
-					Typography
-				</h2>
+					{/* Semantic */}
+					<div>
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Semantic
+						</h3>
+						<div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+							{colors.semantic.map((color) => (
+								<ColorSwatch
+									key={color.name}
+									name={color.name}
+									value={color.value}
+									className={color.class}
+									label={color.label}
+								/>
+							))}
+						</div>
+					</div>
+				</section>
 
-				{/* Sizes */}
-				<div className="mb-12">
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Sizes
-					</h3>
-					<div className="space-y-4">
-						{typeSizes.map((type) => (
-							<div
-								key={type.name}
-								className="flex items-baseline gap-4 py-2 border-b border-white/4"
-							>
-								<code className="text-[13px] leading-4 text-green-400 w-24 shrink-0 tracking-[0.12px]">
-									{type.name}
-								</code>
-								<span className="text-white/48 text-[13px] leading-4 w-20 shrink-0 tracking-[0.12px]">
-									{type.pixels}
-								</span>
-								<span
-									className={type.name.replace("text-", "text-")}
-									style={{ fontSize: type.size, lineHeight: type.lineHeight }}
+				{/* Typography */}
+				<section className="mb-16">
+					<h2
+						id="typography"
+						className="text-2xl font-semibold text-white/88 mb-6 scroll-mt-20"
+					>
+						Typography
+					</h2>
+
+					{/* Sizes */}
+					<div className="mb-12">
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Sizes
+						</h3>
+						<div className="space-y-4">
+							{typeSizes.map((type) => (
+								<div
+									key={type.name}
+									className="flex items-baseline gap-4 py-2 border-b border-white/4"
 								>
-									The quick brown fox
-								</span>
-							</div>
-						))}
+									<code className="text-[13px] leading-4 text-green-400 w-24 shrink-0 tracking-[0.12px]">
+										{type.name}
+									</code>
+									<span className="text-white/48 text-[13px] leading-4 w-20 shrink-0 tracking-[0.12px]">
+										{type.pixels}
+									</span>
+									<span
+										className={type.name.replace("text-", "text-")}
+										style={{ fontSize: type.size, lineHeight: type.lineHeight }}
+									>
+										The quick brown fox
+									</span>
+								</div>
+							))}
+						</div>
 					</div>
-				</div>
 
-				{/* Weights */}
-				<div className="mb-12">
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Weights
-					</h3>
-					<div className="space-y-3">
-						{fontWeights.map((weight) => (
-							<div
-								key={weight.name}
-								className="flex items-center gap-4 py-2 border-b border-white/4"
-							>
-								<code className="text-[13px] leading-4 text-green-400 w-32 shrink-0 tracking-[0.12px]">
-									{weight.name}
-								</code>
-								<span className="text-white/48 text-[13px] leading-4 w-12 shrink-0 tracking-[0.12px]">
-									{weight.value}
-								</span>
-								<span className="text-xl" style={{ fontWeight: weight.value }}>
-									The quick brown fox jumps over the lazy dog
-								</span>
-							</div>
-						))}
+					{/* Weights */}
+					<div className="mb-12">
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Weights
+						</h3>
+						<div className="space-y-3">
+							{fontWeights.map((weight) => (
+								<div
+									key={weight.name}
+									className="flex items-center gap-4 py-2 border-b border-white/4"
+								>
+									<code className="text-[13px] leading-4 text-green-400 w-32 shrink-0 tracking-[0.12px]">
+										{weight.name}
+									</code>
+									<span className="text-white/48 text-[13px] leading-4 w-12 shrink-0 tracking-[0.12px]">
+										{weight.value}
+									</span>
+									<span
+										className="text-xl"
+										style={{ fontWeight: weight.value }}
+									>
+										The quick brown fox jumps over the lazy dog
+									</span>
+								</div>
+							))}
+						</div>
 					</div>
-				</div>
 
-				{/* Usage */}
-				<div>
-					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
-						Usage
-					</h3>
-					<CodeBlock
-						language="tsx"
-						code={`{/* Size classes */}
+					{/* Usage */}
+					<div>
+						<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
+							Usage
+						</h3>
+						<CodeBlock
+							language="tsx"
+							code={`{/* Size classes */}
 <p className="text-xs">Extra small text</p>
 <p className="text-sm">Small text</p>
 <p className="text-base">Base text</p>
@@ -274,35 +294,44 @@ export default function TokensPage() {
 {/* Combined */}
 <h1 className="text-4xl font-bold">Page Title</h1>
 <p className="text-lg text-white/70">Subtitle text</p>`}
-					/>
-				</div>
-			</section>
+						/>
+					</div>
+				</section>
 
-			{/* Spacing */}
-			<section>
-				<h2 className="text-2xl font-semibold text-white/88 mb-6">Spacing</h2>
-				<p className="text-[13px] leading-4 text-white/72 mb-4 tracking-[0.12px]">
-					Use Tailwind&apos;s spacing scale for consistent spacing:
-				</p>
-				<div className="flex flex-wrap gap-2 mb-6">
-					{[
-						0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14,
-						16, 20, 24, 28, 32,
-					].map((n) => (
-						<div key={n} className="text-center">
-							<div
-								className="bg-purple-500/48 rounded"
-								style={{ width: `${n * 4}px`, height: "24px", minWidth: "2px" }}
-							/>
-							<span className="text-[10px] leading-[13px] text-white/48 mt-1 block tracking-[0.12px]">
-								{n}
-							</span>
-						</div>
-					))}
-				</div>
-				<CodeBlock
-					language="tsx"
-					code={`{/* Padding */}
+				{/* Spacing */}
+				<section>
+					<h2
+						id="spacing"
+						className="text-2xl font-semibold text-white/88 mb-6 scroll-mt-20"
+					>
+						Spacing
+					</h2>
+					<p className="text-[13px] leading-4 text-white/72 mb-4 tracking-[0.12px]">
+						Use Tailwind&apos;s spacing scale for consistent spacing:
+					</p>
+					<div className="flex flex-wrap gap-2 mb-6">
+						{[
+							0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14,
+							16, 20, 24, 28, 32,
+						].map((n) => (
+							<div key={n} className="text-center">
+								<div
+									className="bg-purple-500/48 rounded"
+									style={{
+										width: `${n * 4}px`,
+										height: "24px",
+										minWidth: "2px",
+									}}
+								/>
+								<span className="text-[10px] leading-[13px] text-white/48 mt-1 block tracking-[0.12px]">
+									{n}
+								</span>
+							</div>
+						))}
+					</div>
+					<CodeBlock
+						language="tsx"
+						code={`{/* Padding */}
 <div className="p-4">16px padding</div>
 <div className="px-6 py-3">24px horizontal, 12px vertical</div>
 
@@ -312,8 +341,9 @@ export default function TokensPage() {
 
 {/* Gap */}
 <div className="flex gap-4">16px gap between items</div>`}
-				/>
-			</section>
-		</div>
+					/>
+				</section>
+			</div>
+		</>
 	);
 }

@@ -6,7 +6,9 @@
 	"bin": {
 		"outpacesystems": "./dist/index.js"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup src/index.ts --format esm --dts --clean",
 		"dev": "tsup src/index.ts --format esm --watch",
@@ -24,7 +26,12 @@
 		"tsup": "^8.3.5",
 		"typescript": "^5.7.2"
 	},
-	"keywords": ["cli", "design-system", "react", "components"],
+	"keywords": [
+		"cli",
+		"design-system",
+		"react",
+		"components"
+	],
 	"author": "Outpace Software",
 	"license": "MIT",
 	"repository": {

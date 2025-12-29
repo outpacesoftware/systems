@@ -138,7 +138,8 @@ export function CodeBlock({
 	showPackageSwitcher,
 }: CodeBlockProps) {
 	const [copied, setCopied] = useState(false);
-	const [selectedManager, setSelectedManager] = useState<PackageManager>("pnpm");
+	const [selectedManager, setSelectedManager] =
+		useState<PackageManager>("pnpm");
 
 	// Auto-detect if we should show package switcher for bash commands
 	const isBashWithPackageCmd =
@@ -223,7 +224,7 @@ export function CodeBlock({
 				>
 					{({ style, tokens, getLineProps, getTokenProps }) => (
 						<pre
-							className="p-4 overflow-x-auto text-[13px] leading-6 m-0 bg-white/4"
+							className="px-4 pt-4 pb-6 overflow-x-auto text-[13px] leading-6 m-0 bg-white/4"
 							style={{ ...style, backgroundColor: undefined }}
 						>
 							{tokens.map((line, i) => (

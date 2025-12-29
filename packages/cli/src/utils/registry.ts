@@ -4,8 +4,28 @@ export interface Component {
 	dependencies?: string[];
 }
 
+export interface ComponentFile {
+	name: string;
+	content: string;
+}
+
 export const REGISTRY_URL =
 	"https://systems.outpacesoftware.com/api/design-system";
+
+export async function fetchComponentFiles(
+	componentName: string,
+): Promise<ComponentFile[]> {
+	const response = await fetch(
+		`${REGISTRY_URL}/components/${componentName.toLowerCase()}`,
+	);
+
+	if (!response.ok) {
+		throw new Error(`Failed to fetch component: ${componentName}`);
+	}
+
+	const data = await response.json();
+	return data.files as ComponentFile[];
+}
 
 export const components: Component[] = [
 	{ name: "Accordion", description: "Expandable content sections" },
@@ -43,9 +63,7 @@ export const components: Component[] = [
 ];
 
 export function getComponent(name: string): Component | undefined {
-	return components.find(
-		(c) => c.name.toLowerCase() === name.toLowerCase()
-	);
+	return components.find((c) => c.name.toLowerCase() === name.toLowerCase());
 }
 
 export function getAllComponentNames(): string[] {

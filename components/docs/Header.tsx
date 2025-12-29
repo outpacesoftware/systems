@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SearchTrigger } from "./SearchModal";
 
 const Logo = () => (
 	<svg
@@ -66,9 +67,14 @@ const CloseIcon = () => (
 interface HeaderProps {
 	mobileMenuOpen?: boolean;
 	onMobileMenuToggle?: () => void;
+	onSearchClick?: () => void;
 }
 
-export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
+export function Header({
+	mobileMenuOpen,
+	onMobileMenuToggle,
+	onSearchClick,
+}: HeaderProps) {
 	return (
 		<header className="h-14 sticky top-0 backdrop-blur-md z-50 px-8">
 			<div className="h-full flex items-center justify-between">
@@ -86,28 +92,31 @@ export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 					</Link>
 				</div>
 
-				<nav className="hidden md:flex items-center gap-6">
-					<Link
-						href="/docs"
-						className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
-					>
-						Docs
-					</Link>
-					<Link
-						href="/docs/components/button"
-						className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
-					>
-						Components
-					</Link>
-					<a
-						href="https://github.com/outpacesoftware/systems"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
-					>
-						GitHub
-					</a>
-				</nav>
+				<div className="flex items-center gap-4">
+					{onSearchClick && <SearchTrigger onClick={onSearchClick} />}
+					<nav className="hidden md:flex items-center gap-6">
+						<Link
+							href="/docs"
+							className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
+						>
+							Docs
+						</Link>
+						<Link
+							href="/docs/components/button"
+							className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
+						>
+							Components
+						</Link>
+						<a
+							href="https://github.com/outpacesoftware/systems"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-[13px] leading-4 text-white/72 hover:text-white/88 transition-colors tracking-[0.12px]"
+						>
+							GitHub
+						</a>
+					</nav>
+				</div>
 			</div>
 		</header>
 	);

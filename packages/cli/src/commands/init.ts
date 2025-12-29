@@ -1,8 +1,8 @@
+import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import chalk from "chalk";
-import { execSync } from "child_process";
-import fs from "fs";
 import ora from "ora";
-import path from "path";
 import prompts from "prompts";
 
 interface InitOptions {
@@ -20,7 +20,9 @@ export async function init(options: InitOptions) {
 	const packageJsonPath = path.join(cwd, "package.json");
 	if (!fs.existsSync(packageJsonPath)) {
 		console.log(
-			chalk.red("No package.json found. Please run this in a project directory.")
+			chalk.red(
+				"No package.json found. Please run this in a project directory.",
+			),
 		);
 		process.exit(1);
 	}
@@ -59,11 +61,9 @@ export async function init(options: InitOptions) {
 	console.log(chalk.green("Success!"), "Project initialized.");
 	console.log();
 	console.log("Next steps:");
+	console.log(`  ${chalk.cyan("outpacesystems add Button")} - Add a component`);
 	console.log(
-		`  ${chalk.cyan("outpacesystems add Button")} - Add a component`
-	);
-	console.log(
-		`  ${chalk.cyan("outpacesystems add --all")} - Add all components`
+		`  ${chalk.cyan("outpacesystems add --all")} - Add all components`,
 	);
 	console.log();
 }

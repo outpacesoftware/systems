@@ -41,6 +41,24 @@ import TooltipManifest from "../../packages/systems/src/primitives/Tooltip/Toolt
 import type { ComponentManifest, ComponentRegistry } from "./types";
 
 /**
+ * Convert PascalCase to kebab-case
+ * e.g., "AlertDialog" -> "alert-dialog"
+ */
+export function toKebabCase(str: string): string {
+	return str
+		.replace(/([a-z])([A-Z])/g, "$1-$2")
+		.replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+		.toLowerCase();
+}
+
+/**
+ * Convert kebab-case to match manifest name (case-insensitive)
+ */
+export function fromKebabCase(slug: string): string {
+	return slug.replace(/-/g, "");
+}
+
+/**
  * All component manifests loaded at build time
  */
 const manifests: ComponentManifest[] = [
@@ -103,10 +121,12 @@ export function getRegistry(): ComponentRegistry {
 }
 
 /**
- * Get a single component manifest by name
+ * Get a single component manifest by name or kebab-case slug
  */
-export function getManifest(name: string): ComponentManifest | undefined {
-	return manifests.find((m) => m.name.toLowerCase() === name.toLowerCase());
+export function getManifest(nameOrSlug: string): ComponentManifest | undefined {
+	// Try direct match first, then try with hyphens removed (for kebab-case slugs)
+	const normalized = fromKebabCase(nameOrSlug).toLowerCase();
+	return manifests.find((m) => m.name.toLowerCase() === normalized);
 }
 
 /**

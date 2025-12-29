@@ -1,10 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
 import chalk from "chalk";
-import fs from "fs";
 import ora from "ora";
-import path from "path";
 import prompts from "prompts";
 import {
 	components,
+	fetchComponentFiles,
 	getAllComponentNames,
 	getComponent,
 } from "../utils/registry.js";
@@ -12,35 +13,19 @@ import {
 interface AddOptions {
 	yes?: boolean;
 	all?: boolean;
+	path?: string;
 }
 
-export async function add(
-	componentNames: string[],
-	options: AddOptions
-) {
+export async function add(componentNames: string[], options: AddOptions) {
 	const cwd = process.cwd();
 
 	// Check if package.json exists
 	const packageJsonPath = path.join(cwd, "package.json");
 	if (!fs.existsSync(packageJsonPath)) {
 		console.log(
-			chalk.red("No package.json found. Please run this in a project directory.")
-		);
-		process.exit(1);
-	}
-
-	// Check if @outpacesoftware/systems is installed
-	const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
-	const deps = {
-		...packageJson.dependencies,
-		...packageJson.devDependencies,
-	};
-
-	if (!deps["@outpacesoftware/systems"]) {
-		console.log(
-			chalk.yellow(
-				"@outpacesoftware/systems is not installed. Run 'outpacesystems init' first."
-			)
+			chalk.red(
+				"No package.json found. Please run this in a project directory.",
+			),
 		);
 		process.exit(1);
 	}
@@ -92,31 +77,75 @@ export async function add(
 
 	console.log();
 
-	// Generate import examples
-	const spinner = ora("Generating component imports...").start();
+	// Determine output directory
+	const outputDir = path.join(cwd, options.path || "components/ui");
 
-	// Simulate a brief delay for UX
-	await new Promise((resolve) => setTimeout(resolve, 500));
+	// Create output directory if it doesn't exist
+	if (!fs.existsSync(outputDir)) {
+		fs.mkdirSync(outputDir, { recursive: true });
+	}
 
-	spinner.succeed("Components ready to use");
+	const spinner = ora("Installing components...").start();
+	const installed: string[] = [];
+	const failed: string[] = [];
 
-	console.log();
-	console.log(chalk.bold("Add these imports to your code:"));
-	console.log();
+	for (const componentName of selectedComponents) {
+		try {
+			spinner.text = `Installing ${componentName}...`;
+			const files = await fetchComponentFiles(componentName);
 
-	for (const name of selectedComponents) {
-		console.log(
-			chalk.cyan(
-				`import { ${name} } from "@outpacesoftware/systems/${name}";`
-			)
+			for (const file of files) {
+				const filePath = path.join(outputDir, file.name);
+				const fileDir = path.dirname(filePath);
+
+				// Create subdirectory if needed
+				if (!fs.existsSync(fileDir)) {
+					fs.mkdirSync(fileDir, { recursive: true });
+				}
+
+				fs.writeFileSync(filePath, file.content);
+			}
+
+			installed.push(componentName);
+		} catch {
+			failed.push(componentName);
+		}
+	}
+
+	if (installed.length > 0) {
+		spinner.succeed(
+			`Installed ${installed.length} component${installed.length > 1 ? "s" : ""}`,
 		);
+	} else {
+		spinner.fail("No components installed");
+	}
+
+	if (failed.length > 0) {
+		console.log();
+		console.log(chalk.yellow(`Failed to install: ${failed.join(", ")}`));
 	}
 
 	console.log();
-	console.log(
-		chalk.dim(
-			`Documentation: https://systems.outpacesoftware.com/docs/components/${selectedComponents[0]?.toLowerCase()}`
-		)
-	);
+	console.log(chalk.bold("Components added to:"), chalk.cyan(outputDir));
 	console.log();
+
+	if (installed.length > 0) {
+		console.log(chalk.bold("Import from your project:"));
+		console.log();
+
+		const relativePath = options.path || "components/ui";
+		for (const name of installed) {
+			console.log(
+				chalk.cyan(`import { ${name} } from "@/${relativePath}/${name}";`),
+			);
+		}
+
+		console.log();
+		console.log(
+			chalk.dim(
+				`Documentation: https://systems.outpacesoftware.com/docs/components/${installed[0]?.toLowerCase()}`,
+			),
+		);
+		console.log();
+	}
 }
