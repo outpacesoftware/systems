@@ -2,7 +2,6 @@
 
 import {
 	forwardRef,
-	type HTMLAttributes,
 	type ReactNode,
 	useCallback,
 	useEffect,
@@ -114,6 +113,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
 		return (
 			<>
+				{/* biome-ignore lint/a11y/noStaticElementInteractions: Tooltip trigger wrapper for mouse/focus events */}
 				<div
 					ref={triggerRef}
 					onMouseEnter={handleMouseEnter}

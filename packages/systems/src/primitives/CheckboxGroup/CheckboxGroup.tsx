@@ -100,16 +100,15 @@ const Root = forwardRef<HTMLDivElement, CheckboxGroupRootProps>(
 					orientation,
 				}}
 			>
-				<div
+				<fieldset
 					ref={ref}
-					role="group"
 					data-orientation={orientation}
 					data-disabled={disabled ? "" : undefined}
 					className={className}
 					{...rest}
 				>
 					{children}
-				</div>
+				</fieldset>
 			</CheckboxGroupContext.Provider>
 		);
 	},
@@ -209,10 +208,10 @@ export interface CheckboxGroupItemLabelProps
 
 const ItemLabel = forwardRef<HTMLLabelElement, CheckboxGroupItemLabelProps>(
 	(props, ref) => {
-		const { children, className, ...rest } = props;
+		const { children, className, htmlFor, ...rest } = props;
 
 		return (
-			<label ref={ref} className={className} {...rest}>
+			<label ref={ref} htmlFor={htmlFor} className={className} {...rest}>
 				{children}
 			</label>
 		);

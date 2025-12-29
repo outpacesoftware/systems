@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 	return names.map((name) => ({ slug: name.toLowerCase() }));
 }
 
-export async function GET(request: Request, { params }: RouteParams) {
+export async function GET(_request: Request, { params }: RouteParams) {
 	const { slug } = await params;
 	const manifest = getManifest(slug);
 

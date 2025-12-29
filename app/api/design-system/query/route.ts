@@ -3,7 +3,6 @@ import {
 	type ComponentCategory,
 	formatForLLM,
 	getManifest,
-	getRegistry,
 	type QueryOptions,
 	queryComponents,
 } from "@/lib/registry";

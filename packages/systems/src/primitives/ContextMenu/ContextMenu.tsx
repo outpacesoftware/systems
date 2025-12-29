@@ -8,7 +8,6 @@ import {
 	useCallback,
 	useContext,
 	useEffect,
-	useRef,
 	useState,
 } from "react";
 import { createPortal } from "react-dom";
@@ -20,7 +19,8 @@ import { createPortal } from "react-dom";
 interface ContextMenuContextValue {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
-	position: { x: number; y: number };
+	position: { x: number; y: number } | null;
+	setPosition: (pos: { x: number; y: number }) => void;
 }
 
 const ContextMenuContext = createContext<ContextMenuContextValue | null>(null);
@@ -49,7 +49,9 @@ function Root(props: ContextMenuRootProps) {
 	const { onOpenChange, children } = props;
 
 	const [open, setOpen] = useState(false);
-	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const [position, setPosition] = useState<{ x: number; y: number } | null>(
+		null,
+	);
 
 	const handleOpenChange = useCallback(
 		(newOpen: boolean) => {
@@ -84,7 +86,7 @@ function Root(props: ContextMenuRootProps) {
 
 	return (
 		<ContextMenuContext.Provider
-			value={{ open, onOpenChange: handleOpenChange, position }}
+			value={{ open, onOpenChange: handleOpenChange, position, setPosition }}
 		>
 			{children}
 		</ContextMenuContext.Provider>
@@ -119,7 +121,7 @@ const Trigger = forwardRef<HTMLSpanElement, ContextMenuTriggerProps>(
 			(event: React.MouseEvent<HTMLSpanElement>) => {
 				if (disabled) return;
 				event.preventDefault();
-				(context as any).position = { x: event.clientX, y: event.clientY };
+				context.setPosition({ x: event.clientX, y: event.clientY });
 				context.onOpenChange(true);
 				onContextMenu?.(event);
 			},
@@ -127,6 +129,7 @@ const Trigger = forwardRef<HTMLSpanElement, ContextMenuTriggerProps>(
 		);
 
 		return (
+			// biome-ignore lint/a11y/noStaticElementInteractions: Trigger responds to right-click (contextmenu) which has no keyboard equivalent
 			<span
 				ref={ref}
 				data-disabled={disabled ? "" : undefined}
@@ -201,8 +204,8 @@ const Content = forwardRef<HTMLDivElement, ContextMenuContentProps>(
 				className={className}
 				style={{
 					position: "fixed",
-					top: context.position.y + sideOffset,
-					left: context.position.x + alignOffset,
+					top: (context.position?.y ?? 0) + sideOffset,
+					left: (context.position?.x ?? 0) + alignOffset,
 					...style,
 				}}
 				{...rest}
@@ -249,6 +252,19 @@ const Item = forwardRef<HTMLDivElement, ContextMenuItemProps>((props, ref) => {
 		[disabled, onSelect, context, onClick],
 	);
 
+	const handleKeyDown = useCallback(
+		(event: React.KeyboardEvent<HTMLDivElement>) => {
+			if (disabled) return;
+			if (event.key === "Enter" || event.key === " ") {
+				event.preventDefault();
+				event.stopPropagation();
+				onSelect?.();
+				context.onOpenChange(false);
+			}
+		},
+		[disabled, onSelect, context],
+	);
+
 	return (
 		<div
 			ref={ref}
@@ -257,6 +273,7 @@ const Item = forwardRef<HTMLDivElement, ContextMenuItemProps>((props, ref) => {
 			aria-disabled={disabled}
 			data-disabled={disabled ? "" : undefined}
 			onClick={handleClick}
+			onKeyDown={handleKeyDown}
 			className={className}
 			{...rest}
 		>
@@ -272,13 +289,13 @@ Item.displayName = "ContextMenu.Item";
 // ============================================================================
 
 export interface ContextMenuSeparatorProps
-	extends HTMLAttributes<HTMLDivElement> {}
+	extends HTMLAttributes<HTMLHRElement> {}
 
-const Separator = forwardRef<HTMLDivElement, ContextMenuSeparatorProps>(
+const Separator = forwardRef<HTMLHRElement, ContextMenuSeparatorProps>(
 	(props, ref) => {
 		const { className, ...rest } = props;
 
-		return <div ref={ref} role="separator" className={className} {...rest} />;
+		return <hr ref={ref} className={className} {...rest} />;
 	},
 );
 

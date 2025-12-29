@@ -86,8 +86,6 @@ function ColorSwatch({
 		setTimeout(() => setCopied(false), 1500);
 	};
 
-	const isDark =
-		name.includes("900") || name.includes("950") || name === "black";
 	const isLight =
 		name.includes("50") ||
 		name.includes("100") ||
@@ -95,7 +93,7 @@ function ColorSwatch({
 		name === "white";
 
 	return (
-		<button onClick={copy} className="group text-left">
+		<button type="button" onClick={copy} className="group text-left">
 			<div
 				className={`${className} w-full h-16 rounded-lg border border-white/8 flex items-end p-2 transition-transform group-hover:scale-105`}
 			>

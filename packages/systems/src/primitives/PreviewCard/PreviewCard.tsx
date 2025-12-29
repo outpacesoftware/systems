@@ -267,6 +267,7 @@ const Content = forwardRef<HTMLDivElement, PreviewCardContentProps>(
 		);
 
 		return (
+			// biome-ignore lint/a11y/noStaticElementInteractions: Preview content responds to hover to keep card open
 			<div
 				ref={ref}
 				data-state={context.open ? "open" : "closed"}

@@ -3,7 +3,6 @@
 import {
 	createContext,
 	forwardRef,
-	type HTMLAttributes,
 	type ReactNode,
 	useCallback,
 	useContext,
@@ -60,13 +59,6 @@ export function useToast() {
 // Styles
 // ============================================================================
 
-const variantIconColors = {
-	default: null,
-	success: "text-green-400",
-	error: "text-red-400",
-	warning: "text-amber-400",
-};
-
 const iconStyles = {
 	default: null,
 	success: (
@@ -76,7 +68,9 @@ const iconStyles = {
 			viewBox="0 0 24 24"
 			stroke="currentColor"
 			strokeWidth={2}
+			aria-hidden="true"
 		>
+			<title>Success</title>
 			<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
 		</svg>
 	),
@@ -87,7 +81,9 @@ const iconStyles = {
 			viewBox="0 0 24 24"
 			stroke="currentColor"
 			strokeWidth={2}
+			aria-hidden="true"
 		>
+			<title>Error</title>
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -102,7 +98,9 @@ const iconStyles = {
 			viewBox="0 0 24 24"
 			stroke="currentColor"
 			strokeWidth={2}
+			aria-hidden="true"
 		>
+			<title>Warning</title>
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -122,7 +120,7 @@ const ToastItem = forwardRef<
 >(
 	(
 		{
-			id,
+			id: _id,
 			title,
 			description,
 			variant = "default",
@@ -176,6 +174,7 @@ const ToastItem = forwardRef<
 						)}
 						{action && (
 							<button
+								type="button"
 								onClick={action.onClick}
 								className="mt-2 text-[12px] leading-[15px] font-medium text-[#FF4502] hover:text-[#E63D00] transition-colors"
 							>
@@ -184,6 +183,7 @@ const ToastItem = forwardRef<
 						)}
 					</div>
 					<button
+						type="button"
 						onClick={handleClose}
 						className="flex-shrink-0 p-1 -m-1 text-white/48 hover:text-white/88 transition-colors"
 						aria-label="Close"
@@ -194,7 +194,9 @@ const ToastItem = forwardRef<
 							viewBox="0 0 24 24"
 							stroke="currentColor"
 							strokeWidth={2}
+							aria-hidden="true"
 						>
+							<title>Close</title>
 							<path
 								strokeLinecap="round"
 								strokeLinejoin="round"

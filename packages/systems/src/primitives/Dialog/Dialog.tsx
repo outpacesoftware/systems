@@ -125,6 +125,8 @@ const DialogBackdrop = forwardRef<HTMLDivElement, DialogBackdropProps>(
 		);
 
 		return (
+			// biome-ignore lint/a11y/useKeyWithClickEvents: Backdrop is aria-hidden and click-only by design. Users should use Escape or close button.
+			// biome-ignore lint/a11y/noStaticElementInteractions: Backdrop is decorative with aria-hidden="true"
 			<div
 				ref={ref}
 				className={className}

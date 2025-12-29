@@ -162,8 +162,11 @@ const Overlay = forwardRef<HTMLDivElement, DialogOverlayProps>((props, ref) => {
 	}, [context]);
 
 	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: overlay is decorative backdrop, click-to-close is enhancement
+		// biome-ignore lint/a11y/useKeyWithClickEvents: keyboard handling is on the dialog content, not the backdrop
 		<div
 			ref={ref}
+			aria-hidden="true"
 			onClick={handleClick}
 			className={`
         fixed inset-0 z-50 bg-black/80
@@ -215,6 +218,7 @@ const Content = forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {
 
 	return (
 		<div className="fixed inset-0 z-50 flex items-start justify-center pt-16 pointer-events-none">
+			{/* biome-ignore lint/a11y/useKeyWithClickEvents: stopPropagation prevents backdrop clicks, not interactive */}
 			<div
 				ref={ref}
 				role="dialog"
@@ -287,7 +291,9 @@ const Close = forwardRef<HTMLButtonElement, DialogCloseProps>((props, ref) => {
 					viewBox="0 0 24 24"
 					stroke="currentColor"
 					strokeWidth={2}
+					aria-hidden="true"
 				>
+					<title>Close</title>
 					<path
 						strokeLinecap="round"
 						strokeLinejoin="round"

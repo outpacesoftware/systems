@@ -45,15 +45,8 @@ export interface SelectTriggerProps
  */
 const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
 	({ children, className, placeholder = "Select...", ...props }, ref) => {
-		const {
-			value,
-			isOpen,
-			isDisabled,
-			id,
-			toggle,
-			options,
-			setHighlightedIndex,
-		} = useSelectContext();
+		const { value, isOpen, isDisabled, id, toggle, options } =
+			useSelectContext();
 
 		const selectedOption = options.find((o) => o.value === value);
 		const displayValue = selectedOption?.label || children || placeholder;
@@ -257,6 +250,8 @@ const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
 		}, [disabled, setHighlightedIndex, optionIndex]);
 
 		return (
+			// biome-ignore lint/a11y/useFocusableInteractive: Option is part of listbox pattern, keyboard nav handled by parent
+			// biome-ignore lint/a11y/useKeyWithClickEvents: Keyboard navigation handled by Select.Content
 			<div
 				ref={ref}
 				role="option"

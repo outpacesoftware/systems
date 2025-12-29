@@ -51,8 +51,8 @@ export default async function ComponentPage({ params }: PageProps) {
 			<section className="mb-12">
 				<h2 className="text-xl font-semibold text-white/88 mb-4">Examples</h2>
 				<div className="space-y-6">
-					{manifest.examples.map((example, i) => (
-						<div key={i}>
+					{manifest.examples.map((example) => (
+						<div key={example.name}>
 							<h3 className="text-[13px] leading-4 font-medium text-white/88 mb-2 tracking-[0.12px]">
 								{example.name}
 							</h3>

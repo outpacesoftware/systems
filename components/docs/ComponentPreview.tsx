@@ -34,6 +34,7 @@ export function ComponentPreview({
 			{/* Toggle & Code */}
 			<div className="border-t border-white/8">
 				<button
+					type="button"
 					onClick={() => setShowCode(!showCode)}
 					className="w-full px-4 py-2 text-[10px] leading-[13px] text-white/48 hover:text-white/88 hover:bg-white/4 transition-colors text-left tracking-[0.12px]"
 				>

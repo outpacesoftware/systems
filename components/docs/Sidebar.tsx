@@ -81,9 +81,12 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 		<>
 			{/* Mobile overlay */}
 			{mobileOpen && (
-				<div
-					className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+				<button
+					type="button"
+					className="fixed inset-0 bg-black/60 z-40 lg:hidden cursor-default"
 					onClick={onClose}
+					onKeyDown={(e) => e.key === "Escape" && onClose?.()}
+					aria-label="Close sidebar"
 				/>
 			)}
 
@@ -114,7 +117,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 											<Link
 												href={item.href}
 												onClick={onClose}
-												className={`block py-1.5 text-[12px] leading-[20px] tracking-[0.12px] transition-colors ${
+												className={`block py-1.5 text-[12px] leading-[20px] tracking-[0.12px] font-medium transition-colors ${
 													isActive
 														? "text-white/88"
 														: "text-white/64 hover:text-white/88"

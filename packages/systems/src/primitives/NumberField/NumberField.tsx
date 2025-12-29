@@ -168,18 +168,19 @@ Label.displayName = "NumberField.Label";
 // Group
 // ============================================================================
 
-export interface NumberFieldGroupProps extends HTMLAttributes<HTMLDivElement> {
+export interface NumberFieldGroupProps
+	extends HTMLAttributes<HTMLFieldSetElement> {
 	children: ReactNode;
 }
 
-const Group = forwardRef<HTMLDivElement, NumberFieldGroupProps>(
+const Group = forwardRef<HTMLFieldSetElement, NumberFieldGroupProps>(
 	(props, ref) => {
 		const { children, className, ...rest } = props;
 
 		return (
-			<div ref={ref} role="group" className={className} {...rest}>
+			<fieldset ref={ref} className={className} {...rest}>
 				{children}
-			</div>
+			</fieldset>
 		);
 	},
 );
@@ -204,7 +205,7 @@ const Input = forwardRef<HTMLInputElement, NumberFieldInputProps>(
 		const handleChange = useCallback(
 			(event: React.ChangeEvent<HTMLInputElement>) => {
 				const newValue = parseFloat(event.target.value);
-				if (!isNaN(newValue)) {
+				if (!Number.isNaN(newValue)) {
 					context.onValueChange(newValue);
 				}
 			},

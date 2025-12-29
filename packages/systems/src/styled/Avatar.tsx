@@ -1,11 +1,6 @@
 "use client";
 
-import {
-	forwardRef,
-	type HTMLAttributes,
-	type ImgHTMLAttributes,
-	useState,
-} from "react";
+import { forwardRef, type HTMLAttributes, useState } from "react";
 
 // ============================================================================
 // Types

@@ -71,16 +71,15 @@ Button.displayName = "Toolbar.Button";
 // Separator
 // ============================================================================
 
-export interface ToolbarSeparatorProps extends HTMLAttributes<HTMLDivElement> {}
+export interface ToolbarSeparatorProps extends HTMLAttributes<HTMLHRElement> {}
 
-const Separator = forwardRef<HTMLDivElement, ToolbarSeparatorProps>(
+const Separator = forwardRef<HTMLHRElement, ToolbarSeparatorProps>(
 	(props, ref) => {
 		const { className, ...rest } = props;
 
 		return (
-			<div
+			<hr
 				ref={ref}
-				role="separator"
 				aria-orientation="vertical"
 				className={className}
 				{...rest}
@@ -117,26 +116,20 @@ Link.displayName = "Toolbar.Link";
 // ============================================================================
 
 export interface ToolbarToggleGroupProps
-	extends HTMLAttributes<HTMLDivElement> {
+	extends HTMLAttributes<HTMLFieldSetElement> {
 	/** Single or multiple selection */
 	type?: "single" | "multiple";
 	children: ReactNode;
 }
 
-const ToggleGroup = forwardRef<HTMLDivElement, ToolbarToggleGroupProps>(
+const ToggleGroup = forwardRef<HTMLFieldSetElement, ToolbarToggleGroupProps>(
 	(props, ref) => {
 		const { type = "single", children, className, ...rest } = props;
 
 		return (
-			<div
-				ref={ref}
-				role="group"
-				data-type={type}
-				className={className}
-				{...rest}
-			>
+			<fieldset ref={ref} data-type={type} className={className} {...rest}>
 				{children}
-			</div>
+			</fieldset>
 		);
 	},
 );

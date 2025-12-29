@@ -218,6 +218,7 @@ const List = forwardRef<HTMLUListElement, NavigationMenuListProps>(
 		return (
 			<ul
 				ref={ref}
+				// biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: ul with role="menubar" is WAI-ARIA standard pattern for navigation menus
 				role="menubar"
 				aria-orientation={context.orientation}
 				data-orientation={context.orientation}

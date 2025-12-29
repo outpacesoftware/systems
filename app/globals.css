@@ -276,13 +276,16 @@ select:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-slide-up {
+    /* biome-ignore lint/complexity/noImportantStyles: !important required to override animations for accessibility */
     animation: none !important;
   }
 
   *,
   *::before,
   *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: !important required to override transitions for accessibility */
     transition-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: !important required to override animations for accessibility */
     animation-duration: 0.01ms !important;
   }
 }

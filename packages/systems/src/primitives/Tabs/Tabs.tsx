@@ -260,6 +260,7 @@ const Content = forwardRef<HTMLDivElement, TabsContentProps>((props, ref) => {
 			id={`${context.baseId}-content-${value}`}
 			aria-labelledby={`${context.baseId}-trigger-${value}`}
 			hidden={!isSelected}
+			// biome-ignore lint/a11y/noNoninteractiveTabindex: tabIndex={0} on tabpanel is WAI-ARIA standard pattern for keyboard navigation
 			tabIndex={0}
 			data-state={isSelected ? "active" : "inactive"}
 			className={className}

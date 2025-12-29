@@ -6,7 +6,7 @@ import { forwardRef, type HTMLAttributes } from "react";
 // Types
 // ============================================================================
 
-export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
+export interface SeparatorProps extends HTMLAttributes<HTMLHRElement> {
 	/** Orientation */
 	orientation?: "horizontal" | "vertical";
 	/** Visual variant */
@@ -31,7 +31,7 @@ const variantStyles = {
 // Component
 // ============================================================================
 
-export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
+export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
 	(
 		{
 			orientation = "horizontal",
@@ -42,12 +42,11 @@ export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
 		ref,
 	) => {
 		return (
-			<div
+			<hr
 				ref={ref}
-				role="separator"
 				aria-orientation={orientation}
 				className={`
-          shrink-0
+          shrink-0 border-0
           ${orientationStyles[orientation]}
           ${variantStyles[variant]}
           ${className}

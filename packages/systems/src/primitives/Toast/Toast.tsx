@@ -9,10 +9,8 @@ import {
 	useCallback,
 	useContext,
 	useEffect,
-	useId,
 	useState,
 } from "react";
-import { createPortal } from "react-dom";
 
 // ============================================================================
 // Context
@@ -50,7 +48,8 @@ export interface ToastProviderProps {
 }
 
 function Provider(props: ToastProviderProps) {
-	const { duration = 5000, children } = props;
+	const { children } = props;
+	// duration can be used for future auto-dismiss functionality
 
 	return <>{children}</>;
 }
@@ -90,16 +89,15 @@ const Viewport = forwardRef<HTMLOListElement, ToastViewportProps>(
 		}, [hotkey, ref]);
 
 		return (
-			<ol
+			<section
 				ref={ref}
-				role="region"
 				aria-label={label}
 				tabIndex={-1}
 				className={className}
 				{...rest}
 			>
 				{children}
-			</ol>
+			</section>
 		);
 	},
 );

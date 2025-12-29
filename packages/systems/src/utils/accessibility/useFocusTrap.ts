@@ -91,13 +91,6 @@ export function useFocusTrap(
 		}
 	}, [getFocusableElements]);
 
-	const focusLast = useCallback(() => {
-		const elements = getFocusableElements();
-		if (elements.length > 0) {
-			elements[elements.length - 1].focus();
-		}
-	}, [getFocusableElements]);
-
 	// Handle activation and deactivation
 	useEffect(() => {
 		if (!enabled) return;

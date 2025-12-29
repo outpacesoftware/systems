@@ -7,7 +7,6 @@ import {
 	AlertDialog,
 	Avatar,
 	Button,
-	Checkbox,
 	CheckboxGroup,
 	Collapsible,
 	Combobox,
@@ -28,7 +27,6 @@ import {
 	Select,
 	Separator,
 	Slider,
-	Switch,
 	Tabs,
 	Toast,
 	Toggle,
@@ -256,8 +254,13 @@ function RadioDemo() {
 	return (
 		<div className="flex flex-col gap-3">
 			{["option1", "option2", "option3"].map((option) => (
-				<label key={option} className="flex items-center gap-2 cursor-pointer">
+				<label
+					key={option}
+					htmlFor={`radio-${option}`}
+					className="flex items-center gap-2 cursor-pointer"
+				>
 					<Radio
+						id={`radio-${option}`}
 						checked={value === option}
 						onChange={() => setValue(option)}
 						className="w-5 h-5 rounded-full border border-white/16 bg-white/4 checked:border-white checked:bg-white appearance-none cursor-pointer relative after:absolute after:inset-[5px] after:rounded-full after:bg-black after:opacity-0 checked:after:opacity-100"
@@ -409,7 +412,7 @@ function AccordionDemo() {
 			>
 				<Accordion.Trigger className="w-full px-4 py-3 text-left text-white hover:bg-white/4 flex justify-between items-center">
 					Is it accessible?
-					<span className="text-white/48">+</span>
+					<Plus size={14} strokeWidth={1.5} className="text-white/48" />
 				</Accordion.Trigger>
 				<Accordion.Content className="px-4 py-3 text-white/72 bg-white/4">
 					Yes. It adheres to the WAI-ARIA design pattern.
@@ -421,7 +424,7 @@ function AccordionDemo() {
 			>
 				<Accordion.Trigger className="w-full px-4 py-3 text-left text-white hover:bg-white/4 flex justify-between items-center">
 					Is it styled?
-					<span className="text-white/48">+</span>
+					<Plus size={14} strokeWidth={1.5} className="text-white/48" />
 				</Accordion.Trigger>
 				<Accordion.Content className="px-4 py-3 text-white/72 bg-white/4">
 					No. It&apos;s unstyled by default, giving you freedom over the look
@@ -434,7 +437,7 @@ function AccordionDemo() {
 			>
 				<Accordion.Trigger className="w-full px-4 py-3 text-left text-white hover:bg-white/4 flex justify-between items-center">
 					Can it be animated?
-					<span className="text-white/48">+</span>
+					<Plus size={14} strokeWidth={1.5} className="text-white/48" />
 				</Accordion.Trigger>
 				<Accordion.Content className="px-4 py-3 text-white/72 bg-white/4">
 					Yes! You can animate the opening and closing.
@@ -598,22 +601,28 @@ function PopoverDemo() {
 					</div>
 					<div className="grid grid-cols-2 gap-2">
 						<div>
-							<label className="text-white/48 text-xs">Width</label>
+							<label htmlFor="popover-width" className="text-white/48 text-xs">
+								Width
+							</label>
 							<Input
+								id="popover-width"
 								defaultValue="100%"
 								className="w-full px-2 py-1 bg-white/4 border border-white/8 rounded text-white text-sm"
 							/>
 						</div>
 						<div>
-							<label className="text-white/48 text-xs">Height</label>
+							<label htmlFor="popover-height" className="text-white/48 text-xs">
+								Height
+							</label>
 							<Input
+								id="popover-height"
 								defaultValue="auto"
 								className="w-full px-2 py-1 bg-white/4 border border-white/8 rounded text-white text-sm"
 							/>
 						</div>
 					</div>
 					<Popover.Close className="absolute top-2 right-2 text-white/48 hover:text-white">
-						×
+						<X size={14} strokeWidth={1.5} />
 					</Popover.Close>
 				</Popover.Content>
 			</Popover.Portal>
@@ -648,7 +657,7 @@ function ToastDemo() {
 							Your changes have been saved.
 						</Toast.Description>
 						<Toast.Close className="absolute top-2 right-2 text-white/48 hover:text-white">
-							×
+							<X size={14} strokeWidth={1.5} />
 						</Toast.Close>
 					</Toast.Root>
 				)}
@@ -696,6 +705,7 @@ function ScrollAreaDemo() {
 			<ScrollArea.Viewport className="w-full h-full p-4">
 				<div className="space-y-4">
 					{Array.from({ length: 20 }).map((_, i) => (
+						// biome-ignore lint/suspicious/noArrayIndexKey: demo items with no stable identities
 						<div key={i} className="text-white/72 py-2 border-b border-white/4">
 							Item {i + 1}
 						</div>
@@ -724,7 +734,11 @@ function CollapsibleDemo() {
 		>
 			<Collapsible.Trigger className="flex items-center justify-between w-full px-4 py-2 bg-white/4 rounded-lg text-white hover:bg-white/8 transition-colors">
 				<span>Recent Projects (3)</span>
-				<span>{open ? "−" : "+"}</span>
+				{open ? (
+					<Minus size={14} strokeWidth={1.5} />
+				) : (
+					<Plus size={14} strokeWidth={1.5} />
+				)}
 			</Collapsible.Trigger>
 			<Collapsible.Content className="mt-2 space-y-2">
 				<div className="px-4 py-2 bg-white/4 rounded-lg text-white/72">
@@ -848,11 +862,11 @@ function NumberFieldDemo() {
 			</NumberField.Label>
 			<NumberField.Group className="flex border border-white/8 rounded-lg overflow-hidden">
 				<NumberField.Decrement className="px-3 py-2 bg-white/4 text-white hover:bg-white/8 transition-colors">
-					−
+					<Minus size={14} strokeWidth={1.5} />
 				</NumberField.Decrement>
 				<NumberField.Input className="w-16 text-center bg-transparent text-white border-x border-white/8 focus:outline-none" />
 				<NumberField.Increment className="px-3 py-2 bg-white/4 text-white hover:bg-white/8 transition-colors">
-					+
+					<Plus size={14} strokeWidth={1.5} />
 				</NumberField.Increment>
 			</NumberField.Group>
 		</NumberField.Root>
@@ -975,7 +989,9 @@ function ComboboxDemo() {
 					placeholder="Search fruits..."
 					className="flex-1 px-3 py-2 bg-white/4 text-white placeholder:text-white/32 focus:outline-none"
 				/>
-				<Combobox.Trigger className="px-3 bg-white/4 text-white/48 hover:text-white transition-colors" />
+				<Combobox.Trigger className="px-3 bg-white/4 text-white/48 hover:text-white transition-colors">
+					<ChevronDown size={14} strokeWidth={1.5} />
+				</Combobox.Trigger>
 			</div>
 			<Combobox.Portal>
 				<Combobox.Content className="absolute mt-1 w-full max-w-xs bg-black border border-white/8 rounded-lg shadow-xl overflow-hidden z-50">

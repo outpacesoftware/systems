@@ -114,9 +114,8 @@ const Root = forwardRef<HTMLDivElement, SliderRootProps>((props, ref) => {
 				getPercentage,
 			}}
 		>
-			<div
+			<fieldset
 				ref={ref}
-				role="group"
 				aria-labelledby={`slider-label-${id}`}
 				data-orientation={orientation}
 				data-disabled={disabled || undefined}
@@ -124,7 +123,7 @@ const Root = forwardRef<HTMLDivElement, SliderRootProps>((props, ref) => {
 				{...rest}
 			>
 				{children}
-			</div>
+			</fieldset>
 		</SliderContext.Provider>
 	);
 });

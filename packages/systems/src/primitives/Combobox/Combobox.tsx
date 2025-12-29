@@ -11,7 +11,6 @@ import {
 	useContext,
 	useEffect,
 	useId,
-	useRef,
 	useState,
 } from "react";
 import { createPortal } from "react-dom";
@@ -368,6 +367,8 @@ const Item = forwardRef<HTMLDivElement, ComboboxItemProps>((props, ref) => {
 	);
 
 	return (
+		// biome-ignore lint/a11y/useFocusableInteractive: Option is part of listbox pattern, keyboard nav handled by parent
+		// biome-ignore lint/a11y/useKeyWithClickEvents: Keyboard navigation handled by Combobox.Content
 		<div
 			ref={ref}
 			role="option"

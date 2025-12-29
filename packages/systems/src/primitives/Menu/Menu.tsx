@@ -397,21 +397,13 @@ Item.displayName = "Menu.Item";
 // Separator
 // ============================================================================
 
-export interface MenuSeparatorProps extends HTMLAttributes<HTMLDivElement> {}
+export interface MenuSeparatorProps extends HTMLAttributes<HTMLHRElement> {}
 
-const MenuSeparator = forwardRef<HTMLDivElement, MenuSeparatorProps>(
+const MenuSeparator = forwardRef<HTMLHRElement, MenuSeparatorProps>(
 	(props, ref) => {
 		const { className, ...rest } = props;
 
-		return (
-			<div
-				ref={ref}
-				role="separator"
-				aria-orientation="horizontal"
-				className={className}
-				{...rest}
-			/>
-		);
+		return <hr ref={ref} className={className} {...rest} />;
 	},
 );
 

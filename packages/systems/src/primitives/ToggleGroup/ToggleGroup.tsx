@@ -104,15 +104,14 @@ const Root = forwardRef<HTMLDivElement, ToggleGroupRootProps>((props, ref) => {
 		<ToggleGroupContext.Provider
 			value={{ type, value, onValueChange: handleValueChange, disabled }}
 		>
-			<div
+			<fieldset
 				ref={ref}
-				role="group"
 				data-orientation={orientation}
 				className={className}
 				{...rest}
 			>
 				{children}
-			</div>
+			</fieldset>
 		</ToggleGroupContext.Provider>
 	);
 });
@@ -151,12 +150,12 @@ const Item = forwardRef<HTMLButtonElement, ToggleGroupItemProps>(
 		}, [context, value, isDisabled]);
 
 		return (
+			// biome-ignore lint/a11y/useSemanticElements: button with role="radio" is acceptable for toggle groups
 			<button
 				ref={ref}
 				type="button"
 				role="radio"
 				aria-checked={isPressed}
-				aria-pressed={isPressed}
 				disabled={isDisabled}
 				data-state={isPressed ? "on" : "off"}
 				data-disabled={isDisabled ? "" : undefined}

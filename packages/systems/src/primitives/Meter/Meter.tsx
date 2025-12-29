@@ -57,6 +57,7 @@ const Root = forwardRef<HTMLDivElement, MeterRootProps>((props, ref) => {
 		: `${Math.round(percentage)}%`;
 
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: HTML <meter> has limited styling support, using div with role="meter" for flexibility
 		<div
 			ref={ref}
 			role="meter"

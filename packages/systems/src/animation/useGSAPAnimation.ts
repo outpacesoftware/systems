@@ -1,6 +1,6 @@
 "use client";
 
-import { type RefObject, useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useAnimationContext } from "./AnimationProvider";
 import type {
 	GSAPTimeline,

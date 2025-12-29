@@ -88,7 +88,7 @@ export function useRadio(props: UseRadioProps = {}): UseRadioReturn {
 	);
 
 	const handleKeyDown = useCallback(
-		(event: KeyboardEvent<HTMLInputElement>) => {
+		(_event: KeyboardEvent<HTMLInputElement>) => {
 			// Space/Enter is handled natively for radio buttons
 			// Arrow keys for navigation are handled by browser
 		},

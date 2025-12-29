@@ -63,6 +63,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 						role="switch"
 						id={id}
 						checked={checked}
+						aria-checked={checked}
 						onChange={(e) => onChange?.(e.target.checked)}
 						disabled={disabled}
 						className="peer sr-only"

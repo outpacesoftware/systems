@@ -282,10 +282,9 @@ const Content = forwardRef<HTMLDivElement, AccordionContentProps>(
 		}
 
 		return (
-			<div
+			<section
 				ref={ref}
 				id={itemContext.contentId}
-				role="region"
 				aria-labelledby={itemContext.triggerId}
 				hidden={!itemContext.isOpen}
 				data-state={itemContext.isOpen ? "open" : "closed"}
@@ -293,7 +292,7 @@ const Content = forwardRef<HTMLDivElement, AccordionContentProps>(
 				{...rest}
 			>
 				{children}
-			</div>
+			</section>
 		);
 	},
 );

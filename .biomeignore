@@ -1,0 +1,2 @@
+# Ignore Tailwind CSS v4 specific syntax that biome doesn't understand
+app/globals.css

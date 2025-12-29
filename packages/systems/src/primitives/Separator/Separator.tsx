@@ -26,11 +26,18 @@ export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
 			...rest
 		} = props;
 
-		return (
+		return decorative ? (
 			<div
 				ref={ref}
-				role={decorative ? "none" : "separator"}
-				aria-orientation={decorative ? undefined : orientation}
+				role="none"
+				data-orientation={orientation}
+				className={className}
+				{...rest}
+			/>
+		) : (
+			<hr
+				ref={ref}
+				aria-orientation={orientation}
 				data-orientation={orientation}
 				className={className}
 				{...rest}

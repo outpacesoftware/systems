@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, Copy } from "lucide-react";
 import { Highlight, type PrismTheme } from "prism-react-renderer";
 import { useCallback, useState } from "react";
 
@@ -70,11 +71,7 @@ interface CodeBlockProps {
 	showLineNumbers?: boolean;
 }
 
-export function CodeBlock({
-	code,
-	language = "tsx",
-	showLineNumbers = false,
-}: CodeBlockProps) {
+export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
 	const [copied, setCopied] = useState(false);
 
 	const copyToClipboard = useCallback(() => {
@@ -86,20 +83,28 @@ export function CodeBlock({
 	return (
 		<div className="relative group rounded-lg overflow-hidden border border-white/8">
 			<button
+				type="button"
 				onClick={copyToClipboard}
-				className="absolute top-2 right-2 z-10 px-2 py-1 text-[10px] leading-[13px] text-white/48 hover:text-white/88 bg-white/8 hover:bg-white/16 rounded transition-colors tracking-[0.12px] opacity-0 group-hover:opacity-100"
+				className="absolute top-2 right-2 z-10 p-1.5 text-white/48 hover:text-white/88 hover:bg-white/16 rounded transition-colors"
+				aria-label={copied ? "Copied" : "Copy to clipboard"}
 			>
-				{copied ? "Copied!" : "Copy"}
+				{copied ? (
+					<Check size={12} strokeWidth={1.25} />
+				) : (
+					<Copy size={12} strokeWidth={1.25} fill="none" />
+				)}
 			</button>
 			<Highlight theme={tokyoNight} code={code.trim()} language={language}>
-				{({ className, style, tokens, getLineProps, getTokenProps }) => (
+				{({ style, tokens, getLineProps, getTokenProps }) => (
 					<pre
 						className="p-4 overflow-x-auto text-[13px] leading-5 m-0 bg-white/8"
 						style={{ ...style, backgroundColor: undefined }}
 					>
 						{tokens.map((line, i) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: tokens are stable and never reordered
 							<div key={i} {...getLineProps({ line })}>
 								{line.map((token, key) => (
+									// biome-ignore lint/suspicious/noArrayIndexKey: tokens are stable and never reordered
 									<span key={key} {...getTokenProps({ token })} />
 								))}
 							</div>

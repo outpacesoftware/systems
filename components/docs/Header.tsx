@@ -9,7 +9,9 @@ const Logo = () => (
 		viewBox="0 0 29 11"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
 	>
+		<title>Outpace Systems Logo</title>
 		<path
 			d="M14.5 5.5C14.5 2.46243 12.0655 0 9.0625 0H5.4375C2.43445 0 0 2.46243 0 5.5C0 8.53757 2.43445 11 5.4375 11H9.0625C12.0655 11 14.5 8.53757 14.5 5.5Z"
 			fill="rgba(255, 255, 255, 0.88)"
@@ -32,7 +34,9 @@ const MenuIcon = () => (
 		viewBox="0 0 18 12"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
 	>
+		<title>Menu</title>
 		<path
 			d="M0 0H18V2H0V0ZM0 5H18V7H0V5ZM0 10H18V12H0V10Z"
 			fill="currentColor"
@@ -47,7 +51,9 @@ const CloseIcon = () => (
 		viewBox="0 0 14 14"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
 	>
+		<title>Close</title>
 		<path
 			d="M1 1L13 13M1 13L13 1"
 			stroke="currentColor"
@@ -68,6 +74,7 @@ export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 			<div className="h-full flex items-center justify-between px-4">
 				<div className="flex items-center gap-3">
 					<button
+						type="button"
 						onClick={onMobileMenuToggle}
 						className="lg:hidden p-2 -ml-2 text-white/72 hover:text-white/88 transition-colors"
 						aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -76,7 +83,7 @@ export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 					</button>
 					<Link href="/" className="flex items-center gap-3">
 						<Logo />
-						<span className="text-[15px] leading-5 font-semibold text-white/88 tracking-[0.12px]">
+						<span className="text-[12px] leading-5 font-semibold text-white/88 tracking-[0.12px]">
 							Outpace Systems
 						</span>
 					</Link>
