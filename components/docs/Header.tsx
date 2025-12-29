@@ -70,7 +70,7 @@ interface HeaderProps {
 
 export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 	return (
-		<header className="h-12 sticky top-0 backdrop-blur-md z-50 px-8">
+		<header className="h-14 sticky top-0 backdrop-blur-md z-50 px-8">
 			<div className="h-full flex items-center justify-between">
 				<div className="flex items-center gap-3">
 					<button
@@ -81,11 +81,8 @@ export function Header({ mobileMenuOpen, onMobileMenuToggle }: HeaderProps) {
 					>
 						{mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
 					</button>
-					<Link href="/" className="flex items-center gap-3">
+					<Link href="/" className="flex items-center">
 						<Logo />
-						<span className="text-[12px] leading-5 font-semibold text-white/88 tracking-[0.12px]">
-							Outpace Systems
-						</span>
 					</Link>
 				</div>
 

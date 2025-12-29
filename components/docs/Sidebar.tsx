@@ -93,9 +93,9 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 			{/* Sidebar */}
 			<aside
 				className={`
-          fixed lg:sticky top-12 left-0 z-40
+          fixed lg:sticky top-14 left-0 z-40
           w-64 lg:w-56 shrink-0
-          h-[calc(100vh-3rem)]
+          h-[calc(100vh-3.5rem)]
           bg-transparent
           overflow-y-auto px-8 scrollbar-none
           transform transition-transform duration-200 ease-out
