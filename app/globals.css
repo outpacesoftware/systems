@@ -11,7 +11,7 @@ html {
 }
 
 :root {
-  --background: #0A0A0A;
+  --background: #141414;
   --background-gradient: radial-gradient(137.28% 42.82% at 49.87% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.00) 100%), #0A0A0A;
   --foreground: rgba(255, 255, 255, 0.88);
   --font-display: var(--font-display), "InterDisplay", sans-serif;
@@ -95,6 +95,15 @@ body {
   background: radial-gradient(137.28% 42.82% at 49.87% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.00) 100%);
   pointer-events: none;
   z-index: 100;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* ============================================================================

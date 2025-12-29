@@ -1,5 +1,7 @@
 "use client";
 
+import { CodeBlock } from "@/components/docs/CodeBlock";
+
 export default function AccessibilityPage() {
 	return (
 		<div className="max-w-4xl">
@@ -30,9 +32,9 @@ export default function AccessibilityPage() {
 						animations for users who have enabled the &quot;Reduce motion&quot;
 						setting in their operating system.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useReducedMotion } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useReducedMotion } from '@outpacesoftware/systems';
 
 function AnimatedComponent() {
   const prefersReducedMotion = useReducedMotion();
@@ -48,8 +50,7 @@ function AnimatedComponent() {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* VisuallyHidden */}
@@ -62,9 +63,9 @@ function AnimatedComponent() {
 						readers. Useful for providing additional context without affecting
 						visual design.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { VisuallyHidden } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { VisuallyHidden } from '@outpacesoftware/systems';
 
 // Icon button with accessible label
 <button>
@@ -76,8 +77,7 @@ function AnimatedComponent() {
 <VisuallyHidden focusable>
   <a href="#main-content">Skip to main content</a>
 </VisuallyHidden>`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* useFocusTrap */}
@@ -90,9 +90,9 @@ function AnimatedComponent() {
 						dialogs, and other overlay components. Handles Tab cycling and
 						Escape key.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useFocusTrap } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useFocusTrap } from '@outpacesoftware/systems';
 
 function Modal({ isOpen, onClose }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -111,8 +111,7 @@ function Modal({ isOpen, onClose }) {
     </div>
   );
 }`}
-						</pre>
-					</div>
+					/>
 				</div>
 
 				{/* useAriaLiveAnnouncer */}
@@ -124,9 +123,9 @@ function Modal({ isOpen, onClose }) {
 						Announce messages to screen readers using an aria-live region. Use
 						for dynamic content updates, form validation, and notifications.
 					</p>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-							{`import { useAriaLiveAnnouncer } from '@outpacesoftware/systems';
+					<CodeBlock
+						language="tsx"
+						code={`import { useAriaLiveAnnouncer } from '@outpacesoftware/systems';
 
 function SearchResults({ results }) {
   const { announce } = useAriaLiveAnnouncer();
@@ -143,8 +142,7 @@ const { announce } = useAriaLiveAnnouncer({
   politeness: 'assertive'
 });
 announce('Error: Invalid email address');`}
-						</pre>
-					</div>
+					/>
 				</div>
 			</section>
 
@@ -369,9 +367,9 @@ announce('Error: Invalid email address');`}
 					form controls.
 				</p>
 
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-					<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-						{`import { Primitives } from '@outpacesoftware/systems';
+				<CodeBlock
+					language="tsx"
+					code={`import { Primitives } from '@outpacesoftware/systems';
 
 const { Field } = Primitives;
 
@@ -394,8 +392,7 @@ const { Field } = Primitives;
 // - aria-errormessage (when hasError is true)
 // - aria-required (when required is true)
 // - disabled (when disabled is true)`}
-					</pre>
-				</div>
+				/>
 			</section>
 
 			{/* Testing */}

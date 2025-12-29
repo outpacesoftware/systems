@@ -1,5 +1,7 @@
 "use client";
 
+import { CodeBlock } from "@/components/docs/CodeBlock";
+
 export default function AnimationPage() {
 	return (
 		<div className="max-w-4xl">
@@ -20,14 +22,15 @@ export default function AnimationPage() {
 					animations:
 				</p>
 
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto mb-6">
-					<pre className="text-[13px] leading-5 text-white/88 tracking-[0.12px]">
-						{`npm install gsap
+				<div className="mb-6">
+					<CodeBlock
+						language="bash"
+						code={`npm install gsap
 # or
 pnpm add gsap
 # or
 yarn add gsap`}
-					</pre>
+					/>
 				</div>
 
 				<div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4">

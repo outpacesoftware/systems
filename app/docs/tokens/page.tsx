@@ -1,5 +1,6 @@
 "use client";
 
+import { CodeBlock } from "@/components/docs/CodeBlock";
 import { useState } from "react";
 
 // Color tokens
@@ -255,9 +256,9 @@ export default function TokensPage() {
 					<h3 className="text-[10px] leading-[13px] font-medium text-white/48 uppercase tracking-wider mb-4">
 						Usage
 					</h3>
-					<div className="bg-white/4 border border-white/8 rounded-lg p-4 overflow-x-auto">
-						<pre className="text-[13px] leading-4 text-white/88 tracking-[0.12px]">
-							{`{/* Size classes */}
+					<CodeBlock
+						language="tsx"
+						code={`{/* Size classes */}
 <p className="text-xs">Extra small text</p>
 <p className="text-sm">Small text</p>
 <p className="text-base">Base text</p>
@@ -273,8 +274,7 @@ export default function TokensPage() {
 {/* Combined */}
 <h1 className="text-4xl font-bold">Page Title</h1>
 <p className="text-lg text-white/70">Subtitle text</p>`}
-						</pre>
-					</div>
+					/>
 				</div>
 			</section>
 
@@ -300,9 +300,9 @@ export default function TokensPage() {
 						</div>
 					))}
 				</div>
-				<div className="bg-white/4 border border-white/8 rounded-lg p-4">
-					<pre className="text-[13px] leading-4 text-white/88 tracking-[0.12px]">
-						{`{/* Padding */}
+				<CodeBlock
+					language="tsx"
+					code={`{/* Padding */}
 <div className="p-4">16px padding</div>
 <div className="px-6 py-3">24px horizontal, 12px vertical</div>
 
@@ -312,8 +312,7 @@ export default function TokensPage() {
 
 {/* Gap */}
 <div className="flex gap-4">16px gap between items</div>`}
-					</pre>
-				</div>
+				/>
 			</section>
 		</div>
 	);
