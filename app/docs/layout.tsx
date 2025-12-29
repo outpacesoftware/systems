@@ -11,7 +11,7 @@ export default function DocsLayout({
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<div className="min-h-screen bg-black text-white bg-gradient-fixed">
+		<div className="min-h-screen text-white bg-gradient-fixed">
 			<Header
 				mobileMenuOpen={mobileMenuOpen}
 				onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
