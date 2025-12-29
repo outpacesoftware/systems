@@ -21,7 +21,15 @@ export default function DocsLayout({
 					mobileOpen={mobileMenuOpen}
 					onClose={() => setMobileMenuOpen(false)}
 				/>
-				<main className="flex-1 min-w-0 px-4 md:px-8 py-16 flex justify-center">
+				<main
+					className="flex-1 min-w-0 px-4 md:px-8 py-16 flex justify-center overflow-y-auto h-[calc(100vh-3.5rem)]"
+					style={{
+						maskImage:
+							"linear-gradient(to bottom, transparent 0%, black 64px, black calc(100% - 64px), transparent 100%)",
+						WebkitMaskImage:
+							"linear-gradient(to bottom, transparent 0%, black 64px, black calc(100% - 64px), transparent 100%)",
+					}}
+				>
 					<div className="w-full max-w-3xl">{children}</div>
 				</main>
 			</div>

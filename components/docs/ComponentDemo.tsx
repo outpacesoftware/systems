@@ -1198,7 +1198,7 @@ export function ComponentDemo({ name }: ComponentDemoProps) {
 	}
 
 	return (
-		<div className="p-8 bg-white/4 rounded-2xl">
+		<div className="p-8 bg-white/4 rounded-xl">
 			<Demo />
 		</div>
 	);
