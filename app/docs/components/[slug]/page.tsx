@@ -53,7 +53,7 @@ export default async function ComponentPage({ params }: PageProps) {
 			<section className="mb-12">
 				<h2 className="text-xl font-semibold text-white/88 mb-4">Import</h2>
 				<CodeBlock
-					code={`import { ${manifest.name} } from '@outpacesoftware/systems';`}
+					code={`import { ${manifest.name} } from '@outpacesoftware/systems/${manifest.name}';`}
 					language="tsx"
 				/>
 			</section>
