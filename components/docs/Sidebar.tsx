@@ -101,7 +101,15 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
 			>
-				<nav className="py-16 space-y-6">
+				{/* Top fade mask */}
+				<div
+					className="sticky top-0 left-0 right-0 h-16 pointer-events-none z-10"
+					style={{
+						background:
+							"linear-gradient(to bottom, #0A0A0A 0%, transparent 100%)",
+					}}
+				/>
+				<nav className="-mt-16 pt-16 pb-16 space-y-6">
 					{navigation.map((section) => (
 						<div key={section.title}>
 							<h3 className="font-mono text-[10px] leading-[14px] text-white/48 uppercase mb-2">
@@ -130,6 +138,14 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 						</div>
 					))}
 				</nav>
+				{/* Bottom fade mask */}
+				<div
+					className="sticky bottom-0 left-0 right-0 h-16 pointer-events-none z-10 -mt-16"
+					style={{
+						background:
+							"linear-gradient(to top, #0A0A0A 0%, transparent 100%)",
+					}}
+				/>
 			</aside>
 		</>
 	);

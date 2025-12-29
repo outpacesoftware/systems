@@ -160,7 +160,7 @@ export function CodeBlock({
 	}, [displayCode]);
 
 	return (
-		<div className="relative group rounded-xl overflow-hidden border border-white/8">
+		<div className="relative group rounded-2xl overflow-hidden">
 			{/* Header */}
 			{shouldShowSwitcher && (
 				<div className="flex items-center justify-between px-4 py-3 bg-white/4 border-b border-white/8">
