@@ -1,6 +1,6 @@
-export { Sidebar } from './Sidebar';
-export { Header } from './Header';
-export { CodeBlock } from './CodeBlock';
-export { PropsTable } from './PropsTable';
-export { ComponentPreview } from './ComponentPreview';
-export { ComponentDemo } from './ComponentDemo';
+export { CodeBlock } from "./CodeBlock";
+export { ComponentDemo } from "./ComponentDemo";
+export { ComponentPreview } from "./ComponentPreview";
+export { Header } from "./Header";
+export { PropsTable } from "./PropsTable";
+export { Sidebar } from "./Sidebar";

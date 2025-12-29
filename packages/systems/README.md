@@ -88,7 +88,6 @@ import { Primitives } from '@outpacesoftware/systems';
 This design system is optimized for AI consumption. Each component includes a manifest with:
 
 - Semantic description
-- When to use / when not to use
 - Props documentation
 - Accessibility information
 - Code examples

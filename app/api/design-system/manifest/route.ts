@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { getRegistry } from '@/lib/registry';
+import { NextResponse } from "next/server";
+import { getRegistry } from "@/lib/registry";
 
 /**
  * GET /api/design-system/manifest
@@ -9,11 +9,11 @@ import { getRegistry } from '@/lib/registry';
  * or process the entire design system.
  */
 export async function GET() {
-  const registry = getRegistry();
+	const registry = getRegistry();
 
-  return NextResponse.json(registry, {
-    headers: {
-      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-    },
-  });
+	return NextResponse.json(registry, {
+		headers: {
+			"Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+		},
+	});
 }

@@ -1,8 +1,8 @@
 export {
-  PreviewCard,
-  type PreviewCardRootProps,
-  type PreviewCardTriggerProps,
-  type PreviewCardPortalProps,
-  type PreviewCardContentProps,
-  type PreviewCardArrowProps,
-} from './PreviewCard';
+	PreviewCard,
+	type PreviewCardArrowProps,
+	type PreviewCardContentProps,
+	type PreviewCardPortalProps,
+	type PreviewCardRootProps,
+	type PreviewCardTriggerProps,
+} from "./PreviewCard";

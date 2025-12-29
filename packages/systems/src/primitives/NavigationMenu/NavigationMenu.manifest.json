@@ -1,84 +1,74 @@
 {
-  "name": "NavigationMenu",
-  "displayName": "Navigation Menu",
-  "description": "A collection of links for navigating websites",
-  "category": "navigation",
-  "tags": ["navigation", "menu", "links", "header"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Main site navigation",
-    "Header navigation with dropdowns",
-    "Multi-level navigation menus"
-  ],
-  "dontUseWhen": [
-    "Dropdown action menus (use Menu)",
-    "Context menus (use ContextMenu)",
-    "Sidebar navigation without dropdowns"
-  ],
-  "props": {
-    "value": {
-      "type": "string",
-      "required": false,
-      "description": "Currently active item (controlled)"
-    },
-    "defaultValue": {
-      "type": "string",
-      "required": false,
-      "default": "''",
-      "description": "Default active item"
-    },
-    "onValueChange": {
-      "type": "(value: string) => void",
-      "required": false,
-      "description": "Called when active item changes"
-    },
-    "orientation": {
-      "type": "'horizontal' | 'vertical'",
-      "required": false,
-      "default": "'horizontal'",
-      "description": "Menu orientation"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container with nav semantics"
-    },
-    "List": {
-      "description": "List of navigation items"
-    },
-    "Item": {
-      "description": "Individual navigation item"
-    },
-    "Trigger": {
-      "description": "Button that opens submenu"
-    },
-    "Content": {
-      "description": "Submenu content"
-    },
-    "Link": {
-      "description": "Navigation link"
-    },
-    "Indicator": {
-      "description": "Visual indicator for active item"
-    },
-    "Viewport": {
-      "description": "Container for dropdown content"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Header navigation",
-      "code": "<NavigationMenu.Root>\n  <NavigationMenu.List>\n    <NavigationMenu.Item>\n      <NavigationMenu.Link href=\"/\" active>Home</NavigationMenu.Link>\n    </NavigationMenu.Item>\n    <NavigationMenu.Item>\n      <NavigationMenu.Trigger>Products</NavigationMenu.Trigger>\n      <NavigationMenu.Content>\n        <NavigationMenu.Link href=\"/products/a\">Product A</NavigationMenu.Link>\n        <NavigationMenu.Link href=\"/products/b\">Product B</NavigationMenu.Link>\n      </NavigationMenu.Content>\n    </NavigationMenu.Item>\n  </NavigationMenu.List>\n</NavigationMenu.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "navigation with menubar",
-    "keyboard": ["Arrow keys", "Enter", "Escape", "Tab"],
-    "focusManagement": "Roving tabindex",
-    "screenReader": "Announces as navigation with menus"
-  },
-  "relatedComponents": ["Menu", "Tabs"]
+	"name": "NavigationMenu",
+	"displayName": "Navigation Menu",
+	"description": "A collection of links for navigating websites",
+	"category": "navigation",
+	"tags": ["navigation", "menu", "links", "header"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"value": {
+			"type": "string",
+			"required": false,
+			"description": "Currently active item (controlled)"
+		},
+		"defaultValue": {
+			"type": "string",
+			"required": false,
+			"default": "''",
+			"description": "Default active item"
+		},
+		"onValueChange": {
+			"type": "(value: string) => void",
+			"required": false,
+			"description": "Called when active item changes"
+		},
+		"orientation": {
+			"type": "'horizontal' | 'vertical'",
+			"required": false,
+			"default": "'horizontal'",
+			"description": "Menu orientation"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container with nav semantics"
+		},
+		"List": {
+			"description": "List of navigation items"
+		},
+		"Item": {
+			"description": "Individual navigation item"
+		},
+		"Trigger": {
+			"description": "Button that opens submenu"
+		},
+		"Content": {
+			"description": "Submenu content"
+		},
+		"Link": {
+			"description": "Navigation link"
+		},
+		"Indicator": {
+			"description": "Visual indicator for active item"
+		},
+		"Viewport": {
+			"description": "Container for dropdown content"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Header navigation",
+			"code": "<NavigationMenu.Root>\n  <NavigationMenu.List>\n    <NavigationMenu.Item>\n      <NavigationMenu.Link href=\"/\" active>Home</NavigationMenu.Link>\n    </NavigationMenu.Item>\n    <NavigationMenu.Item>\n      <NavigationMenu.Trigger>Products</NavigationMenu.Trigger>\n      <NavigationMenu.Content>\n        <NavigationMenu.Link href=\"/products/a\">Product A</NavigationMenu.Link>\n        <NavigationMenu.Link href=\"/products/b\">Product B</NavigationMenu.Link>\n      </NavigationMenu.Content>\n    </NavigationMenu.Item>\n  </NavigationMenu.List>\n</NavigationMenu.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "navigation with menubar",
+		"keyboard": ["Arrow keys", "Enter", "Escape", "Tab"],
+		"focusManagement": "Roving tabindex",
+		"screenReader": "Announces as navigation with menus"
+	},
+	"relatedComponents": ["Menu", "Tabs"]
 }

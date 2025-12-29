@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
-import { useSwitch, type UseSwitchProps } from './useSwitch';
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
+import { type UseSwitchProps, useSwitch } from "./useSwitch";
 
 /**
  * Switch size types
  */
-export type SwitchSize = 'sm' | 'md' | 'lg';
+export type SwitchSize = "sm" | "md" | "lg";
 
 /**
  * Props for the Switch component
  */
 export interface SwitchProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange' | 'value'>,
-    UseSwitchProps {
-  /**
-   * The size of the switch
-   * @default "md"
-   */
-  size?: SwitchSize;
+	extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "value">,
+		UseSwitchProps {
+	/**
+	 * The size of the switch
+	 * @default "md"
+	 */
+	size?: SwitchSize;
 
-  /**
-   * Additional CSS class names
-   */
-  className?: string;
+	/**
+	 * Additional CSS class names
+	 */
+	className?: string;
 
-  /**
-   * Content for the switch (e.g., thumb element)
-   */
-  children?: ReactNode;
+	/**
+	 * Content for the switch (e.g., thumb element)
+	 */
+	children?: ReactNode;
 }
 
 /**
@@ -46,46 +46,46 @@ export interface SwitchProps
  * @see https://outpace.systems/components/switch
  */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
-  (props, ref) => {
-    const {
-      size = 'md',
-      className,
-      children,
-      // Extract useSwitch props
-      checked,
-      defaultChecked,
-      disabled,
-      required,
-      onChange,
-      name,
-      value,
-      ...rest
-    } = props;
+	(props, ref) => {
+		const {
+			size = "md",
+			className,
+			children,
+			// Extract useSwitch props
+			checked,
+			defaultChecked,
+			disabled,
+			required,
+			onChange,
+			name,
+			value,
+			...rest
+		} = props;
 
-    const { switchProps, isChecked, isDisabled } = useSwitch({
-      checked,
-      defaultChecked,
-      disabled,
-      required,
-      onChange,
-      name,
-      value,
-    });
+		const { switchProps, isChecked, isDisabled } = useSwitch({
+			checked,
+			defaultChecked,
+			disabled,
+			required,
+			onChange,
+			name,
+			value,
+		});
 
-    return (
-      <button
-        ref={ref}
-        className={className}
-        data-size={size}
-        data-checked={isChecked || undefined}
-        data-disabled={isDisabled || undefined}
-        {...switchProps}
-        {...rest}
-      >
-        {children}
-      </button>
-    );
-  }
+		return (
+			<button
+				ref={ref}
+				className={className}
+				data-size={size}
+				data-checked={isChecked || undefined}
+				data-disabled={isDisabled || undefined}
+				{...switchProps}
+				{...rest}
+			>
+				{children}
+			</button>
+		);
+	},
 );
 
-Switch.displayName = 'Switch';
+Switch.displayName = "Switch";

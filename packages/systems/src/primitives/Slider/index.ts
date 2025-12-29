@@ -1,7 +1,7 @@
 export {
-  Slider,
-  type SliderRootProps,
-  type SliderTrackProps,
-  type SliderRangeProps,
-  type SliderThumbProps,
-} from './Slider';
+	Slider,
+	type SliderRangeProps,
+	type SliderRootProps,
+	type SliderThumbProps,
+	type SliderTrackProps,
+} from "./Slider";

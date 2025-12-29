@@ -1,6 +1,6 @@
 export {
-  Avatar,
-  type AvatarRootProps,
-  type AvatarImageProps,
-  type AvatarFallbackProps,
-} from './Avatar';
+	Avatar,
+	type AvatarFallbackProps,
+	type AvatarImageProps,
+	type AvatarRootProps,
+} from "./Avatar";

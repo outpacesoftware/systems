@@ -1,86 +1,75 @@
 {
-  "$schema": "../../schema/component.schema.json",
-  "name": "Switch",
-  "displayName": "Switch",
-  "description": "Toggle control for switching between on and off states with immediate effect.",
-  "category": "form",
-  "tags": ["form", "toggle", "switch", "on-off", "boolean"],
-  "semanticRole": "toggle-switch",
-  "useWhen": [
-    "Toggling a setting with immediate effect",
-    "Enabling/disabling features",
-    "Binary choices that take effect immediately",
-    "Mobile-style on/off controls"
-  ],
-  "dontUseWhen": [
-    "Selecting options to submit later (use Checkbox)",
-    "Selecting from multiple options (use RadioGroup)",
-    "Triggering an action (use Button)"
-  ],
-  "props": {
-    "checked": {
-      "type": "boolean",
-      "description": "Controlled on/off state"
-    },
-    "defaultChecked": {
-      "type": "boolean",
-      "description": "Default state for uncontrolled usage",
-      "default": false
-    },
-    "size": {
-      "type": "'sm' | 'md' | 'lg'",
-      "description": "The size of the switch",
-      "default": "md",
-      "values": ["sm", "md", "lg"]
-    },
-    "disabled": {
-      "type": "boolean",
-      "description": "Whether the switch is disabled",
-      "default": false
-    },
-    "required": {
-      "type": "boolean",
-      "description": "Whether the switch is required",
-      "default": false,
-      "accessibility": "Sets aria-required"
-    },
-    "onChange": {
-      "type": "(checked: boolean) => void",
-      "description": "Handler called when the switch is toggled"
-    },
-    "name": {
-      "type": "string",
-      "description": "Name attribute for form submission"
-    }
-  },
-  "accessibility": {
-    "role": "switch",
-    "keyboard": ["Space to toggle", "Enter to toggle"],
-    "focusManagement": "Focusable via button semantics. Should have visible focus ring.",
-    "screenReader": "Announces label and on/off state via aria-checked"
-  },
-  "examples": [
-    {
-      "name": "Basic switch",
-      "code": "<Switch />",
-      "description": "Uncontrolled switch"
-    },
-    {
-      "name": "Controlled switch",
-      "code": "<Switch checked={enabled} onChange={setEnabled} />",
-      "description": "Controlled with state"
-    },
-    {
-      "name": "Disabled switch",
-      "code": "<Switch disabled checked />",
-      "description": "Non-interactive switch"
-    },
-    {
-      "name": "Small switch",
-      "code": "<Switch size=\"sm\" />",
-      "description": "Compact switch"
-    }
-  ],
-  "relatedComponents": ["Checkbox", "RadioGroup"],
-  "importPath": "@outpace/systems/primitives/Switch"
+	"$schema": "../../schema/component.schema.json",
+	"name": "Switch",
+	"displayName": "Switch",
+	"description": "Toggle control for switching between on and off states with immediate effect.",
+	"category": "form",
+	"tags": ["form", "toggle", "switch", "on-off", "boolean"],
+	"semanticRole": "toggle-switch",
+	"props": {
+		"checked": {
+			"type": "boolean",
+			"description": "Controlled on/off state"
+		},
+		"defaultChecked": {
+			"type": "boolean",
+			"description": "Default state for uncontrolled usage",
+			"default": false
+		},
+		"size": {
+			"type": "'sm' | 'md' | 'lg'",
+			"description": "The size of the switch",
+			"default": "md",
+			"values": ["sm", "md", "lg"]
+		},
+		"disabled": {
+			"type": "boolean",
+			"description": "Whether the switch is disabled",
+			"default": false
+		},
+		"required": {
+			"type": "boolean",
+			"description": "Whether the switch is required",
+			"default": false,
+			"accessibility": "Sets aria-required"
+		},
+		"onChange": {
+			"type": "(checked: boolean) => void",
+			"description": "Handler called when the switch is toggled"
+		},
+		"name": {
+			"type": "string",
+			"description": "Name attribute for form submission"
+		}
+	},
+	"accessibility": {
+		"role": "switch",
+		"keyboard": ["Space to toggle", "Enter to toggle"],
+		"focusManagement": "Focusable via button semantics. Should have visible focus ring.",
+		"screenReader": "Announces label and on/off state via aria-checked"
+	},
+	"examples": [
+		{
+			"name": "Basic switch",
+			"code": "<Switch />",
+			"description": "Uncontrolled switch"
+		},
+		{
+			"name": "Controlled switch",
+			"code": "<Switch checked={enabled} onChange={setEnabled} />",
+			"description": "Controlled with state"
+		},
+		{
+			"name": "Disabled switch",
+			"code": "<Switch disabled checked />",
+			"description": "Non-interactive switch"
+		},
+		{
+			"name": "Small switch",
+			"code": "<Switch size=\"sm\" />",
+			"description": "Compact switch"
+		}
+	],
+	"relatedComponents": ["Checkbox", "RadioGroup"],
+	"importPath": "@outpace/systems/primitives/Switch"
 }

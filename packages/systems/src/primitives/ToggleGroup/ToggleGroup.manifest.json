@@ -1,78 +1,67 @@
 {
-  "name": "ToggleGroup",
-  "displayName": "Toggle Group",
-  "description": "A set of two-state buttons that can be toggled on or off",
-  "category": "form",
-  "tags": ["form", "toggle", "group", "selection", "segmented"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Selecting one or more options from a small set",
-    "View mode switching",
-    "Formatting options (bold, italic, etc.)",
-    "Segmented controls"
-  ],
-  "dontUseWhen": [
-    "Many options (use Select or RadioGroup)",
-    "Simple on/off toggle (use Switch)",
-    "Navigation between views (use Tabs)"
-  ],
-  "props": {
-    "type": {
-      "type": "'single' | 'multiple'",
-      "required": false,
-      "default": "'single'",
-      "description": "Single or multiple selection mode"
-    },
-    "value": {
-      "type": "string | string[]",
-      "required": false,
-      "description": "Selected value(s) (controlled)"
-    },
-    "defaultValue": {
-      "type": "string | string[]",
-      "required": false,
-      "description": "Default selected value(s)"
-    },
-    "onValueChange": {
-      "type": "(value: string | string[]) => void",
-      "required": false,
-      "description": "Called when value changes"
-    },
-    "disabled": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether all items are disabled"
-    },
-    "orientation": {
-      "type": "'horizontal' | 'vertical'",
-      "required": false,
-      "default": "'horizontal'",
-      "description": "Orientation for keyboard navigation"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container and context provider"
-    },
-    "Item": {
-      "description": "Individual toggle item"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Single selection toggle group",
-      "code": "<ToggleGroup.Root type=\"single\" defaultValue=\"center\">\n  <ToggleGroup.Item value=\"left\">Left</ToggleGroup.Item>\n  <ToggleGroup.Item value=\"center\">Center</ToggleGroup.Item>\n  <ToggleGroup.Item value=\"right\">Right</ToggleGroup.Item>\n</ToggleGroup.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "group with radio/toggle buttons",
-    "keyboard": ["Arrow keys", "Space", "Enter"],
-    "focusManagement": "Roving tabindex within group",
-    "screenReader": "Announces selection state"
-  },
-  "relatedComponents": ["Toggle", "RadioGroup", "Tabs"]
+	"name": "ToggleGroup",
+	"displayName": "Toggle Group",
+	"description": "A set of two-state buttons that can be toggled on or off",
+	"category": "form",
+	"tags": ["form", "toggle", "group", "selection", "segmented"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"type": {
+			"type": "'single' | 'multiple'",
+			"required": false,
+			"default": "'single'",
+			"description": "Single or multiple selection mode"
+		},
+		"value": {
+			"type": "string | string[]",
+			"required": false,
+			"description": "Selected value(s) (controlled)"
+		},
+		"defaultValue": {
+			"type": "string | string[]",
+			"required": false,
+			"description": "Default selected value(s)"
+		},
+		"onValueChange": {
+			"type": "(value: string | string[]) => void",
+			"required": false,
+			"description": "Called when value changes"
+		},
+		"disabled": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether all items are disabled"
+		},
+		"orientation": {
+			"type": "'horizontal' | 'vertical'",
+			"required": false,
+			"default": "'horizontal'",
+			"description": "Orientation for keyboard navigation"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container and context provider"
+		},
+		"Item": {
+			"description": "Individual toggle item"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Single selection toggle group",
+			"code": "<ToggleGroup.Root type=\"single\" defaultValue=\"center\">\n  <ToggleGroup.Item value=\"left\">Left</ToggleGroup.Item>\n  <ToggleGroup.Item value=\"center\">Center</ToggleGroup.Item>\n  <ToggleGroup.Item value=\"right\">Right</ToggleGroup.Item>\n</ToggleGroup.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "group with radio/toggle buttons",
+		"keyboard": ["Arrow keys", "Space", "Enter"],
+		"focusManagement": "Roving tabindex within group",
+		"screenReader": "Announces selection state"
+	},
+	"relatedComponents": ["Toggle", "RadioGroup", "Tabs"]
 }

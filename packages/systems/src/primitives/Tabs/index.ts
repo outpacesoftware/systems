@@ -1,7 +1,7 @@
 export {
-  Tabs,
-  type TabsRootProps,
-  type TabsListProps,
-  type TabsTriggerProps,
-  type TabsContentProps,
-} from './Tabs';
+	Tabs,
+	type TabsContentProps,
+	type TabsListProps,
+	type TabsRootProps,
+	type TabsTriggerProps,
+} from "./Tabs";

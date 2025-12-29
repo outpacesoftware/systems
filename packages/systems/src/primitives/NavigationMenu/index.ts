@@ -1,11 +1,11 @@
 export {
-  NavigationMenu,
-  type NavigationMenuRootProps,
-  type NavigationMenuListProps,
-  type NavigationMenuItemProps,
-  type NavigationMenuTriggerProps,
-  type NavigationMenuContentProps,
-  type NavigationMenuLinkProps,
-  type NavigationMenuIndicatorProps,
-  type NavigationMenuViewportProps,
-} from './NavigationMenu';
+	NavigationMenu,
+	type NavigationMenuContentProps,
+	type NavigationMenuIndicatorProps,
+	type NavigationMenuItemProps,
+	type NavigationMenuLinkProps,
+	type NavigationMenuListProps,
+	type NavigationMenuRootProps,
+	type NavigationMenuTriggerProps,
+	type NavigationMenuViewportProps,
+} from "./NavigationMenu";

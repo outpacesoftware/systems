@@ -1,9 +1,9 @@
 export {
-  Popover,
-  type PopoverRootProps,
-  type PopoverTriggerProps,
-  type PopoverPortalProps,
-  type PopoverContentProps,
-  type PopoverCloseProps,
-  type PopoverArrowProps,
-} from './Popover';
+	Popover,
+	type PopoverArrowProps,
+	type PopoverCloseProps,
+	type PopoverContentProps,
+	type PopoverPortalProps,
+	type PopoverRootProps,
+	type PopoverTriggerProps,
+} from "./Popover";

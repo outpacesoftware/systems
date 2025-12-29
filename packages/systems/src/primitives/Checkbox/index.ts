@@ -1,2 +1,6 @@
-export { Checkbox, type CheckboxProps, type CheckboxSize } from './Checkbox';
-export { useCheckbox, type UseCheckboxProps, type UseCheckboxReturn } from './useCheckbox';
+export { Checkbox, type CheckboxProps, type CheckboxSize } from "./Checkbox";
+export {
+	type UseCheckboxProps,
+	type UseCheckboxReturn,
+	useCheckbox,
+} from "./useCheckbox";

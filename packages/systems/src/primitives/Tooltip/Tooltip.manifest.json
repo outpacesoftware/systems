@@ -1,85 +1,73 @@
 {
-  "$schema": "../../schema/component.schema.json",
-  "name": "Tooltip",
-  "displayName": "Tooltip",
-  "description": "Contextual hint that appears on hover or focus to provide additional information.",
-  "category": "overlay",
-  "tags": ["tooltip", "hint", "help", "hover", "popup"],
-  "semanticRole": "contextual-hint",
-  "useWhen": [
-    "Providing additional context for an element",
-    "Explaining icon-only buttons",
-    "Showing keyboard shortcuts",
-    "Brief supplementary information"
-  ],
-  "dontUseWhen": [
-    "Interactive content is needed (use Popover)",
-    "Content is essential (should be visible by default)",
-    "Long-form content (use Dialog or inline)",
-    "Mobile-only interfaces (no hover)"
-  ],
-  "props": {
-    "open": {
-      "type": "boolean",
-      "description": "Controlled open state"
-    },
-    "defaultOpen": {
-      "type": "boolean",
-      "description": "Default open state",
-      "default": false
-    },
-    "delayDuration": {
-      "type": "number",
-      "description": "Delay before showing tooltip (ms)",
-      "default": 300
-    },
-    "closeDelay": {
-      "type": "number",
-      "description": "Delay before hiding tooltip (ms)",
-      "default": 0
-    },
-    "onOpenChange": {
-      "type": "(isOpen: boolean) => void",
-      "description": "Handler called when open state changes"
-    }
-  },
-  "slots": {
-    "Trigger": {
-      "description": "Element that triggers the tooltip on hover/focus"
-    },
-    "Portal": {
-      "description": "Renders tooltip in a portal"
-    },
-    "Content": {
-      "description": "The tooltip content container"
-    },
-    "Arrow": {
-      "description": "Optional arrow pointing to trigger"
-    }
-  },
-  "accessibility": {
-    "role": "tooltip",
-    "keyboard": ["Focus trigger to show", "Blur to hide", "Escape to dismiss"],
-    "focusManagement": "Tooltip is not focusable. Trigger must be focusable for keyboard users.",
-    "screenReader": "Content announced via aria-describedby on trigger"
-  },
-  "examples": [
-    {
-      "name": "Basic tooltip",
-      "code": "<Tooltip.Root>\n  <Tooltip.Trigger>Hover me</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>Helpful information</Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
-      "description": "Basic tooltip on hover"
-    },
-    {
-      "name": "With arrow",
-      "code": "<Tooltip.Root>\n  <Tooltip.Trigger>Info</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>\n      Content\n      <Tooltip.Arrow />\n    </Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
-      "description": "Tooltip with pointing arrow"
-    },
-    {
-      "name": "Custom delay",
-      "code": "<Tooltip.Root delayDuration={500}>\n  <Tooltip.Trigger>Slow</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>Delayed tooltip</Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
-      "description": "Tooltip with custom delay"
-    }
-  ],
-  "relatedComponents": ["Popover", "Dialog"],
-  "importPath": "@outpace/systems/primitives/Tooltip"
+	"$schema": "../../schema/component.schema.json",
+	"name": "Tooltip",
+	"displayName": "Tooltip",
+	"description": "Contextual hint that appears on hover or focus to provide additional information.",
+	"category": "overlay",
+	"tags": ["tooltip", "hint", "help", "hover", "popup"],
+	"semanticRole": "contextual-hint",
+	"props": {
+		"open": {
+			"type": "boolean",
+			"description": "Controlled open state"
+		},
+		"defaultOpen": {
+			"type": "boolean",
+			"description": "Default open state",
+			"default": false
+		},
+		"delayDuration": {
+			"type": "number",
+			"description": "Delay before showing tooltip (ms)",
+			"default": 300
+		},
+		"closeDelay": {
+			"type": "number",
+			"description": "Delay before hiding tooltip (ms)",
+			"default": 0
+		},
+		"onOpenChange": {
+			"type": "(isOpen: boolean) => void",
+			"description": "Handler called when open state changes"
+		}
+	},
+	"slots": {
+		"Trigger": {
+			"description": "Element that triggers the tooltip on hover/focus"
+		},
+		"Portal": {
+			"description": "Renders tooltip in a portal"
+		},
+		"Content": {
+			"description": "The tooltip content container"
+		},
+		"Arrow": {
+			"description": "Optional arrow pointing to trigger"
+		}
+	},
+	"accessibility": {
+		"role": "tooltip",
+		"keyboard": ["Focus trigger to show", "Blur to hide", "Escape to dismiss"],
+		"focusManagement": "Tooltip is not focusable. Trigger must be focusable for keyboard users.",
+		"screenReader": "Content announced via aria-describedby on trigger"
+	},
+	"examples": [
+		{
+			"name": "Basic tooltip",
+			"code": "<Tooltip.Root>\n  <Tooltip.Trigger>Hover me</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>Helpful information</Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
+			"description": "Basic tooltip on hover"
+		},
+		{
+			"name": "With arrow",
+			"code": "<Tooltip.Root>\n  <Tooltip.Trigger>Info</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>\n      Content\n      <Tooltip.Arrow />\n    </Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
+			"description": "Tooltip with pointing arrow"
+		},
+		{
+			"name": "Custom delay",
+			"code": "<Tooltip.Root delayDuration={500}>\n  <Tooltip.Trigger>Slow</Tooltip.Trigger>\n  <Tooltip.Portal>\n    <Tooltip.Content>Delayed tooltip</Tooltip.Content>\n  </Tooltip.Portal>\n</Tooltip.Root>",
+			"description": "Tooltip with custom delay"
+		}
+	],
+	"relatedComponents": ["Popover", "Dialog"],
+	"importPath": "@outpace/systems/primitives/Tooltip"
 }

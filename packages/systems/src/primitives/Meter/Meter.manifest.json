@@ -1,85 +1,74 @@
 {
-  "name": "Meter",
-  "displayName": "Meter",
-  "description": "A visual indicator of a scalar value within a known range",
-  "category": "feedback",
-  "tags": ["feedback", "gauge", "indicator", "value"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Showing disk usage or storage",
-    "Displaying battery level",
-    "Password strength indicators",
-    "Any bounded scalar measurement"
-  ],
-  "dontUseWhen": [
-    "Showing progress of a task (use Progress)",
-    "Unbounded values",
-    "Loading states"
-  ],
-  "props": {
-    "value": {
-      "type": "number",
-      "required": true,
-      "description": "Current value"
-    },
-    "min": {
-      "type": "number",
-      "required": false,
-      "default": "0",
-      "description": "Minimum value"
-    },
-    "max": {
-      "type": "number",
-      "required": false,
-      "default": "100",
-      "description": "Maximum value"
-    },
-    "low": {
-      "type": "number",
-      "required": false,
-      "description": "Low threshold for styling"
-    },
-    "high": {
-      "type": "number",
-      "required": false,
-      "description": "High threshold for styling"
-    },
-    "optimum": {
-      "type": "number",
-      "required": false,
-      "description": "Optimum value"
-    },
-    "getValueLabel": {
-      "type": "(value: number, min: number, max: number) => string",
-      "required": false,
-      "description": "Get accessible value label"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container with meter semantics"
-    },
-    "Track": {
-      "description": "Background track"
-    },
-    "Indicator": {
-      "description": "Filled indicator"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Storage meter",
-      "code": "<Meter.Root value={75} min={0} max={100}>\n  <Meter.Track>\n    <Meter.Indicator style={{ width: '75%' }} />\n  </Meter.Track>\n</Meter.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "meter",
-    "keyboard": [],
-    "focusManagement": "Not focusable by default",
-    "screenReader": "Announces value and range"
-  },
-  "relatedComponents": ["Progress"]
+	"name": "Meter",
+	"displayName": "Meter",
+	"description": "A visual indicator of a scalar value within a known range",
+	"category": "feedback",
+	"tags": ["feedback", "gauge", "indicator", "value"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"value": {
+			"type": "number",
+			"required": true,
+			"description": "Current value"
+		},
+		"min": {
+			"type": "number",
+			"required": false,
+			"default": "0",
+			"description": "Minimum value"
+		},
+		"max": {
+			"type": "number",
+			"required": false,
+			"default": "100",
+			"description": "Maximum value"
+		},
+		"low": {
+			"type": "number",
+			"required": false,
+			"description": "Low threshold for styling"
+		},
+		"high": {
+			"type": "number",
+			"required": false,
+			"description": "High threshold for styling"
+		},
+		"optimum": {
+			"type": "number",
+			"required": false,
+			"description": "Optimum value"
+		},
+		"getValueLabel": {
+			"type": "(value: number, min: number, max: number) => string",
+			"required": false,
+			"description": "Get accessible value label"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container with meter semantics"
+		},
+		"Track": {
+			"description": "Background track"
+		},
+		"Indicator": {
+			"description": "Filled indicator"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Storage meter",
+			"code": "<Meter.Root value={75} min={0} max={100}>\n  <Meter.Track>\n    <Meter.Indicator style={{ width: '75%' }} />\n  </Meter.Track>\n</Meter.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "meter",
+		"keyboard": [],
+		"focusManagement": "Not focusable by default",
+		"screenReader": "Announces value and range"
+	},
+	"relatedComponents": ["Progress"]
 }

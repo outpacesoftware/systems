@@ -1,96 +1,85 @@
 {
-  "name": "RadioGroup",
-  "displayName": "Radio Group",
-  "description": "A group of radio buttons for single selection from multiple options",
-  "category": "form",
-  "tags": ["form", "input", "selection", "group", "single-choice"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "User needs to select exactly one option from a set",
-    "You want managed state for a group of radio buttons",
-    "Options are mutually exclusive",
-    "All options should be visible at once"
-  ],
-  "dontUseWhen": [
-    "Multiple selections are allowed (use CheckboxGroup)",
-    "Options list is very long (use Select)",
-    "You only have a single radio button"
-  ],
-  "props": {
-    "value": {
-      "type": "string",
-      "required": false,
-      "description": "Current selected value (controlled)"
-    },
-    "defaultValue": {
-      "type": "string",
-      "required": false,
-      "description": "Default value for uncontrolled usage"
-    },
-    "disabled": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether the entire group is disabled"
-    },
-    "required": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether selection is required"
-    },
-    "name": {
-      "type": "string",
-      "required": false,
-      "description": "Name for form submission"
-    },
-    "orientation": {
-      "type": "'horizontal' | 'vertical'",
-      "required": false,
-      "default": "'vertical'",
-      "description": "Orientation of the group"
-    },
-    "onChange": {
-      "type": "(value: string) => void",
-      "required": false,
-      "description": "Called when selection changes"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container for the radio group"
-    },
-    "Item": {
-      "description": "Individual radio option"
-    },
-    "Indicator": {
-      "description": "Visual indicator for the selected state"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Simple radio group",
-      "code": "<RadioGroup.Root value={value} onChange={setValue}>\n  <RadioGroup.Item value=\"apple\">\n    <RadioGroup.Indicator />\n    Apple\n  </RadioGroup.Item>\n  <RadioGroup.Item value=\"orange\">\n    <RadioGroup.Indicator />\n    Orange\n  </RadioGroup.Item>\n  <RadioGroup.Item value=\"banana\">\n    <RadioGroup.Indicator />\n    Banana\n  </RadioGroup.Item>\n</RadioGroup.Root>"
-    },
-    {
-      "name": "Horizontal",
-      "description": "Horizontal layout",
-      "code": "<RadioGroup.Root value={value} onChange={setValue} orientation=\"horizontal\">\n  <RadioGroup.Item value=\"sm\">Small</RadioGroup.Item>\n  <RadioGroup.Item value=\"md\">Medium</RadioGroup.Item>\n  <RadioGroup.Item value=\"lg\">Large</RadioGroup.Item>\n</RadioGroup.Root>"
-    },
-    {
-      "name": "Disabled option",
-      "description": "With a disabled option",
-      "code": "<RadioGroup.Root value={value} onChange={setValue}>\n  <RadioGroup.Item value=\"available\">Available</RadioGroup.Item>\n  <RadioGroup.Item value=\"unavailable\" disabled>Unavailable</RadioGroup.Item>\n</RadioGroup.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "radiogroup",
-    "keyboard": ["Arrow Up/Down", "Arrow Left/Right", "Tab"],
-    "focusManagement": "Roving tabindex within group",
-    "screenReader": "Announces group label and current selection"
-  },
-  "relatedComponents": ["Radio", "Checkbox", "CheckboxGroup", "Select"]
+	"name": "RadioGroup",
+	"displayName": "Radio Group",
+	"description": "A group of radio buttons for single selection from multiple options",
+	"category": "form",
+	"tags": ["form", "input", "selection", "group", "single-choice"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"value": {
+			"type": "string",
+			"required": false,
+			"description": "Current selected value (controlled)"
+		},
+		"defaultValue": {
+			"type": "string",
+			"required": false,
+			"description": "Default value for uncontrolled usage"
+		},
+		"disabled": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether the entire group is disabled"
+		},
+		"required": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether selection is required"
+		},
+		"name": {
+			"type": "string",
+			"required": false,
+			"description": "Name for form submission"
+		},
+		"orientation": {
+			"type": "'horizontal' | 'vertical'",
+			"required": false,
+			"default": "'vertical'",
+			"description": "Orientation of the group"
+		},
+		"onChange": {
+			"type": "(value: string) => void",
+			"required": false,
+			"description": "Called when selection changes"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container for the radio group"
+		},
+		"Item": {
+			"description": "Individual radio option"
+		},
+		"Indicator": {
+			"description": "Visual indicator for the selected state"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Simple radio group",
+			"code": "<RadioGroup.Root value={value} onChange={setValue}>\n  <RadioGroup.Item value=\"apple\">\n    <RadioGroup.Indicator />\n    Apple\n  </RadioGroup.Item>\n  <RadioGroup.Item value=\"orange\">\n    <RadioGroup.Indicator />\n    Orange\n  </RadioGroup.Item>\n  <RadioGroup.Item value=\"banana\">\n    <RadioGroup.Indicator />\n    Banana\n  </RadioGroup.Item>\n</RadioGroup.Root>"
+		},
+		{
+			"name": "Horizontal",
+			"description": "Horizontal layout",
+			"code": "<RadioGroup.Root value={value} onChange={setValue} orientation=\"horizontal\">\n  <RadioGroup.Item value=\"sm\">Small</RadioGroup.Item>\n  <RadioGroup.Item value=\"md\">Medium</RadioGroup.Item>\n  <RadioGroup.Item value=\"lg\">Large</RadioGroup.Item>\n</RadioGroup.Root>"
+		},
+		{
+			"name": "Disabled option",
+			"description": "With a disabled option",
+			"code": "<RadioGroup.Root value={value} onChange={setValue}>\n  <RadioGroup.Item value=\"available\">Available</RadioGroup.Item>\n  <RadioGroup.Item value=\"unavailable\" disabled>Unavailable</RadioGroup.Item>\n</RadioGroup.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "radiogroup",
+		"keyboard": ["Arrow Up/Down", "Arrow Left/Right", "Tab"],
+		"focusManagement": "Roving tabindex within group",
+		"screenReader": "Announces group label and current selection"
+	},
+	"relatedComponents": ["Radio", "Checkbox", "CheckboxGroup", "Select"]
 }

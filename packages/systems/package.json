@@ -1,61 +1,201 @@
 {
-  "name": "@outpacesoftware/systems",
-  "version": "0.0.1",
-  "private": false,
-  "description": "AI-first design system - opinionated, accessible, LLM-optimized components",
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./primitives/*": {
-      "import": "./dist/primitives/*/index.js",
-      "types": "./dist/primitives/*/index.d.ts"
-    },
-    "./manifest": {
-      "import": "./dist/manifest.json",
-      "types": "./dist/manifest.d.ts"
-    }
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint src"
-  },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5"
-  },
-  "keywords": [
-    "react",
-    "components",
-    "design-system",
-    "opinionated",
-    "accessible",
-    "ai-first",
-    "llm",
-    "mcp"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/outpacesoftware/systems"
-  }
+	"name": "@outpacesoftware/systems",
+	"version": "0.0.2",
+	"private": false,
+	"description": "AI-first design system - accessible, LLM-optimized components for React",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./animation": {
+			"import": "./dist/animation/index.js",
+			"types": "./dist/animation/index.d.ts"
+		},
+		"./accessibility": {
+			"import": "./dist/accessibility/index.js",
+			"types": "./dist/accessibility/index.d.ts"
+		},
+		"./primitives/Accordion": {
+			"import": "./dist/primitives/Accordion/index.js",
+			"types": "./dist/primitives/Accordion/index.d.ts"
+		},
+		"./primitives/AlertDialog": {
+			"import": "./dist/primitives/AlertDialog/index.js",
+			"types": "./dist/primitives/AlertDialog/index.d.ts"
+		},
+		"./primitives/Avatar": {
+			"import": "./dist/primitives/Avatar/index.js",
+			"types": "./dist/primitives/Avatar/index.d.ts"
+		},
+		"./primitives/Button": {
+			"import": "./dist/primitives/Button/index.js",
+			"types": "./dist/primitives/Button/index.d.ts"
+		},
+		"./primitives/Checkbox": {
+			"import": "./dist/primitives/Checkbox/index.js",
+			"types": "./dist/primitives/Checkbox/index.d.ts"
+		},
+		"./primitives/CheckboxGroup": {
+			"import": "./dist/primitives/CheckboxGroup/index.js",
+			"types": "./dist/primitives/CheckboxGroup/index.d.ts"
+		},
+		"./primitives/Collapsible": {
+			"import": "./dist/primitives/Collapsible/index.js",
+			"types": "./dist/primitives/Collapsible/index.d.ts"
+		},
+		"./primitives/Combobox": {
+			"import": "./dist/primitives/Combobox/index.js",
+			"types": "./dist/primitives/Combobox/index.d.ts"
+		},
+		"./primitives/ContextMenu": {
+			"import": "./dist/primitives/ContextMenu/index.js",
+			"types": "./dist/primitives/ContextMenu/index.d.ts"
+		},
+		"./primitives/Dialog": {
+			"import": "./dist/primitives/Dialog/index.js",
+			"types": "./dist/primitives/Dialog/index.d.ts"
+		},
+		"./primitives/Field": {
+			"import": "./dist/primitives/Field/index.js",
+			"types": "./dist/primitives/Field/index.d.ts"
+		},
+		"./primitives/Input": {
+			"import": "./dist/primitives/Input/index.js",
+			"types": "./dist/primitives/Input/index.d.ts"
+		},
+		"./primitives/Menu": {
+			"import": "./dist/primitives/Menu/index.js",
+			"types": "./dist/primitives/Menu/index.d.ts"
+		},
+		"./primitives/Meter": {
+			"import": "./dist/primitives/Meter/index.js",
+			"types": "./dist/primitives/Meter/index.d.ts"
+		},
+		"./primitives/NavigationMenu": {
+			"import": "./dist/primitives/NavigationMenu/index.js",
+			"types": "./dist/primitives/NavigationMenu/index.d.ts"
+		},
+		"./primitives/NumberField": {
+			"import": "./dist/primitives/NumberField/index.js",
+			"types": "./dist/primitives/NumberField/index.d.ts"
+		},
+		"./primitives/Popover": {
+			"import": "./dist/primitives/Popover/index.js",
+			"types": "./dist/primitives/Popover/index.d.ts"
+		},
+		"./primitives/PreviewCard": {
+			"import": "./dist/primitives/PreviewCard/index.js",
+			"types": "./dist/primitives/PreviewCard/index.d.ts"
+		},
+		"./primitives/Progress": {
+			"import": "./dist/primitives/Progress/index.js",
+			"types": "./dist/primitives/Progress/index.d.ts"
+		},
+		"./primitives/Radio": {
+			"import": "./dist/primitives/Radio/index.js",
+			"types": "./dist/primitives/Radio/index.d.ts"
+		},
+		"./primitives/RadioGroup": {
+			"import": "./dist/primitives/RadioGroup/index.js",
+			"types": "./dist/primitives/RadioGroup/index.d.ts"
+		},
+		"./primitives/ScrollArea": {
+			"import": "./dist/primitives/ScrollArea/index.js",
+			"types": "./dist/primitives/ScrollArea/index.d.ts"
+		},
+		"./primitives/Select": {
+			"import": "./dist/primitives/Select/index.js",
+			"types": "./dist/primitives/Select/index.d.ts"
+		},
+		"./primitives/Separator": {
+			"import": "./dist/primitives/Separator/index.js",
+			"types": "./dist/primitives/Separator/index.d.ts"
+		},
+		"./primitives/Slider": {
+			"import": "./dist/primitives/Slider/index.js",
+			"types": "./dist/primitives/Slider/index.d.ts"
+		},
+		"./primitives/Switch": {
+			"import": "./dist/primitives/Switch/index.js",
+			"types": "./dist/primitives/Switch/index.d.ts"
+		},
+		"./primitives/Tabs": {
+			"import": "./dist/primitives/Tabs/index.js",
+			"types": "./dist/primitives/Tabs/index.d.ts"
+		},
+		"./primitives/Toast": {
+			"import": "./dist/primitives/Toast/index.js",
+			"types": "./dist/primitives/Toast/index.d.ts"
+		},
+		"./primitives/Toggle": {
+			"import": "./dist/primitives/Toggle/index.js",
+			"types": "./dist/primitives/Toggle/index.d.ts"
+		},
+		"./primitives/ToggleGroup": {
+			"import": "./dist/primitives/ToggleGroup/index.js",
+			"types": "./dist/primitives/ToggleGroup/index.d.ts"
+		},
+		"./primitives/Toolbar": {
+			"import": "./dist/primitives/Toolbar/index.js",
+			"types": "./dist/primitives/Toolbar/index.d.ts"
+		},
+		"./primitives/Tooltip": {
+			"import": "./dist/primitives/Tooltip/index.js",
+			"types": "./dist/primitives/Tooltip/index.d.ts"
+		},
+		"./manifest": {
+			"import": "./dist/manifest.json",
+			"types": "./dist/manifest.d.ts"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint src"
+	},
+	"peerDependencies": {
+		"gsap": ">=3.12.0",
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	},
+	"peerDependenciesMeta": {
+		"gsap": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"gsap": "^3.14.2",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"tsup": "^8.0.0",
+		"typescript": "^5"
+	},
+	"keywords": [
+		"react",
+		"components",
+		"design-system",
+		"accessible",
+		"ai-first",
+		"llm",
+		"headless",
+		"primitives"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/outpacesoftware/systems"
+	}
 }

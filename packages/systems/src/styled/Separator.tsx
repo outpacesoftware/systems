@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from "react";
 
 // ============================================================================
 // Types
 // ============================================================================
 
 export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
-  /** Orientation */
-  orientation?: 'horizontal' | 'vertical';
-  /** Visual variant */
-  variant?: 'default' | 'muted';
+	/** Orientation */
+	orientation?: "horizontal" | "vertical";
+	/** Visual variant */
+	variant?: "default" | "muted";
 }
 
 // ============================================================================
@@ -18,13 +18,13 @@ export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
 // ============================================================================
 
 const orientationStyles = {
-  horizontal: 'w-full h-px',
-  vertical: 'h-full w-px',
+	horizontal: "w-full h-px",
+	vertical: "h-full w-px",
 };
 
 const variantStyles = {
-  default: 'bg-white/8',
-  muted: 'bg-white/4',
+	default: "bg-white/8",
+	muted: "bg-white/4",
 };
 
 // ============================================================================
@@ -32,30 +32,30 @@ const variantStyles = {
 // ============================================================================
 
 export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
-  (
-    {
-      orientation = 'horizontal',
-      variant = 'default',
-      className = '',
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <div
-        ref={ref}
-        role="separator"
-        aria-orientation={orientation}
-        className={`
+	(
+		{
+			orientation = "horizontal",
+			variant = "default",
+			className = "",
+			...props
+		},
+		ref,
+	) => {
+		return (
+			<div
+				ref={ref}
+				role="separator"
+				aria-orientation={orientation}
+				className={`
           shrink-0
           ${orientationStyles[orientation]}
           ${variantStyles[variant]}
           ${className}
         `}
-        {...props}
-      />
-    );
-  }
+				{...props}
+			/>
+		);
+	},
 );
 
-Separator.displayName = 'Separator';
+Separator.displayName = "Separator";

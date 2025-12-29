@@ -76,13 +76,25 @@ html {
 }
 
 body {
-  background: var(--background-gradient);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   margin: 0;
+}
+
+.bg-gradient-fixed::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: radial-gradient(137.28% 42.82% at 49.87% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.00) 100%);
+  pointer-events: none;
+  z-index: 100;
 }
 
 /* ============================================================================

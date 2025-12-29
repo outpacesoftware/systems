@@ -1,49 +1,45 @@
-'use client';
+"use client";
 
-import {
-  forwardRef,
-  type ButtonHTMLAttributes,
-  type ReactNode,
-} from 'react';
-import { useButton, type UseButtonProps } from './useButton';
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
+import { type UseButtonProps, useButton } from "./useButton";
 
 /**
  * Button variant types
  */
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive';
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
 
 /**
  * Button size types
  */
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonSize = "sm" | "md" | "lg";
 
 /**
  * Props for the Button component
  */
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>,
-    UseButtonProps {
-  /**
-   * The visual variant of the button
-   * @default "primary"
-   */
-  variant?: ButtonVariant;
+	extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled">,
+		UseButtonProps {
+	/**
+	 * The visual variant of the button
+	 * @default "primary"
+	 */
+	variant?: ButtonVariant;
 
-  /**
-   * The size of the button
-   * @default "md"
-   */
-  size?: ButtonSize;
+	/**
+	 * The size of the button
+	 * @default "md"
+	 */
+	size?: ButtonSize;
 
-  /**
-   * Button content
-   */
-  children?: ReactNode;
+	/**
+	 * Button content
+	 */
+	children?: ReactNode;
 
-  /**
-   * Additional CSS class names
-   */
-  className?: string;
+	/**
+	 * Additional CSS class names
+	 */
+	className?: string;
 }
 
 /**
@@ -61,32 +57,32 @@ export interface ButtonProps
  * @see https://outpace.systems/components/button
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const {
-      variant = 'primary',
-      size = 'md',
-      children,
-      className,
-      ...rest
-    } = props;
+	(props, ref) => {
+		const {
+			variant = "primary",
+			size = "md",
+			children,
+			className,
+			...rest
+		} = props;
 
-    const { buttonProps, isDisabled, isLoading, isPressed } = useButton(rest);
+		const { buttonProps, isDisabled, isLoading, isPressed } = useButton(rest);
 
-    return (
-      <button
-        ref={ref}
-        className={className}
-        data-variant={variant}
-        data-size={size}
-        data-disabled={isDisabled || undefined}
-        data-loading={isLoading || undefined}
-        data-pressed={isPressed || undefined}
-        {...buttonProps}
-      >
-        {children}
-      </button>
-    );
-  }
+		return (
+			<button
+				ref={ref}
+				className={className}
+				data-variant={variant}
+				data-size={size}
+				data-disabled={isDisabled || undefined}
+				data-loading={isLoading || undefined}
+				data-pressed={isPressed || undefined}
+				{...buttonProps}
+			>
+				{children}
+			</button>
+		);
+	},
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";

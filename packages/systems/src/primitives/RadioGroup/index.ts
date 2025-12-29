@@ -1,6 +1,6 @@
 export {
-  RadioGroup,
-  type RadioGroupRootProps,
-  type RadioGroupItemProps,
-  type RadioGroupIndicatorProps,
-} from './RadioGroup';
+	RadioGroup,
+	type RadioGroupIndicatorProps,
+	type RadioGroupItemProps,
+	type RadioGroupRootProps,
+} from "./RadioGroup";

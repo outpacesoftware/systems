@@ -1,64 +1,53 @@
 {
-  "name": "Toggle",
-  "displayName": "Toggle",
-  "description": "A two-state button that can be on or off",
-  "category": "action",
-  "tags": ["action", "button", "toggle", "pressed"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Action has two states (on/off)",
-    "Formatting options (bold, italic)",
-    "Toggling visibility or features",
-    "Single option selection"
-  ],
-  "dontUseWhen": [
-    "Multiple options need toggling (use ToggleGroup)",
-    "Toggling a setting (use Switch)",
-    "Simple action button (use Button)"
-  ],
-  "props": {
-    "pressed": {
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the toggle is pressed (controlled)"
-    },
-    "defaultPressed": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Default pressed state for uncontrolled usage"
-    },
-    "disabled": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether the toggle is disabled"
-    },
-    "onChange": {
-      "type": "(pressed: boolean) => void",
-      "required": false,
-      "description": "Called when pressed state changes"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Simple toggle",
-      "code": "<Toggle pressed={bold} onChange={setBold}>\n  <BoldIcon />\n</Toggle>"
-    },
-    {
-      "name": "Uncontrolled",
-      "description": "Uncontrolled toggle",
-      "code": "<Toggle defaultPressed={false}>Toggle</Toggle>"
-    }
-  ],
-  "accessibility": {
-    "role": "button",
-    "keyboard": ["Space", "Enter"],
-    "focusManagement": "Standard focus",
-    "screenReader": "Announces pressed state"
-  },
-  "relatedComponents": ["ToggleGroup", "Switch", "Button"]
+	"name": "Toggle",
+	"displayName": "Toggle",
+	"description": "A two-state button that can be on or off",
+	"category": "action",
+	"tags": ["action", "button", "toggle", "pressed"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"pressed": {
+			"type": "boolean",
+			"required": false,
+			"description": "Whether the toggle is pressed (controlled)"
+		},
+		"defaultPressed": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Default pressed state for uncontrolled usage"
+		},
+		"disabled": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether the toggle is disabled"
+		},
+		"onChange": {
+			"type": "(pressed: boolean) => void",
+			"required": false,
+			"description": "Called when pressed state changes"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Simple toggle",
+			"code": "<Toggle pressed={bold} onChange={setBold}>\n  <BoldIcon />\n</Toggle>"
+		},
+		{
+			"name": "Uncontrolled",
+			"description": "Uncontrolled toggle",
+			"code": "<Toggle defaultPressed={false}>Toggle</Toggle>"
+		}
+	],
+	"accessibility": {
+		"role": "button",
+		"keyboard": ["Space", "Enter"],
+		"focusManagement": "Standard focus",
+		"screenReader": "Announces pressed state"
+	},
+	"relatedComponents": ["ToggleGroup", "Switch", "Button"]
 }

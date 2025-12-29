@@ -1,103 +1,91 @@
 {
-  "$schema": "../../schema/component.schema.json",
-  "name": "Input",
-  "displayName": "Input",
-  "description": "Text input field for collecting user text input with validation and accessibility support.",
-  "category": "form",
-  "tags": ["form", "text", "input", "field", "text-field"],
-  "semanticRole": "text-input",
-  "useWhen": [
-    "Collecting text input from users",
-    "Creating forms with text fields",
-    "Email, password, or search input",
-    "Single-line text entry"
-  ],
-  "dontUseWhen": [
-    "Multi-line text (use Textarea)",
-    "Selecting from predefined options (use Select)",
-    "Boolean choice (use Checkbox or Switch)",
-    "Numeric-only input with controls (use NumberField)"
-  ],
-  "props": {
-    "type": {
-      "type": "'text' | 'email' | 'password' | 'search' | 'tel' | 'url' | 'number'",
-      "description": "The HTML input type",
-      "default": "text"
-    },
-    "size": {
-      "type": "'sm' | 'md' | 'lg'",
-      "description": "The size of the input",
-      "default": "md",
-      "values": ["sm", "md", "lg"]
-    },
-    "value": {
-      "type": "string",
-      "description": "Controlled value of the input"
-    },
-    "defaultValue": {
-      "type": "string",
-      "description": "Default value for uncontrolled usage"
-    },
-    "placeholder": {
-      "type": "string",
-      "description": "Placeholder text shown when empty"
-    },
-    "disabled": {
-      "type": "boolean",
-      "description": "Whether the input is disabled",
-      "default": false,
-      "accessibility": "Sets aria-disabled"
-    },
-    "readOnly": {
-      "type": "boolean",
-      "description": "Whether the input is read-only",
-      "default": false
-    },
-    "required": {
-      "type": "boolean",
-      "description": "Whether the input is required",
-      "default": false,
-      "accessibility": "Sets aria-required"
-    },
-    "error": {
-      "type": "boolean",
-      "description": "Whether the input has a validation error",
-      "default": false,
-      "accessibility": "Sets aria-invalid"
-    },
-    "onChange": {
-      "type": "(event: ChangeEvent<HTMLInputElement>) => void",
-      "description": "Handler called when the input value changes"
-    }
-  },
-  "accessibility": {
-    "role": "textbox",
-    "keyboard": ["Tab to focus", "Type to input"],
-    "focusManagement": "Natively focusable. Should have visible focus ring.",
-    "screenReader": "Announce label, value, and error state. Use aria-labelledby for label association."
-  },
-  "examples": [
-    {
-      "name": "Basic input",
-      "code": "<Input placeholder=\"Enter your name\" />",
-      "description": "Simple text input with placeholder"
-    },
-    {
-      "name": "Email input",
-      "code": "<Input type=\"email\" placeholder=\"you@example.com\" />",
-      "description": "Email input with validation"
-    },
-    {
-      "name": "With error state",
-      "code": "<Input error aria-describedby=\"error-msg\" />",
-      "description": "Input showing error state"
-    },
-    {
-      "name": "Controlled input",
-      "code": "<Input value={value} onChange={(e) => setValue(e.target.value)} />",
-      "description": "Controlled input with state"
-    }
-  ],
-  "relatedComponents": ["Textarea", "NumberField", "Select"],
-  "importPath": "@outpace/systems/primitives/Input"
+	"$schema": "../../schema/component.schema.json",
+	"name": "Input",
+	"displayName": "Input",
+	"description": "Text input field for collecting user text input with validation and accessibility support.",
+	"category": "form",
+	"tags": ["form", "text", "input", "field", "text-field"],
+	"semanticRole": "text-input",
+	"props": {
+		"type": {
+			"type": "'text' | 'email' | 'password' | 'search' | 'tel' | 'url' | 'number'",
+			"description": "The HTML input type",
+			"default": "text"
+		},
+		"size": {
+			"type": "'sm' | 'md' | 'lg'",
+			"description": "The size of the input",
+			"default": "md",
+			"values": ["sm", "md", "lg"]
+		},
+		"value": {
+			"type": "string",
+			"description": "Controlled value of the input"
+		},
+		"defaultValue": {
+			"type": "string",
+			"description": "Default value for uncontrolled usage"
+		},
+		"placeholder": {
+			"type": "string",
+			"description": "Placeholder text shown when empty"
+		},
+		"disabled": {
+			"type": "boolean",
+			"description": "Whether the input is disabled",
+			"default": false,
+			"accessibility": "Sets aria-disabled"
+		},
+		"readOnly": {
+			"type": "boolean",
+			"description": "Whether the input is read-only",
+			"default": false
+		},
+		"required": {
+			"type": "boolean",
+			"description": "Whether the input is required",
+			"default": false,
+			"accessibility": "Sets aria-required"
+		},
+		"error": {
+			"type": "boolean",
+			"description": "Whether the input has a validation error",
+			"default": false,
+			"accessibility": "Sets aria-invalid"
+		},
+		"onChange": {
+			"type": "(event: ChangeEvent<HTMLInputElement>) => void",
+			"description": "Handler called when the input value changes"
+		}
+	},
+	"accessibility": {
+		"role": "textbox",
+		"keyboard": ["Tab to focus", "Type to input"],
+		"focusManagement": "Natively focusable. Should have visible focus ring.",
+		"screenReader": "Announce label, value, and error state. Use aria-labelledby for label association."
+	},
+	"examples": [
+		{
+			"name": "Basic input",
+			"code": "<Input placeholder=\"Enter your name\" />",
+			"description": "Simple text input with placeholder"
+		},
+		{
+			"name": "Email input",
+			"code": "<Input type=\"email\" placeholder=\"you@example.com\" />",
+			"description": "Email input with validation"
+		},
+		{
+			"name": "With error state",
+			"code": "<Input error aria-describedby=\"error-msg\" />",
+			"description": "Input showing error state"
+		},
+		{
+			"name": "Controlled input",
+			"code": "<Input value={value} onChange={(e) => setValue(e.target.value)} />",
+			"description": "Controlled input with state"
+		}
+	],
+	"relatedComponents": ["Textarea", "NumberField", "Select"],
+	"importPath": "@outpace/systems/primitives/Input"
 }

@@ -1,8 +1,8 @@
 export {
-  Accordion,
-  type AccordionRootProps,
-  type AccordionItemProps,
-  type AccordionHeaderProps,
-  type AccordionTriggerProps,
-  type AccordionContentProps,
-} from './Accordion';
+	Accordion,
+	type AccordionContentProps,
+	type AccordionHeaderProps,
+	type AccordionItemProps,
+	type AccordionRootProps,
+	type AccordionTriggerProps,
+} from "./Accordion";

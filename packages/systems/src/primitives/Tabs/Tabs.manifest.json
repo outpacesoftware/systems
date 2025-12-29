@@ -1,83 +1,72 @@
 {
-  "name": "Tabs",
-  "displayName": "Tabs",
-  "description": "A component for organizing content into tabbed sections",
-  "category": "navigation",
-  "tags": ["navigation", "tabs", "content", "sections"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Content can be organized into distinct sections",
-    "User needs to switch between related views",
-    "Space is limited and content should be shown one section at a time",
-    "Sections are at the same level of hierarchy"
-  ],
-  "dontUseWhen": [
-    "Content sections are sequential (use Stepper)",
-    "All content should be visible at once (use Accordion)",
-    "Navigation is between different pages (use Navigation)"
-  ],
-  "props": {
-    "value": {
-      "type": "string",
-      "required": false,
-      "description": "Current active tab value (controlled)"
-    },
-    "defaultValue": {
-      "type": "string",
-      "required": false,
-      "description": "Default active tab for uncontrolled usage"
-    },
-    "orientation": {
-      "type": "'horizontal' | 'vertical'",
-      "required": false,
-      "default": "'horizontal'",
-      "description": "Orientation of the tabs"
-    },
-    "activationMode": {
-      "type": "'automatic' | 'manual'",
-      "required": false,
-      "default": "'automatic'",
-      "description": "When to activate tabs (on focus or on click)"
-    },
-    "onChange": {
-      "type": "(value: string) => void",
-      "required": false,
-      "description": "Called when active tab changes"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container for the tabs"
-    },
-    "List": {
-      "description": "Container for tab triggers"
-    },
-    "Trigger": {
-      "description": "Button to activate a tab"
-    },
-    "Content": {
-      "description": "Content panel for a tab"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Simple tabs",
-      "code": "<Tabs.Root defaultValue=\"tab1\">\n  <Tabs.List>\n    <Tabs.Trigger value=\"tab1\">Tab 1</Tabs.Trigger>\n    <Tabs.Trigger value=\"tab2\">Tab 2</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value=\"tab1\">Content 1</Tabs.Content>\n  <Tabs.Content value=\"tab2\">Content 2</Tabs.Content>\n</Tabs.Root>"
-    },
-    {
-      "name": "Vertical",
-      "description": "Vertical tabs",
-      "code": "<Tabs.Root defaultValue=\"tab1\" orientation=\"vertical\">\n  <Tabs.List>\n    <Tabs.Trigger value=\"tab1\">Tab 1</Tabs.Trigger>\n    <Tabs.Trigger value=\"tab2\">Tab 2</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value=\"tab1\">Content 1</Tabs.Content>\n  <Tabs.Content value=\"tab2\">Content 2</Tabs.Content>\n</Tabs.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "tablist, tab, tabpanel",
-    "keyboard": ["Arrow Keys", "Home/End", "Tab"],
-    "focusManagement": "Roving tabindex on triggers",
-    "screenReader": "Announces tab state and associated panel"
-  },
-  "relatedComponents": ["Accordion", "Menu"]
+	"name": "Tabs",
+	"displayName": "Tabs",
+	"description": "A component for organizing content into tabbed sections",
+	"category": "navigation",
+	"tags": ["navigation", "tabs", "content", "sections"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"value": {
+			"type": "string",
+			"required": false,
+			"description": "Current active tab value (controlled)"
+		},
+		"defaultValue": {
+			"type": "string",
+			"required": false,
+			"description": "Default active tab for uncontrolled usage"
+		},
+		"orientation": {
+			"type": "'horizontal' | 'vertical'",
+			"required": false,
+			"default": "'horizontal'",
+			"description": "Orientation of the tabs"
+		},
+		"activationMode": {
+			"type": "'automatic' | 'manual'",
+			"required": false,
+			"default": "'automatic'",
+			"description": "When to activate tabs (on focus or on click)"
+		},
+		"onChange": {
+			"type": "(value: string) => void",
+			"required": false,
+			"description": "Called when active tab changes"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container for the tabs"
+		},
+		"List": {
+			"description": "Container for tab triggers"
+		},
+		"Trigger": {
+			"description": "Button to activate a tab"
+		},
+		"Content": {
+			"description": "Content panel for a tab"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Simple tabs",
+			"code": "<Tabs.Root defaultValue=\"tab1\">\n  <Tabs.List>\n    <Tabs.Trigger value=\"tab1\">Tab 1</Tabs.Trigger>\n    <Tabs.Trigger value=\"tab2\">Tab 2</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value=\"tab1\">Content 1</Tabs.Content>\n  <Tabs.Content value=\"tab2\">Content 2</Tabs.Content>\n</Tabs.Root>"
+		},
+		{
+			"name": "Vertical",
+			"description": "Vertical tabs",
+			"code": "<Tabs.Root defaultValue=\"tab1\" orientation=\"vertical\">\n  <Tabs.List>\n    <Tabs.Trigger value=\"tab1\">Tab 1</Tabs.Trigger>\n    <Tabs.Trigger value=\"tab2\">Tab 2</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value=\"tab1\">Content 1</Tabs.Content>\n  <Tabs.Content value=\"tab2\">Content 2</Tabs.Content>\n</Tabs.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "tablist, tab, tabpanel",
+		"keyboard": ["Arrow Keys", "Home/End", "Tab"],
+		"focusManagement": "Roving tabindex on triggers",
+		"screenReader": "Announces tab state and associated panel"
+	},
+	"relatedComponents": ["Accordion", "Menu"]
 }

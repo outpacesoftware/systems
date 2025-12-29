@@ -1,9 +1,13 @@
 export {
-  Tooltip,
-  type TooltipRootProps,
-  type TooltipTriggerProps,
-  type TooltipPortalProps,
-  type TooltipContentProps,
-  type TooltipArrowProps,
-} from './Tooltip';
-export { useTooltip, type UseTooltipProps, type UseTooltipReturn } from './useTooltip';
+	Tooltip,
+	type TooltipArrowProps,
+	type TooltipContentProps,
+	type TooltipPortalProps,
+	type TooltipRootProps,
+	type TooltipTriggerProps,
+} from "./Tooltip";
+export {
+	type UseTooltipProps,
+	type UseTooltipReturn,
+	useTooltip,
+} from "./useTooltip";

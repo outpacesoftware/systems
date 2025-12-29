@@ -1,70 +1,87 @@
 // @outpace/systems - AI-first design system
 // Opinionated, accessible, LLM-optimized components
 
-// Styled Components (Opinionated) - Default exports
-export {
-  // Action
-  Button,
-  Toggle,
-  // Form
-  Input,
-  Textarea,
-  Select,
-  Checkbox,
-  Switch,
-  RadioGroup,
-  Slider,
-  // Navigation
-  Tabs,
-  // Overlay
-  Dialog,
-  Tooltip,
-  // Feedback
-  Progress,
-  Toast,
-  ToastProvider,
-  useToast,
-  // Layout
-  Separator,
-  Card,
-  // Display
-  Avatar,
-  Badge,
-} from './styled';
+// Primitives namespace for unstyled components
+export * as Primitives from "./primitives";
 
 // Re-export styled types
 export type {
-  ButtonProps,
-  ToggleProps,
-  InputProps,
-  TextareaProps,
-  SelectProps,
-  CheckboxProps,
-  SwitchProps,
-  RadioGroupProps,
-  RadioGroupItemProps,
-  SliderProps,
-  TabsProps,
-  TabsListProps,
-  TabsTriggerProps,
-  TabsContentProps,
-  DialogRootProps,
-  DialogTriggerProps,
-  DialogContentProps,
-  DialogTitleProps,
-  DialogDescriptionProps,
-  TooltipProps,
-  ProgressProps,
-  ToastProps,
-  ToastProviderProps,
-  SeparatorProps,
-  CardProps,
-  AvatarProps,
-  BadgeProps,
-} from './styled';
-
-// Primitives namespace for unstyled components
-export * as Primitives from './primitives';
+	AvatarProps,
+	BadgeProps,
+	ButtonProps,
+	CardProps,
+	CheckboxProps,
+	DialogContentProps,
+	DialogDescriptionProps,
+	DialogRootProps,
+	DialogTitleProps,
+	DialogTriggerProps,
+	InputProps,
+	ProgressProps,
+	RadioGroupItemProps,
+	RadioGroupProps,
+	SelectProps,
+	SeparatorProps,
+	SliderProps,
+	SwitchProps,
+	TabsContentProps,
+	TabsListProps,
+	TabsProps,
+	TabsTriggerProps,
+	TextareaProps,
+	ToastProps,
+	ToastProviderProps,
+	ToggleProps,
+	TooltipProps,
+} from "./styled";
+// Styled Components (Opinionated) - Default exports
+export {
+	// Display
+	Avatar,
+	Badge,
+	// Action
+	Button,
+	Card,
+	Checkbox,
+	// Overlay
+	Dialog,
+	// Form
+	Input,
+	// Feedback
+	Progress,
+	RadioGroup,
+	Select,
+	// Layout
+	Separator,
+	Slider,
+	Switch,
+	// Navigation
+	Tabs,
+	Textarea,
+	Toast,
+	ToastProvider,
+	Toggle,
+	Tooltip,
+	useToast,
+} from "./styled";
 
 // Types
-export * from './types';
+export * from "./types";
+export type {
+	AriaLiveAnnouncer,
+	AriaLivePoliteness,
+	UseAriaLiveAnnouncerOptions,
+	UseFocusTrapOptions,
+	VisuallyHiddenProps,
+} from "./utils/accessibility";
+// Accessibility utilities
+export {
+	announceToScreenReader,
+	getFocusableElements,
+	getReducedMotionPreference,
+	useAriaLiveAnnouncer,
+	useFocusTrap,
+	useReducedMotion,
+	VisuallyHidden,
+	visuallyHiddenClass,
+} from "./utils/accessibility";

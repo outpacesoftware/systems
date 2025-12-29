@@ -1,97 +1,86 @@
 {
-  "name": "NumberField",
-  "displayName": "Number Field",
-  "description": "A numeric input with increment and decrement controls",
-  "category": "form",
-  "tags": ["form", "input", "number", "spinner"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Numeric input with step controls",
-    "Quantity selectors",
-    "Precise numeric values",
-    "Settings with numeric values"
-  ],
-  "dontUseWhen": [
-    "Large range selection (use Slider)",
-    "Free-form text input (use Input)",
-    "Currency input with formatting"
-  ],
-  "props": {
-    "value": {
-      "type": "number",
-      "required": false,
-      "description": "Current value (controlled)"
-    },
-    "defaultValue": {
-      "type": "number",
-      "required": false,
-      "default": "0",
-      "description": "Default value"
-    },
-    "onValueChange": {
-      "type": "(value: number) => void",
-      "required": false,
-      "description": "Called when value changes"
-    },
-    "min": {
-      "type": "number",
-      "required": false,
-      "default": "-Infinity",
-      "description": "Minimum value"
-    },
-    "max": {
-      "type": "number",
-      "required": false,
-      "default": "Infinity",
-      "description": "Maximum value"
-    },
-    "step": {
-      "type": "number",
-      "required": false,
-      "default": "1",
-      "description": "Step increment"
-    },
-    "disabled": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether the field is disabled"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container and context provider"
-    },
-    "Label": {
-      "description": "Label for the input"
-    },
-    "Group": {
-      "description": "Groups input with buttons"
-    },
-    "Input": {
-      "description": "The numeric input"
-    },
-    "Increment": {
-      "description": "Button to increase value"
-    },
-    "Decrement": {
-      "description": "Button to decrease value"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Number input with controls",
-      "code": "<NumberField.Root defaultValue={5} min={0} max={10}>\n  <NumberField.Label>Quantity</NumberField.Label>\n  <NumberField.Group>\n    <NumberField.Decrement>-</NumberField.Decrement>\n    <NumberField.Input />\n    <NumberField.Increment>+</NumberField.Increment>\n  </NumberField.Group>\n</NumberField.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "spinbutton",
-    "keyboard": ["Arrow Up/Down", "Page Up/Down", "Home/End"],
-    "focusManagement": "Input receives focus",
-    "screenReader": "Announces value and range"
-  },
-  "relatedComponents": ["Input", "Slider"]
+	"name": "NumberField",
+	"displayName": "Number Field",
+	"description": "A numeric input with increment and decrement controls",
+	"category": "form",
+	"tags": ["form", "input", "number", "spinner"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"value": {
+			"type": "number",
+			"required": false,
+			"description": "Current value (controlled)"
+		},
+		"defaultValue": {
+			"type": "number",
+			"required": false,
+			"default": "0",
+			"description": "Default value"
+		},
+		"onValueChange": {
+			"type": "(value: number) => void",
+			"required": false,
+			"description": "Called when value changes"
+		},
+		"min": {
+			"type": "number",
+			"required": false,
+			"default": "-Infinity",
+			"description": "Minimum value"
+		},
+		"max": {
+			"type": "number",
+			"required": false,
+			"default": "Infinity",
+			"description": "Maximum value"
+		},
+		"step": {
+			"type": "number",
+			"required": false,
+			"default": "1",
+			"description": "Step increment"
+		},
+		"disabled": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether the field is disabled"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container and context provider"
+		},
+		"Label": {
+			"description": "Label for the input"
+		},
+		"Group": {
+			"description": "Groups input with buttons"
+		},
+		"Input": {
+			"description": "The numeric input"
+		},
+		"Increment": {
+			"description": "Button to increase value"
+		},
+		"Decrement": {
+			"description": "Button to decrease value"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Number input with controls",
+			"code": "<NumberField.Root defaultValue={5} min={0} max={10}>\n  <NumberField.Label>Quantity</NumberField.Label>\n  <NumberField.Group>\n    <NumberField.Decrement>-</NumberField.Decrement>\n    <NumberField.Input />\n    <NumberField.Increment>+</NumberField.Increment>\n  </NumberField.Group>\n</NumberField.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "spinbutton",
+		"keyboard": ["Arrow Up/Down", "Page Up/Down", "Home/End"],
+		"focusManagement": "Input receives focus",
+		"screenReader": "Announces value and range"
+	},
+	"relatedComponents": ["Input", "Slider"]
 }

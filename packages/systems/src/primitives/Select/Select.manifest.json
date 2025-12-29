@@ -1,95 +1,88 @@
 {
-  "$schema": "../../schema/component.schema.json",
-  "name": "Select",
-  "displayName": "Select",
-  "description": "Dropdown selection control for choosing a single value from a list of options.",
-  "category": "form",
-  "tags": ["form", "dropdown", "select", "picker", "choice"],
-  "semanticRole": "single-selection-dropdown",
-  "useWhen": [
-    "Selecting a single option from a predefined list",
-    "Choosing from many options (5+) where radio buttons would be cluttered",
-    "Form fields requiring one selection",
-    "Dropdowns with searchable content (with Combobox variant)"
-  ],
-  "dontUseWhen": [
-    "Selecting multiple options (use multi-select or checkboxes)",
-    "Few options (2-4) that can all be shown (use RadioGroup)",
-    "Free-form text input (use Input)",
-    "Boolean choice (use Switch or Checkbox)"
-  ],
-  "props": {
-    "value": {
-      "type": "string",
-      "description": "Controlled selected value"
-    },
-    "defaultValue": {
-      "type": "string",
-      "description": "Default selected value for uncontrolled usage"
-    },
-    "disabled": {
-      "type": "boolean",
-      "description": "Whether the select is disabled",
-      "default": false
-    },
-    "required": {
-      "type": "boolean",
-      "description": "Whether selection is required",
-      "default": false
-    },
-    "open": {
-      "type": "boolean",
-      "description": "Controlled open state"
-    },
-    "defaultOpen": {
-      "type": "boolean",
-      "description": "Default open state",
-      "default": false
-    },
-    "onChange": {
-      "type": "(value: string) => void",
-      "description": "Handler called when selection changes"
-    },
-    "onOpenChange": {
-      "type": "(isOpen: boolean) => void",
-      "description": "Handler called when open state changes"
-    }
-  },
-  "slots": {
-    "Trigger": {
-      "description": "Button that opens the dropdown. Shows selected value or placeholder."
-    },
-    "Content": {
-      "description": "Container for the dropdown options. Renders when open."
-    },
-    "Option": {
-      "description": "Individual selectable option with value and label."
-    }
-  },
-  "accessibility": {
-    "role": "combobox (trigger), listbox (content), option (items)",
-    "keyboard": ["Space/Enter to open", "ArrowUp/Down to navigate", "Enter to select", "Escape to close"],
-    "focusManagement": "Focus moves to trigger. Arrow keys navigate options without moving focus.",
-    "screenReader": "Announces selected value, expanded/collapsed state, and option count"
-  },
-  "examples": [
-    {
-      "name": "Basic select",
-      "code": "<Select.Root>\n  <Select.Trigger placeholder=\"Choose option\" />\n  <Select.Content>\n    <Select.Option value=\"a\">Option A</Select.Option>\n    <Select.Option value=\"b\">Option B</Select.Option>\n  </Select.Content>\n</Select.Root>",
-      "description": "Uncontrolled select"
-    },
-    {
-      "name": "Controlled select",
-      "code": "<Select.Root value={value} onChange={setValue}>\n  <Select.Trigger />\n  <Select.Content>\n    <Select.Option value=\"1\">First</Select.Option>\n    <Select.Option value=\"2\">Second</Select.Option>\n  </Select.Content>\n</Select.Root>",
-      "description": "Controlled with state"
-    },
-    {
-      "name": "Disabled option",
-      "code": "<Select.Option value=\"x\" disabled>Unavailable</Select.Option>",
-      "description": "Non-selectable option"
-    }
-  ],
-  "relatedComponents": ["Combobox", "RadioGroup", "Menu"],
-  "composedFrom": ["Popover"],
-  "importPath": "@outpace/systems/primitives/Select"
+	"$schema": "../../schema/component.schema.json",
+	"name": "Select",
+	"displayName": "Select",
+	"description": "Dropdown selection control for choosing a single value from a list of options.",
+	"category": "form",
+	"tags": ["form", "dropdown", "select", "picker", "choice"],
+	"semanticRole": "single-selection-dropdown",
+	"props": {
+		"value": {
+			"type": "string",
+			"description": "Controlled selected value"
+		},
+		"defaultValue": {
+			"type": "string",
+			"description": "Default selected value for uncontrolled usage"
+		},
+		"disabled": {
+			"type": "boolean",
+			"description": "Whether the select is disabled",
+			"default": false
+		},
+		"required": {
+			"type": "boolean",
+			"description": "Whether selection is required",
+			"default": false
+		},
+		"open": {
+			"type": "boolean",
+			"description": "Controlled open state"
+		},
+		"defaultOpen": {
+			"type": "boolean",
+			"description": "Default open state",
+			"default": false
+		},
+		"onChange": {
+			"type": "(value: string) => void",
+			"description": "Handler called when selection changes"
+		},
+		"onOpenChange": {
+			"type": "(isOpen: boolean) => void",
+			"description": "Handler called when open state changes"
+		}
+	},
+	"slots": {
+		"Trigger": {
+			"description": "Button that opens the dropdown. Shows selected value or placeholder."
+		},
+		"Content": {
+			"description": "Container for the dropdown options. Renders when open."
+		},
+		"Option": {
+			"description": "Individual selectable option with value and label."
+		}
+	},
+	"accessibility": {
+		"role": "combobox (trigger), listbox (content), option (items)",
+		"keyboard": [
+			"Space/Enter to open",
+			"ArrowUp/Down to navigate",
+			"Enter to select",
+			"Escape to close"
+		],
+		"focusManagement": "Focus moves to trigger. Arrow keys navigate options without moving focus.",
+		"screenReader": "Announces selected value, expanded/collapsed state, and option count"
+	},
+	"examples": [
+		{
+			"name": "Basic select",
+			"code": "<Select.Root>\n  <Select.Trigger placeholder=\"Choose option\" />\n  <Select.Content>\n    <Select.Option value=\"a\">Option A</Select.Option>\n    <Select.Option value=\"b\">Option B</Select.Option>\n  </Select.Content>\n</Select.Root>",
+			"description": "Uncontrolled select"
+		},
+		{
+			"name": "Controlled select",
+			"code": "<Select.Root value={value} onChange={setValue}>\n  <Select.Trigger />\n  <Select.Content>\n    <Select.Option value=\"1\">First</Select.Option>\n    <Select.Option value=\"2\">Second</Select.Option>\n  </Select.Content>\n</Select.Root>",
+			"description": "Controlled with state"
+		},
+		{
+			"name": "Disabled option",
+			"code": "<Select.Option value=\"x\" disabled>Unavailable</Select.Option>",
+			"description": "Non-selectable option"
+		}
+	],
+	"relatedComponents": ["Combobox", "RadioGroup", "Menu"],
+	"composedFrom": ["Popover"],
+	"importPath": "@outpace/systems/primitives/Select"
 }

@@ -1,7 +1,7 @@
 export {
-  CheckboxGroup,
-  type CheckboxGroupRootProps,
-  type CheckboxGroupLabelProps,
-  type CheckboxGroupItemProps,
-  type CheckboxGroupItemLabelProps,
-} from './CheckboxGroup';
+	CheckboxGroup,
+	type CheckboxGroupItemLabelProps,
+	type CheckboxGroupItemProps,
+	type CheckboxGroupLabelProps,
+	type CheckboxGroupRootProps,
+} from "./CheckboxGroup";

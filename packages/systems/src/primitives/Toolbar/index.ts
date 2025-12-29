@@ -1,9 +1,9 @@
 export {
-  Toolbar,
-  type ToolbarRootProps,
-  type ToolbarButtonProps,
-  type ToolbarSeparatorProps,
-  type ToolbarLinkProps,
-  type ToolbarToggleGroupProps,
-  type ToolbarToggleItemProps,
-} from './Toolbar';
+	Toolbar,
+	type ToolbarButtonProps,
+	type ToolbarLinkProps,
+	type ToolbarRootProps,
+	type ToolbarSeparatorProps,
+	type ToolbarToggleGroupProps,
+	type ToolbarToggleItemProps,
+} from "./Toolbar";

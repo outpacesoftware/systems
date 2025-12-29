@@ -1,9 +1,9 @@
 export {
-  NumberField,
-  type NumberFieldRootProps,
-  type NumberFieldLabelProps,
-  type NumberFieldGroupProps,
-  type NumberFieldInputProps,
-  type NumberFieldIncrementProps,
-  type NumberFieldDecrementProps,
-} from './NumberField';
+	NumberField,
+	type NumberFieldDecrementProps,
+	type NumberFieldGroupProps,
+	type NumberFieldIncrementProps,
+	type NumberFieldInputProps,
+	type NumberFieldLabelProps,
+	type NumberFieldRootProps,
+} from "./NumberField";

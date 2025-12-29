@@ -1,85 +1,77 @@
 {
-  "$schema": "../../schema/component.schema.json",
-  "name": "Dialog",
-  "displayName": "Dialog",
-  "description": "Modal dialog component for focused user interactions, confirmations, or displaying important content.",
-  "category": "overlay",
-  "tags": ["modal", "dialog", "overlay", "popup", "confirmation"],
-  "semanticRole": "modal-dialog",
-  "useWhen": [
-    "Displaying important information requiring user attention",
-    "Confirmation dialogs before destructive actions",
-    "Forms that need focused attention",
-    "Interrupting user flow with critical information"
-  ],
-  "dontUseWhen": [
-    "Simple tooltips or hints (use Tooltip)",
-    "Non-blocking overlays (use Popover)",
-    "Notifications (use Toast)",
-    "Content that doesn't require immediate attention"
-  ],
-  "props": {
-    "open": {
-      "type": "boolean",
-      "description": "Controlled open state"
-    },
-    "defaultOpen": {
-      "type": "boolean",
-      "description": "Default open state",
-      "default": false
-    },
-    "modal": {
-      "type": "boolean",
-      "description": "Whether the dialog blocks interaction outside",
-      "default": true,
-      "accessibility": "When true, traps focus and prevents background interaction"
-    },
-    "onOpenChange": {
-      "type": "(isOpen: boolean) => void",
-      "description": "Handler called when open state changes"
-    }
-  },
-  "slots": {
-    "Trigger": {
-      "description": "Button that opens the dialog"
-    },
-    "Portal": {
-      "description": "Renders dialog in a portal (document.body by default)"
-    },
-    "Backdrop": {
-      "description": "Overlay behind the dialog, closes on click"
-    },
-    "Content": {
-      "description": "The main dialog container"
-    },
-    "Title": {
-      "description": "Dialog title (required for accessibility)"
-    },
-    "Description": {
-      "description": "Dialog description text"
-    },
-    "Close": {
-      "description": "Button that closes the dialog"
-    }
-  },
-  "accessibility": {
-    "role": "dialog",
-    "keyboard": ["Escape to close", "Tab to navigate", "Focus trapped when modal"],
-    "focusManagement": "Focus moves to first focusable element. Focus trapped in modal mode. Focus returns to trigger on close.",
-    "screenReader": "Announces dialog title and description via aria-labelledby and aria-describedby"
-  },
-  "examples": [
-    {
-      "name": "Basic dialog",
-      "code": "<Dialog.Root>\n  <Dialog.Trigger>Open</Dialog.Trigger>\n  <Dialog.Portal>\n    <Dialog.Backdrop />\n    <Dialog.Content>\n      <Dialog.Title>Title</Dialog.Title>\n      <Dialog.Description>Description</Dialog.Description>\n      <Dialog.Close>Close</Dialog.Close>\n    </Dialog.Content>\n  </Dialog.Portal>\n</Dialog.Root>",
-      "description": "Basic modal dialog"
-    },
-    {
-      "name": "Controlled dialog",
-      "code": "<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>\n  <Dialog.Trigger>Open</Dialog.Trigger>\n  <Dialog.Portal>\n    <Dialog.Backdrop />\n    <Dialog.Content>\n      <Dialog.Title>Controlled</Dialog.Title>\n      <Dialog.Close>Close</Dialog.Close>\n    </Dialog.Content>\n  </Dialog.Portal>\n</Dialog.Root>",
-      "description": "Controlled with external state"
-    }
-  ],
-  "relatedComponents": ["AlertDialog", "Popover", "Toast"],
-  "importPath": "@outpace/systems/primitives/Dialog"
+	"$schema": "../../schema/component.schema.json",
+	"name": "Dialog",
+	"displayName": "Dialog",
+	"description": "Modal dialog component for focused user interactions, confirmations, or displaying important content.",
+	"category": "overlay",
+	"tags": ["modal", "dialog", "overlay", "popup", "confirmation"],
+	"semanticRole": "modal-dialog",
+	"props": {
+		"open": {
+			"type": "boolean",
+			"description": "Controlled open state"
+		},
+		"defaultOpen": {
+			"type": "boolean",
+			"description": "Default open state",
+			"default": false
+		},
+		"modal": {
+			"type": "boolean",
+			"description": "Whether the dialog blocks interaction outside",
+			"default": true,
+			"accessibility": "When true, traps focus and prevents background interaction"
+		},
+		"onOpenChange": {
+			"type": "(isOpen: boolean) => void",
+			"description": "Handler called when open state changes"
+		}
+	},
+	"slots": {
+		"Trigger": {
+			"description": "Button that opens the dialog"
+		},
+		"Portal": {
+			"description": "Renders dialog in a portal (document.body by default)"
+		},
+		"Backdrop": {
+			"description": "Overlay behind the dialog, closes on click"
+		},
+		"Content": {
+			"description": "The main dialog container"
+		},
+		"Title": {
+			"description": "Dialog title (required for accessibility)"
+		},
+		"Description": {
+			"description": "Dialog description text"
+		},
+		"Close": {
+			"description": "Button that closes the dialog"
+		}
+	},
+	"accessibility": {
+		"role": "dialog",
+		"keyboard": [
+			"Escape to close",
+			"Tab to navigate",
+			"Focus trapped when modal"
+		],
+		"focusManagement": "Focus moves to first focusable element. Focus trapped in modal mode. Focus returns to trigger on close.",
+		"screenReader": "Announces dialog title and description via aria-labelledby and aria-describedby"
+	},
+	"examples": [
+		{
+			"name": "Basic dialog",
+			"code": "<Dialog.Root>\n  <Dialog.Trigger>Open</Dialog.Trigger>\n  <Dialog.Portal>\n    <Dialog.Backdrop />\n    <Dialog.Content>\n      <Dialog.Title>Title</Dialog.Title>\n      <Dialog.Description>Description</Dialog.Description>\n      <Dialog.Close>Close</Dialog.Close>\n    </Dialog.Content>\n  </Dialog.Portal>\n</Dialog.Root>",
+			"description": "Basic modal dialog"
+		},
+		{
+			"name": "Controlled dialog",
+			"code": "<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>\n  <Dialog.Trigger>Open</Dialog.Trigger>\n  <Dialog.Portal>\n    <Dialog.Backdrop />\n    <Dialog.Content>\n      <Dialog.Title>Controlled</Dialog.Title>\n      <Dialog.Close>Close</Dialog.Close>\n    </Dialog.Content>\n  </Dialog.Portal>\n</Dialog.Root>",
+			"description": "Controlled with external state"
+		}
+	],
+	"relatedComponents": ["AlertDialog", "Popover", "Toast"],
+	"importPath": "@outpace/systems/primitives/Dialog"
 }

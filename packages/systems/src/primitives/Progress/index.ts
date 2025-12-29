@@ -1,5 +1,5 @@
 export {
-  Progress,
-  type ProgressRootProps,
-  type ProgressIndicatorProps,
-} from './Progress';
+	Progress,
+	type ProgressIndicatorProps,
+	type ProgressRootProps,
+} from "./Progress";

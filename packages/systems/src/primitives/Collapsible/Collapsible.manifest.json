@@ -1,69 +1,59 @@
 {
-  "name": "Collapsible",
-  "displayName": "Collapsible",
-  "description": "A component that expands and collapses content",
-  "category": "layout",
-  "tags": ["layout", "expand", "collapse", "disclosure"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Showing/hiding additional content",
-    "Expandable sections",
-    "Progressive disclosure",
-    "Building accordions"
-  ],
-  "dontUseWhen": [
-    "Multiple exclusive sections (use Accordion)",
-    "Navigation menus (use Menu)"
-  ],
-  "props": {
-    "open": {
-      "type": "boolean",
-      "required": false,
-      "description": "Whether the content is visible (controlled)"
-    },
-    "defaultOpen": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Default open state"
-    },
-    "onOpenChange": {
-      "type": "(open: boolean) => void",
-      "required": false,
-      "description": "Called when open state changes"
-    },
-    "disabled": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether the collapsible is disabled"
-    }
-  },
-  "slots": {
-    "Root": {
-      "description": "Container and context provider"
-    },
-    "Trigger": {
-      "description": "Element that toggles the content"
-    },
-    "Content": {
-      "description": "The collapsible content"
-    }
-  },
-  "examples": [
-    {
-      "name": "Basic",
-      "description": "Simple collapsible",
-      "code": "<Collapsible.Root>\n  <Collapsible.Trigger>Toggle</Collapsible.Trigger>\n  <Collapsible.Content>\n    <p>Collapsible content here</p>\n  </Collapsible.Content>\n</Collapsible.Root>"
-    }
-  ],
-  "accessibility": {
-    "role": "button with aria-expanded",
-    "keyboard": ["Enter", "Space"],
-    "focusManagement": "Focus remains on trigger",
-    "screenReader": "Announces expanded/collapsed state"
-  },
-  "relatedComponents": ["Accordion", "Disclosure"]
+	"name": "Collapsible",
+	"displayName": "Collapsible",
+	"description": "A component that expands and collapses content",
+	"category": "layout",
+	"tags": ["layout", "expand", "collapse", "disclosure"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"open": {
+			"type": "boolean",
+			"required": false,
+			"description": "Whether the content is visible (controlled)"
+		},
+		"defaultOpen": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Default open state"
+		},
+		"onOpenChange": {
+			"type": "(open: boolean) => void",
+			"required": false,
+			"description": "Called when open state changes"
+		},
+		"disabled": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether the collapsible is disabled"
+		}
+	},
+	"slots": {
+		"Root": {
+			"description": "Container and context provider"
+		},
+		"Trigger": {
+			"description": "Element that toggles the content"
+		},
+		"Content": {
+			"description": "The collapsible content"
+		}
+	},
+	"examples": [
+		{
+			"name": "Basic",
+			"description": "Simple collapsible",
+			"code": "<Collapsible.Root>\n  <Collapsible.Trigger>Toggle</Collapsible.Trigger>\n  <Collapsible.Content>\n    <p>Collapsible content here</p>\n  </Collapsible.Content>\n</Collapsible.Root>"
+		}
+	],
+	"accessibility": {
+		"role": "button with aria-expanded",
+		"keyboard": ["Enter", "Space"],
+		"focusManagement": "Focus remains on trigger",
+		"screenReader": "Announces expanded/collapsed state"
+	},
+	"relatedComponents": ["Accordion", "Disclosure"]
 }

@@ -1,14 +1,14 @@
-# Systems
+# @outpacesoftware/systems
 
-An AI-first design system with opinionated, accessible, LLM-optimized components for React.
+An AI-first design system with accessible, LLM-optimized components for React.
 
 ## Features
 
-- **Opinionated** - Beautiful dark-theme styling out of the box
-- **Accessible** - WAI-ARIA patterns built in
-- **AI-First** - Component manifests for LLM consumption via MCP
-- **Composable** - Small building blocks that compose into complex UIs
-- **Two Layers** - Styled components for quick use, primitives for customization
+- **Accessible** - WAI-ARIA patterns, keyboard navigation, focus management, screen reader support
+- **AI-First** - Component manifests for LLM consumption via API
+- **Composable** - Compound components that compose into complex UIs
+- **Tree-Shakeable** - Import individual components to minimize bundle size
+- **Optional Animations** - Tree-shakeable GSAP integration for smooth animations
 
 ## Installation
 
@@ -18,20 +18,58 @@ npm install @outpacesoftware/systems
 pnpm add @outpacesoftware/systems
 ```
 
+### Optional: GSAP Animations
+
+```bash
+npm install gsap
+```
+
 ## Quick Start
 
 ```tsx
-import { Button, Input, Badge } from '@outpacesoftware/systems';
+import { Button, Dialog, Tooltip } from '@outpacesoftware/systems';
 
 function App() {
   return (
     <>
       <Button variant="primary">Save Changes</Button>
-      <Input label="Email" placeholder="you@example.com" />
-      <Badge variant="success">Active</Badge>
+
+      <Dialog.Root>
+        <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Backdrop />
+          <Dialog.Content>
+            <Dialog.Title>Confirm</Dialog.Title>
+            <Dialog.Description>Are you sure?</Dialog.Description>
+            <Dialog.Close>Cancel</Dialog.Close>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
+      <Tooltip.Root>
+        <Tooltip.Trigger>Hover me</Tooltip.Trigger>
+        <Tooltip.Content>Helpful tip</Tooltip.Content>
+      </Tooltip.Root>
     </>
   );
 }
+```
+
+## Individual Component Imports
+
+Import only what you need for optimal bundle size:
+
+```tsx
+// Import specific primitives
+import { Dialog } from '@outpacesoftware/systems/primitives/Dialog';
+import { Tooltip } from '@outpacesoftware/systems/primitives/Tooltip';
+import { Menu } from '@outpacesoftware/systems/primitives/Menu';
+
+// Import accessibility utilities
+import { useReducedMotion, useFocusTrap } from '@outpacesoftware/systems/accessibility';
+
+// Import animation hooks (requires gsap)
+import { useDialogAnimation, AnimationProvider } from '@outpacesoftware/systems/animation';
 ```
 
 ## Documentation
@@ -40,23 +78,40 @@ Visit the [documentation site](https://systems.outpacesoftware.com) for full com
 
 ## Components
 
-### Styled (Opinionated)
+### Primitives (32 components)
 
-| Component | Description |
-|-----------|-------------|
-| Button | Primary interaction trigger with variants |
-| Input | Text input with label and error states |
-| Select | Dropdown selection |
-| Textarea | Multi-line text input |
-| Checkbox | Boolean selection |
-| Switch | Toggle on/off |
-| Badge | Status indicators |
-| Card | Content containers |
-| Dialog | Modal dialogs |
+Compound components with full accessibility built in:
 
-### Primitives (Unstyled)
+| Category | Components |
+|----------|------------|
+| Overlay | Dialog, AlertDialog, Popover, Tooltip, Menu, ContextMenu, Toast |
+| Form | Checkbox, CheckboxGroup, Radio, RadioGroup, Select, Combobox, Switch, Slider, Field, Input, NumberField |
+| Navigation | Tabs, NavigationMenu, Accordion, Collapsible |
+| Display | Avatar, Progress, Meter, Separator, ScrollArea |
+| Action | Button, Toggle, ToggleGroup, Toolbar |
 
-32 headless primitives including Dialog, Menu, Tabs, Tooltip, Popover, Toast, and more. Import from `@outpacesoftware/systems/primitives/*`.
+### Accessibility Utilities
+
+```tsx
+import {
+  useReducedMotion,
+  useFocusTrap,
+  useAriaLiveAnnouncer,
+  VisuallyHidden
+} from '@outpacesoftware/systems';
+```
+
+### Animation Hooks
+
+```tsx
+import {
+  AnimationProvider,
+  useDialogAnimation,
+  useAccordionAnimation,
+  useToastAnimation,
+  useElementAnimation
+} from '@outpacesoftware/systems';
+```
 
 ## For AI/LLMs
 
@@ -80,6 +135,9 @@ pnpm dev
 
 # Build the package
 pnpm --filter @outpacesoftware/systems build
+
+# Run tests
+pnpm --filter @outpacesoftware/systems test
 ```
 
 ## Repository Structure
@@ -88,8 +146,13 @@ pnpm --filter @outpacesoftware/systems build
 /
 ├── app/                    # Next.js docs site
 ├── components/docs/        # Documentation components
-├── lib/                    # Registry & MCP server
+├── lib/                    # Registry & API
 ├── packages/systems/       # npm package source
+│   └── src/
+│       ├── primitives/     # Component primitives
+│       ├── animation/      # GSAP animation hooks
+│       ├── utils/          # Accessibility utilities
+│       └── types/          # TypeScript types
 └── public/                 # Static assets
 ```
 

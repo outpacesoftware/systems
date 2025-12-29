@@ -1,52 +1,43 @@
 {
-  "name": "Separator",
-  "displayName": "Separator",
-  "description": "A visual divider between content sections",
-  "category": "layout",
-  "tags": ["layout", "divider", "separator", "line"],
-  "importPath": "@outpace/systems",
-  "version": "1.0.0",
-  "status": "stable",
-  "useWhen": [
-    "Visually separating content sections",
-    "Creating visual hierarchy",
-    "Dividing menu or list items"
-  ],
-  "dontUseWhen": [
-    "Using as spacing only (use margin/padding)",
-    "Separating unrelated content (use sections)"
-  ],
-  "props": {
-    "orientation": {
-      "type": "'horizontal' | 'vertical'",
-      "required": false,
-      "default": "'horizontal'",
-      "description": "Orientation of the separator"
-    },
-    "decorative": {
-      "type": "boolean",
-      "required": false,
-      "default": "false",
-      "description": "Whether the separator is purely decorative"
-    }
-  },
-  "examples": [
-    {
-      "name": "Horizontal",
-      "description": "Horizontal divider",
-      "code": "<Separator orientation=\"horizontal\" />"
-    },
-    {
-      "name": "Vertical",
-      "description": "Vertical divider",
-      "code": "<Separator orientation=\"vertical\" />"
-    }
-  ],
-  "accessibility": {
-    "role": "separator",
-    "keyboard": [],
-    "focusManagement": "Not focusable",
-    "screenReader": "Announces as separator when not decorative"
-  },
-  "relatedComponents": []
+	"name": "Separator",
+	"displayName": "Separator",
+	"description": "A visual divider between content sections",
+	"category": "layout",
+	"tags": ["layout", "divider", "separator", "line"],
+	"importPath": "@outpace/systems",
+	"version": "1.0.0",
+	"status": "stable",
+	"props": {
+		"orientation": {
+			"type": "'horizontal' | 'vertical'",
+			"required": false,
+			"default": "'horizontal'",
+			"description": "Orientation of the separator"
+		},
+		"decorative": {
+			"type": "boolean",
+			"required": false,
+			"default": "false",
+			"description": "Whether the separator is purely decorative"
+		}
+	},
+	"examples": [
+		{
+			"name": "Horizontal",
+			"description": "Horizontal divider",
+			"code": "<Separator orientation=\"horizontal\" />"
+		},
+		{
+			"name": "Vertical",
+			"description": "Vertical divider",
+			"code": "<Separator orientation=\"vertical\" />"
+		}
+	],
+	"accessibility": {
+		"role": "separator",
+		"keyboard": [],
+		"focusManagement": "Not focusable",
+		"screenReader": "Announces as separator when not decorative"
+	},
+	"relatedComponents": []
 }
