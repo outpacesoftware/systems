@@ -4,7 +4,7 @@
 	"description": "A container for grouping related action buttons",
 	"category": "navigation",
 	"tags": ["navigation", "actions", "buttons", "controls"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

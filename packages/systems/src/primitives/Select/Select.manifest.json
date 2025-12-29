@@ -84,5 +84,5 @@
 	],
 	"relatedComponents": ["Combobox", "RadioGroup", "Menu"],
 	"composedFrom": ["Popover"],
-	"importPath": "@outpace/systems/primitives/Select"
+	"importPath": "@outpacesoftware/systems/primitives/Select"
 }

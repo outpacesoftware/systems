@@ -4,7 +4,7 @@
 	"description": "A group of radio buttons for single selection from multiple options",
 	"category": "form",
 	"tags": ["form", "input", "selection", "group", "single-choice"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

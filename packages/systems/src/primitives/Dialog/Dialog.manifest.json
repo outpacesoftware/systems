@@ -73,5 +73,5 @@
 		}
 	],
 	"relatedComponents": ["AlertDialog", "Popover", "Toast"],
-	"importPath": "@outpace/systems/primitives/Dialog"
+	"importPath": "@outpacesoftware/systems/primitives/Dialog"
 }

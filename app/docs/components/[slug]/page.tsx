@@ -38,11 +38,22 @@ export default async function ComponentPage({ params }: PageProps) {
 				<ComponentDemo name={manifest.name} />
 			</section>
 
+			{/* Installation */}
+			<section className="mb-12">
+				<h2 className="text-xl font-semibold text-white/88 mb-4">
+					Installation
+				</h2>
+				<CodeBlock
+					code={`pnpm add @outpacesoftware/systems`}
+					language="bash"
+				/>
+			</section>
+
 			{/* Import */}
 			<section className="mb-12">
 				<h2 className="text-xl font-semibold text-white/88 mb-4">Import</h2>
 				<CodeBlock
-					code={`import { ${manifest.name} } from '${manifest.importPath}';`}
+					code={`import { ${manifest.name} } from '@outpacesoftware/systems';`}
 					language="tsx"
 				/>
 			</section>

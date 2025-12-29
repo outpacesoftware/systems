@@ -4,7 +4,7 @@
 	"description": "A collection of links for navigating websites",
 	"category": "navigation",
 	"tags": ["navigation", "menu", "links", "header"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

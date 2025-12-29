@@ -1,6 +1,17 @@
 "use client";
 
-import { Minus, Plus } from "lucide-react";
+import {
+	AlignCenter,
+	AlignLeft,
+	AlignRight,
+	Bold,
+	ChevronDown,
+	Italic,
+	Minus,
+	Plus,
+	Underline,
+	X,
+} from "lucide-react";
 import { useState } from "react";
 // Primitives (unstyled)
 import {

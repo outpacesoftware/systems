@@ -4,7 +4,7 @@
 	"description": "A group of checkboxes for selecting multiple options",
 	"category": "form",
 	"tags": ["form", "checkbox", "group", "selection", "multiple"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

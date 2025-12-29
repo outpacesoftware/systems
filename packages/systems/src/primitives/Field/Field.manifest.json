@@ -4,7 +4,7 @@
 	"description": "A wrapper for form inputs with label, description, and error handling",
 	"category": "form",
 	"tags": ["form", "input", "label", "error", "validation"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

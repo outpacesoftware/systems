@@ -1,8 +1,8 @@
 "use client";
 
-import { forwardRef, type HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes, type Ref } from "react";
 
-export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
+export interface SeparatorProps extends HTMLAttributes<HTMLHRElement> {
 	/** Orientation of the separator */
 	orientation?: "horizontal" | "vertical";
 	/** Whether the separator is decorative (no semantic meaning) */
@@ -17,7 +17,7 @@ export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
  * @example
  * <Separator orientation="horizontal" />
  */
-export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
+export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
 	(props, ref) => {
 		const {
 			orientation = "horizontal",
@@ -26,15 +26,19 @@ export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
 			...rest
 		} = props;
 
-		return decorative ? (
-			<div
-				ref={ref}
-				role="none"
-				data-orientation={orientation}
-				className={className}
-				{...rest}
-			/>
-		) : (
+		if (decorative) {
+			return (
+				<div
+					ref={ref as Ref<HTMLDivElement>}
+					role="none"
+					data-orientation={orientation}
+					className={className}
+					{...(rest as HTMLAttributes<HTMLDivElement>)}
+				/>
+			);
+		}
+
+		return (
 			<hr
 				ref={ref}
 				aria-orientation={orientation}

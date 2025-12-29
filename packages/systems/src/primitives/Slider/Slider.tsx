@@ -44,7 +44,7 @@ function useSliderContext() {
 // ============================================================================
 
 export interface SliderRootProps
-	extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
+	extends Omit<HTMLAttributes<HTMLFieldSetElement>, "onChange"> {
 	/** Current value (controlled) */
 	value?: number;
 	/** Default value for uncontrolled usage */
@@ -65,7 +65,7 @@ export interface SliderRootProps
 	children: ReactNode;
 }
 
-const Root = forwardRef<HTMLDivElement, SliderRootProps>((props, ref) => {
+const Root = forwardRef<HTMLFieldSetElement, SliderRootProps>((props, ref) => {
 	const {
 		value: controlledValue,
 		defaultValue = 0,

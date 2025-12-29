@@ -4,7 +4,7 @@
 	"description": "A control for selecting a value from a range",
 	"category": "form",
 	"tags": ["form", "input", "range", "value"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

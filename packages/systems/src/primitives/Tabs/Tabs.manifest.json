@@ -4,7 +4,7 @@
 	"description": "A component for organizing content into tabbed sections",
 	"category": "navigation",
 	"tags": ["navigation", "tabs", "content", "sections"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

@@ -43,7 +43,8 @@ function useCheckboxGroupContext() {
 // Root
 // ============================================================================
 
-export interface CheckboxGroupRootProps extends HTMLAttributes<HTMLDivElement> {
+export interface CheckboxGroupRootProps
+	extends HTMLAttributes<HTMLFieldSetElement> {
 	/** Selected values (controlled) */
 	value?: string[];
 	/** Default selected values */
@@ -59,7 +60,7 @@ export interface CheckboxGroupRootProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 }
 
-const Root = forwardRef<HTMLDivElement, CheckboxGroupRootProps>(
+const Root = forwardRef<HTMLFieldSetElement, CheckboxGroupRootProps>(
 	(props, ref) => {
 		const {
 			value: controlledValue,

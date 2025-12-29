@@ -81,5 +81,5 @@
 		}
 	],
 	"relatedComponents": ["Switch", "RadioGroup", "CheckboxGroup"],
-	"importPath": "@outpace/systems/primitives/Checkbox"
+	"importPath": "@outpacesoftware/systems/primitives/Checkbox"
 }

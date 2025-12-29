@@ -4,7 +4,7 @@
 	"description": "A visual indicator of a scalar value within a known range",
 	"category": "feedback",
 	"tags": ["feedback", "gauge", "indicator", "value"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

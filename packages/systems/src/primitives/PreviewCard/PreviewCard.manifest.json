@@ -4,7 +4,7 @@
 	"description": "A card that appears on hover to preview linked content",
 	"category": "overlay",
 	"tags": ["overlay", "hover", "preview", "card", "link"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

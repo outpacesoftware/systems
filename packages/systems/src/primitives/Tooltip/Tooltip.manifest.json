@@ -69,5 +69,5 @@
 		}
 	],
 	"relatedComponents": ["Popover", "Dialog"],
-	"importPath": "@outpace/systems/primitives/Tooltip"
+	"importPath": "@outpacesoftware/systems/primitives/Tooltip"
 }

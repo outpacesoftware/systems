@@ -4,7 +4,7 @@
 	"description": "A component that expands and collapses content",
 	"category": "layout",
 	"tags": ["layout", "expand", "collapse", "disclosure"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

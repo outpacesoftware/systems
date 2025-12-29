@@ -4,7 +4,7 @@
 	"description": "A dropdown menu for displaying a list of actions or options",
 	"category": "navigation",
 	"tags": ["navigation", "dropdown", "menu", "actions"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

@@ -4,7 +4,7 @@
 	"description": "An autocomplete input with a filterable list of options",
 	"category": "form",
 	"tags": ["form", "input", "autocomplete", "search", "select"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

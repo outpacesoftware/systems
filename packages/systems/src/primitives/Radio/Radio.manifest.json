@@ -4,7 +4,7 @@
 	"description": "A single selection control for choosing one option from a group",
 	"category": "form",
 	"tags": ["form", "input", "selection", "single-choice"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

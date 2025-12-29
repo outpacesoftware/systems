@@ -4,7 +4,7 @@
 	"description": "A menu triggered by right-click or long-press",
 	"category": "navigation",
 	"tags": ["navigation", "menu", "context", "right-click"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

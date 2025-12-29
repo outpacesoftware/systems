@@ -4,7 +4,7 @@
 	"description": "A temporary notification that appears at the edge of the screen",
 	"category": "feedback",
 	"tags": ["feedback", "notification", "alert", "message"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

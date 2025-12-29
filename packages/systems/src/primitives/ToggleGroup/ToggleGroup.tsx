@@ -36,7 +36,8 @@ function useToggleGroupContext() {
 // Root
 // ============================================================================
 
-export interface ToggleGroupRootProps extends HTMLAttributes<HTMLDivElement> {
+export interface ToggleGroupRootProps
+	extends HTMLAttributes<HTMLFieldSetElement> {
 	/** Single or multiple selection */
 	type?: "single" | "multiple";
 	/** Selected value(s) - controlled */
@@ -54,67 +55,71 @@ export interface ToggleGroupRootProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 }
 
-const Root = forwardRef<HTMLDivElement, ToggleGroupRootProps>((props, ref) => {
-	const {
-		type = "single",
-		value: controlledValue,
-		defaultValue,
-		onValueChange,
-		disabled = false,
-		orientation = "horizontal",
-		loop = true,
-		children,
-		className,
-		...rest
-	} = props;
+const Root = forwardRef<HTMLFieldSetElement, ToggleGroupRootProps>(
+	(props, ref) => {
+		const {
+			type = "single",
+			value: controlledValue,
+			defaultValue,
+			onValueChange,
+			disabled = false,
+			orientation = "horizontal",
+			loop = true,
+			children,
+			className,
+			...rest
+		} = props;
 
-	const normalizeValue = (val: string | string[] | undefined): string[] => {
-		if (val === undefined) return [];
-		return Array.isArray(val) ? val : [val];
-	};
+		const normalizeValue = (val: string | string[] | undefined): string[] => {
+			if (val === undefined) return [];
+			return Array.isArray(val) ? val : [val];
+		};
 
-	const [internalValue, setInternalValue] = useState<string[]>(
-		normalizeValue(defaultValue),
-	);
-	const isControlled = controlledValue !== undefined;
-	const value = isControlled ? normalizeValue(controlledValue) : internalValue;
+		const [internalValue, setInternalValue] = useState<string[]>(
+			normalizeValue(defaultValue),
+		);
+		const isControlled = controlledValue !== undefined;
+		const value = isControlled
+			? normalizeValue(controlledValue)
+			: internalValue;
 
-	const handleValueChange = useCallback(
-		(itemValue: string) => {
-			let newValue: string[];
+		const handleValueChange = useCallback(
+			(itemValue: string) => {
+				let newValue: string[];
 
-			if (type === "single") {
-				newValue = value.includes(itemValue) ? [] : [itemValue];
-			} else {
-				newValue = value.includes(itemValue)
-					? value.filter((v) => v !== itemValue)
-					: [...value, itemValue];
-			}
+				if (type === "single") {
+					newValue = value.includes(itemValue) ? [] : [itemValue];
+				} else {
+					newValue = value.includes(itemValue)
+						? value.filter((v) => v !== itemValue)
+						: [...value, itemValue];
+				}
 
-			if (!isControlled) {
-				setInternalValue(newValue);
-			}
+				if (!isControlled) {
+					setInternalValue(newValue);
+				}
 
-			onValueChange?.(type === "single" ? newValue[0] || "" : newValue);
-		},
-		[type, value, isControlled, onValueChange],
-	);
+				onValueChange?.(type === "single" ? newValue[0] || "" : newValue);
+			},
+			[type, value, isControlled, onValueChange],
+		);
 
-	return (
-		<ToggleGroupContext.Provider
-			value={{ type, value, onValueChange: handleValueChange, disabled }}
-		>
-			<fieldset
-				ref={ref}
-				data-orientation={orientation}
-				className={className}
-				{...rest}
+		return (
+			<ToggleGroupContext.Provider
+				value={{ type, value, onValueChange: handleValueChange, disabled }}
 			>
-				{children}
-			</fieldset>
-		</ToggleGroupContext.Provider>
-	);
-});
+				<fieldset
+					ref={ref}
+					data-orientation={orientation}
+					className={className}
+					{...rest}
+				>
+					{children}
+				</fieldset>
+			</ToggleGroupContext.Provider>
+		);
+	},
+);
 
 Root.displayName = "ToggleGroup.Root";
 

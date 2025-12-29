@@ -4,7 +4,7 @@
 	"description": "Visual representation of a user or entity",
 	"category": "display",
 	"tags": ["display", "user", "profile", "image"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {},

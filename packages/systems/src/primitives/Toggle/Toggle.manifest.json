@@ -4,7 +4,7 @@
 	"description": "A two-state button that can be on or off",
 	"category": "action",
 	"tags": ["action", "button", "toggle", "pressed"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

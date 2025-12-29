@@ -4,7 +4,7 @@
 	"description": "Custom scrollable container with styled scrollbars",
 	"category": "layout",
 	"tags": ["layout", "scroll", "overflow", "container"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {

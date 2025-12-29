@@ -85,5 +85,5 @@
 		}
 	],
 	"relatedComponents": ["IconButton", "Link"],
-	"importPath": "@outpace/systems/primitives/Button"
+	"importPath": "@outpacesoftware/systems/primitives/Button"
 }

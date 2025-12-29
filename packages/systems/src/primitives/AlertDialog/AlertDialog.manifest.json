@@ -4,7 +4,7 @@
 	"description": "A modal dialog for important confirmations that interrupts the user and requires a response",
 	"category": "overlay",
 	"tags": ["overlay", "modal", "confirmation", "alert", "destructive"],
-	"importPath": "@outpace/systems",
+	"importPath": "@outpacesoftware/systems",
 	"version": "1.0.0",
 	"status": "stable",
 	"props": {
